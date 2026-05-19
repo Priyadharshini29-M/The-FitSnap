@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The FitSnap | Luxury AI Virtual Try-On for Shopify</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#765b00",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#f4c542",
+                        "on-primary-container": "#6b5200",
+                        "background": "#1e1c12", // Deep charcoal brown as primary canvas
+                        "surface": "#333026",
+                        "on-surface": "#fff9ed",
+                        "on-surface-variant": "#d1c5ae",
+                        "outline": "#807662",
+                        "outline-variant": "#4e4634",
+                    },
+                    "fontFamily": {
+                        "manrope": ["Manrope", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "32px",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .serif-italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .aura-glow {
+            background: radial-gradient(circle at center, rgba(244, 197, 66, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        /* Custom scrollbar for feature horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .editorial-heading {
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] transition-all duration-500">
+        <div
+            class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop h-24 flex items-center justify-between">
+            <a class="text-3xl font-800 tracking-tighter text-on-surface" href="#">The FitSnap<span
+                    class="text-primary-container">.</span></a>
+            <div class="hidden lg:flex items-center gap-12">
+                <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors"
+                    href="#">Collection</a>
+                <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors"
+                    href="#">Technology</a>
+                <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors"
+                    href="#">Intelligence</a>
+                <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors"
+                    href="#pricing">Pricing</a>
+            </div>
+            <div class="flex items-center gap-8">
+                <button
+                    class="hidden md:block text-[11px] uppercase tracking-[0.2em] font-700 hover:text-primary-container transition-colors">Client
+                    Login</button>
+                <button
+                    class="cta-button px-8 py-3 bg-primary-container text-on-primary-container text-[11px] uppercase tracking-[0.2em] font-800 rounded-none hover:bg-white transition-all shadow-[0_0_30px_rgba(244,197,66,0.2)]">Get
+                    Access</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Immersive Hero Section -->
+        <section class="relative py-24 pt-32 flex items-center overflow-hidden">
+            <!-- Full-bleed background imagery -->
+            <div class="absolute inset-0 z-0">
+                <img alt="Fashion background" class="w-full h-full object-cover opacity-40 brightness-75 scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuATpuYLMAbQl6IzSC3MiuRxsdoRIabAEc2O4x5wuQwUsDMxysODNMJdoYMG7B_0ZnqTgROsEgSJlhtjaVC7QbMHY_HxBCk60z9NWepVWQQYgCfoRRI-4HBAcU9my1gEIsWqSunRMOTxKigplJ_fCHo2-_CWm7Zi-QyYT_Kd2V0EGftSOJbwwI3SQgFX7480VTncD3b4pTMail5-OBzLddaYFmBCsSuHtgoJYRlx8MErinozDCLfkbu9hseEymAJ6Prz8RkjbF-y-lU" />
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+                <div class="absolute -top-40 -right-40 w-[800px] h-[800px] aura-glow"></div>
+            </div>
+            <div class="relative z-10 max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop w-full">
+                <div class="grid grid-cols-12 gap-gutter items-end">
+                    <div class="col-span-12 lg:col-span-8 mb-12 lg:mb-0">
+                        <div class="space-y-8 max-w-4xl">
+                            <div class="inline-flex items-center gap-4 text-primary-container">
+                                <div class="h-[1px] w-12 bg-primary-container"></div>
+                                <span class="text-[10px] uppercase tracking-[0.4em] font-800">Shopify Elite
+                                    Integration</span>
+                            </div>
+                            <h1 class="editorial-heading text-6xl md:text-8xl lg:text-9xl font-800 text-white">
+                                Digital <span
+                                    class="serif-italic font-normal italic text-primary-container">Dressing</span>
+                                <br />
+                                at Scale.
+                            </h1>
+                            <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed font-light">
+                                High-fidelity AI virtual try-ons for the modern merchant. Seamlessly integrate the
+                                future of commerce into your Shopify ecosystem.
+                            </p>
+                            <div class="flex flex-wrap gap-6 pt-6">
+                                <button
+                                    class="cta-button group flex items-center gap-4 px-10 py-5 bg-white text-background font-800 uppercase text-xs tracking-widest transition-all hover:bg-primary-container">
+                                    Start Free Trial
+                                    <span
+                                        class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                                </button>
+                                <button
+                                    class="cta-button px-10 py-5 glass-card text-white font-700 uppercase text-xs tracking-widest border border-white/20 hover:bg-white/10 transition-all">
+                                    View Lookbook
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Glassmorphic floating control -->
+                    <div class="col-span-12 lg:col-span-4 flex lg:justify-end">
+                        <div
+                            class="glass-card p-8 rounded-[2px] border-l-4 border-l-primary-container w-full max-w-sm animate-float">
+                            <div class="flex items-center justify-between mb-8">
+                                <div class="w-12 h-12 bg-primary-container/20 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary-container">auto_awesome</span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[10px] uppercase tracking-widest text-on-surface/90">Real-time
+                                        metrics</p>
+                                    <p class="text-2xl font-800 text-primary-container">+32% Conv.</p>
+                                </div>
+                            </div>
+                            <p class="text-sm font-medium mb-4 italic opacity-80">"Redefining how our customers perceive
+                                fit and texture, instantly."</p>
+                            <div class="h-[1px] w-full bg-white/10 mb-4"></div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-white/10 border border-white/20"></div>
+                                <span class="text-[10px] uppercase tracking-widest font-700">Studio Wear — NYC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Bar: Minimalist -->
+        <section class="py-10 border-y border-white/5">
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-on-surface/90 font-800">Trusted by Global
+                        Ateliers</span>
+                    <div
+                        class="flex flex-wrap justify-center items-center gap-16 opacity-30 hover:opacity-60 transition-opacity">
+                        <span class="text-lg font-700 tracking-tighter serif-italic italic">FashionNova</span>
+                        <span class="text-lg font-700 tracking-widest uppercase">Urban Thread</span>
+                        <span class="text-lg font-700 tracking-tight">Minimal Mode</span>
+                        <span
+                            class="text-lg font-700 tracking-tighter serif-italic italic text-primary-container opacity-100">Studio
+                            Wear</span>
+                        <span class="text-lg font-700 tracking-[0.2em] uppercase">VogueFit</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Interactive Features: Staggered Editorial Layout -->
+        <section class="py-20 relative">
+            <div class="absolute -left-40 top-1/2 w-[600px] h-[600px] aura-glow opacity-30"></div>
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-12 gap-gutter mb-16">
+                    <div class="col-span-12 lg:col-span-6">
+                        <h2 class="editorial-heading text-5xl md:text-7xl font-800 text-white mb-8">
+                            The Science of <br /> <span
+                                class="serif-italic font-normal text-primary-container">Elegance</span>
+                        </h2>
+                    </div>
+                    <div class="col-span-12 lg:col-span-4 lg:col-start-8 self-end">
+                        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                            Precision-engineered AI components designed to match the high standards of luxury fashion
+                            houses.
+                        </p>
+                    </div>
+                </div>
+                <!-- Staggered Vertical Stack -->
+                <div class="space-y-20">
+                    <!-- Feature 1 -->
+                    <div class="grid grid-cols-12 gap-gutter items-center group">
+                        <div class="col-span-12 lg:col-span-6 relative order-2 lg:order-1">
+                            <div class="overflow-hidden">
+                                <img alt="Feature"
+                                    class="w-full h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDFO6K42InkVWGRlVi4TJtlfGGQk4s8-RGxHFURHa17MGWOa6nRq35a-byXYP3uIMal81KGhKc7qIZTr_4dGEyTcf04ZQIbFy-DYMoSRyF6gCPk0j-PVO2kh2sNTzpRU3KiH96Cc-DVbcx3WjKx-mvZPxjxaEFJDTrSWKYEa8d0cUwTbhfsdivFULgCDubhMrqOJ5Sxb1XchaqLhp87qyvzgFnS_3Nep5YcG9r_liD2bZ5zrHThz1tJy-EOeVoubGzZ9dSSGQPMXk" />
+                            </div>
+                            <div
+                                class="absolute -bottom-10 -right-10 glass-card p-12 hidden lg:block border-t-4 border-primary-container">
+                                <span class="text-6xl font-800 text-primary-container/20">01</span>
+                            </div>
+                        </div>
+                        <div class="col-span-12 lg:col-span-5 lg:col-start-8 space-y-8 order-1 lg:order-2">
+                            <div class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">
+                                Technology</div>
+                            <h3 class="text-4xl md:text-5xl font-800 text-white leading-tight">Variant-Aware
+                                <br />Precision
+                            </h3>
+                            <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                                Our AI doesn't just overlay clothing; it understands drape, texture, and fit across
+                                every size and color variant in your catalog.
+                            </p>
+                            <ul class="space-y-4 pt-4">
+                                <li class="flex items-center gap-4 text-sm font-medium border-b border-white/5 pb-4">
+                                    <span
+                                        class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                                    Auto-detection of fabric physics
+                                </li>
+                                <li class="flex items-center gap-4 text-sm font-medium border-b border-white/5 pb-4">
+                                    <span
+                                        class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+                                    Multi-angle perspective rendering
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Feature 2: Reversed -->
+                    <div class="grid grid-cols-12 gap-gutter items-center group">
+                        <div class="col-span-12 lg:col-span-5 space-y-8">
+                            <div class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">
+                                Infrastructure</div>
+                            <h3 class="text-4xl md:text-5xl font-800 text-white leading-tight">Privacy <br />by Design
+                            </h3>
+                            <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                                Photos are processed in isolated environments and instantly purged. Security that
+                                respects the sanctuary of your customer's home.
+                            </p>
+                            <div class="pt-8">
+                                <div class="p-6 border border-primary-container/30 bg-primary-container/5">
+                                    <p class="text-xs font-800 uppercase tracking-widest text-primary-container mb-2">
+                                        Security Benchmark</p>
+                                    <p class="text-sm italic opacity-80 font-light">"Zero-retention policy ensuring
+                                        total GDPR and CCPA compliance for global luxury brands."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 lg:col-span-6 lg:col-start-7 relative">
+                            <div class="overflow-hidden">
+                                <img alt="Feature"
+                                    class="w-full h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq4YjfAPy3SX3Ds4M6QvuaCsoC7EyW0A-3Skt72fumjWXTZOB4ViGTbR-dGtjaqd6gAsMCfV-5M1GQzqkkMjsdt5ZrFWpk0y6Sy8TR6iCoQzXSG8ylDVE1kPdReqTzEJjthdIV-DMqn7kmST8Jf-EwWdtRkg6iu1aPjNMaFccD_363WJBnTNryUBiStFRBC8vlTjqj_3DHvGj_T5Byc6P5LVkGB95amhz-yCZ3Qfs6fVRPqZzesOfy9N-kz2HK1m9xY5ecwX6na0w" />
+                            </div>
+                            <div
+                                class="absolute -top-10 -left-10 glass-card p-12 hidden lg:block border-b-4 border-primary-container">
+                                <span class="text-6xl font-800 text-primary-container/20">02</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- The Journey: Abstract Shapes & High-End Visuals -->
+        <section class="py-20 bg-[#2a271e]">
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="text-center mb-16 space-y-6">
+                    <h2 class="editorial-heading text-6xl font-800 text-white">The Journey</h2>
+                    <div class="w-24 h-[1px] bg-primary-container mx-auto"></div>
+                </div>
+                <div class="grid grid-cols-12 gap-gutter relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/5 hidden lg:block"></div>
+                    <!-- Step 1 -->
+                    <div class="col-span-12 lg:col-span-5 mb-12 lg:mb-0">
+                        <div class="space-y-12">
+                            <div class="relative group">
+                                <div
+                                    class="bg-white/5 border border-white/10 p-12 text-center group-hover:border-primary-container/50 transition-colors">
+                                    <span
+                                        class="material-symbols-outlined text-5xl text-primary-container/40 mb-6 group-hover:text-primary-container transition-colors">upload_file</span>
+                                    <p class="text-xs uppercase tracking-[0.2em] font-800 text-white">Capture the
+                                        Silhouette</p>
+                                </div>
+                                <div class="absolute -top-6 -left-6 text-7xl font-800 text-primary-container/10">01
+                                </div>
+                            </div>
+                            <p
+                                class="text-lg text-on-surface-variant font-light text-center lg:text-left leading-relaxed">
+                                Customers upload a single high-resolution portrait. Our AI instantly normalizes lighting
+                                and body geometry.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Step 2 (Right Aligned) -->
+                    <div class="col-span-12 lg:col-span-5 lg:col-start-8 lg:mt-24 mb-12 lg:mb-0">
+                        <div class="space-y-12">
+                            <div class="relative group">
+                                <div
+                                    class="bg-white/5 border border-white/10 p-4 group-hover:border-primary-container/50 transition-colors">
+                                    <img class="w-full h-64 object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiAQeLSzR_KPktsRRtnkEPvtSD6NsxCPBtOXwdxbjwg8MufSuzFK1NblR5TOvodoC6I6b43a_QpGVj5XZsad2L5sYCoSlDO03H78f7aDRbxEjJU4kmg6o33-m2fJy6tdMwLUXhlqQyWdNTYn0Tvs_TxR-1SFBkbWwrnftZPYQGjbcBKGF3eYgmhDA-A7HumOG9WTMihgQoKrmnryn-dQblID4BVsxM5oRaV8a_L37xJ1kyWiG3yr1RG-tvonC4pif0SVGdN5tdACY" />
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div
+                                            class="glass-card px-6 py-2 text-[10px] uppercase tracking-widest text-primary-container font-800 border-primary-container">
+                                            Processing Neural Fit</div>
+                                    </div>
+                                </div>
+                                <div class="absolute -top-6 -right-6 text-7xl font-800 text-primary-container/10">02
+                                </div>
+                            </div>
+                            <p
+                                class="text-lg text-on-surface-variant font-light text-center lg:text-left leading-relaxed">
+                                Proprietary generative engines render the garment onto the user, maintaining fabric
+                                fidelity and brand-accurate sizing.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Step 3 (Center Bottom) -->
+                    <div class="col-span-12 lg:col-span-6 lg:col-start-4 lg:mt-24 text-center">
+                        <div class="space-y-12">
+                            <div class="relative inline-block group">
+                                <div
+                                    class="w-32 h-32 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary-container transition-all">
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-primary-container group-hover:scale-125 transition-transform">shopping_bag</span>
+                                </div>
+                                <div
+                                    class="absolute -top-6 left-1/2 -translate-x-1/2 text-7xl font-800 text-primary-container/10">
+                                    03</div>
+                            </div>
+                            <h4 class="text-3xl font-800 text-white italic serif-italic">"Seamless Conversion"</h4>
+                            <p class="text-lg text-on-surface-variant font-light max-w-xl mx-auto leading-relaxed">
+                                Confidence confirmed. With visual doubt removed, the purchase becomes an intuitive next
+                                step in the luxury experience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Shopify Section: Editorial Overlap -->
+        <section class="py-20 relative overflow-hidden bg-background">
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-12 gap-gutter items-center">
+                    <div class="col-span-12 lg:col-span-7 relative">
+                        <div class="z-20 relative glass-card p-1 border-white/5">
+                            <img alt="Shopify Admin"
+                                class="w-full opacity-90 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGZcfRbHohX1OzgTAnyy5v5xw2nGJ_knhgwleN756dQMjIGGa5QC2x40fIaXgfMxKvXuDA91Hy7QUuCQCwizyTLYSbOFNfHJfkPCH0tIah5J-FCD-rZLXBJCtUu6cx05M0ZsvJKN_cFYj7SzS_CcScsUglYFTo1JsonnuiDduSuJz5WKRFXFvAKEXHjE_fXWWHLZqcnDbHuyedAZt3q1EoQtuTMz4ntHw2SCHyqbXJwC-TLY6-5jtb7KndgbSBm-TLUdmM8Y9ACoY" />
+                        </div>
+                        <!-- Large Background Heading Overlap -->
+                        <div
+                            class="absolute -top-20 -left-20 text-[180px] font-900 text-white/[0.03] pointer-events-none select-none uppercase hidden lg:block">
+                            NATIVE</div>
+                    </div>
+                    <div class="col-span-12 lg:col-span-4 lg:col-start-9 space-y-10">
+                        <h2 class="editorial-heading text-6xl font-800 text-white">Refined <br /> <span
+                                class="serif-italic font-normal text-primary-container">Ecosystem</span></h2>
+                        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                            The FitSnap isn't an add-on; it's a native extension of your digital storefront. Zero
+                            code, zero friction, infinite possibilities.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-6 group cursor-default">
+                                <div
+                                    class="w-8 h-8 rounded-full border border-primary-container/30 flex items-center justify-center group-hover:bg-primary-container transition-all">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] text-primary-container group-hover:text-background font-800">done</span>
+                                </div>
+                                <span class="text-sm tracking-widest uppercase font-700 text-on-surface/80">Shopify 2.0
+                                    Native Architecture</span>
+                            </div>
+                            <div class="flex items-center gap-6 group cursor-default">
+                                <div
+                                    class="w-8 h-8 rounded-full border border-primary-container/30 flex items-center justify-center group-hover:bg-primary-container transition-all">
+                                    <span
+                                        class="material-symbols-outlined text-[12px] text-primary-container group-hover:text-background font-800">done</span>
+                                </div>
+                                <span class="text-sm tracking-widest uppercase font-700 text-on-surface/80">Automated
+                                    SKU Syncing</span>
+                            </div>
+                        </div>
+                        <div class="pt-8">
+                            <div class="inline-block border-l-4 border-primary-container px-6 py-2 bg-white/5">
+                                <p class="text-[10px] uppercase tracking-[0.2em] font-800 text-primary-container">Pro
+                                    Intelligence</p>
+                                <p class="text-xs text-white/100">Unlimited SKU Mapping Included</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Analytics: Luxury Dashboard Aesthetic -->
+        <section class="py-20 bg-[#1a1811] relative border-y border-white/5">
+            <div class="absolute inset-0 aura-glow opacity-10"></div>
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+                <div class="grid grid-cols-12 gap-gutter items-center mb-20">
+                    <div class="col-span-12 lg:col-span-5">
+                        <h2 class="editorial-heading text-5xl font-800 text-white">Visual Proof <br /> <span
+                                class="serif-italic font-normal text-primary-container">of Growth</span></h2>
+                    </div>
+                    <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+                        <div class="flex flex-col md:flex-row gap-12">
+                            <div class="space-y-2">
+                                <p class="text-4xl font-800 text-white tracking-tighter">124.8K</p>
+                                <p class="text-[10px] uppercase tracking-[0.3em] text-on-surface/90">Monthly Sessions
+                                </p>
+                            </div>
+                            <div class="space-y-2 border-l border-white/10 pl-12">
+                                <p class="text-4xl font-800 text-primary-container tracking-tighter">4.2%</p>
+                                <p class="text-[10px] uppercase tracking-[0.3em] text-on-surface/90">Engagement Rate</p>
+                            </div>
+                            <div class="space-y-2 border-l border-white/10 pl-12">
+                                <p class="text-4xl font-800 text-white tracking-tighter">$1.2M</p>
+                                <p class="text-[10px] uppercase tracking-[0.3em] text-on-surface/90">Influence Capital
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interactive Analytics Graph Placeholder (Visual only) -->
+                <div
+                    class="h-64 w-full glass-card border-none flex items-end justify-between px-12 pb-8 overflow-hidden">
+                    <div class="w-1 bg-primary-container/20 h-[30%]"></div>
+                    <div class="w-1 bg-primary-container/30 h-[45%]"></div>
+                    <div class="w-1 bg-primary-container/40 h-[25%]"></div>
+                    <div class="w-1 bg-primary-container/50 h-[60%]"></div>
+                    <div class="w-1 bg-primary-container h-[80%] shadow-[0_0_20px_rgba(244,197,66,0.5)]"></div>
+                    <div class="w-1 bg-primary-container/40 h-[40%]"></div>
+                    <div class="w-1 bg-primary-container/20 h-[55%]"></div>
+                    <div class="w-1 bg-primary-container/60 h-[70%]"></div>
+                    <div class="w-1 bg-primary-container h-[90%] shadow-[0_0_20px_rgba(244,197,66,0.5)]"></div>
+                    <div class="w-1 bg-primary-container/30 h-[50%]"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Product DNA Comparison: Minimalist Line Art -->
+        <section class="py-20">
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <h2 class="text-center editorial-heading text-5xl font-800 text-white mb-12">The Product <span
+                        class="serif-italic font-normal text-primary-container">DNA</span></h2>
+                <div class="grid grid-cols-12 border-t border-white/10">
+                    <!-- Feature Rows -->
+                    <div class="col-span-12 py-6 border-b border-white/10 grid grid-cols-12 items-center group">
+                        <div
+                            class="col-span-4 text-xs uppercase tracking-[0.3em] font-800 text-on-surface/90 group-hover:text-on-surface transition-colors">
+                            Variant Mapping</div>
+                        <div class="col-span-4 text-center font-800 text-primary-container text-sm">Automated Neural
+                            Sync</div>
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">Manual
+                            Correlation</div>
+                    </div>
+                    <div class="col-span-12 py-6 border-b border-white/10 grid grid-cols-12 items-center group">
+                        <div
+                            class="col-span-4 text-xs uppercase tracking-[0.3em] font-800 text-on-surface/90 group-hover:text-on-surface transition-colors">
+                            Digital Sharing</div>
+                        <div class="col-span-4 text-center font-800 text-primary-container text-sm">Direct Social Tunnel
+                        </div>
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">Static File
+                            Export</div>
+                    </div>
+                    <div class="col-span-12 py-6 border-b border-white/10 grid grid-cols-12 items-center group">
+                        <div
+                            class="col-span-4 text-xs uppercase tracking-[0.3em] font-800 text-on-surface/90 group-hover:text-on-surface transition-colors">
+                            Processing Latency</div>
+                        <div class="col-span-4 text-center font-800 text-primary-container text-sm">&lt; 3.0 Seconds
+                        </div>
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">8.0 — 12.0
+                            Seconds</div>
+                    </div>
+                    <div class="col-span-12 py-6 border-b border-white/10 grid grid-cols-12 items-center group">
+                        <div
+                            class="col-span-4 text-xs uppercase tracking-[0.3em] font-800 text-on-surface/90 group-hover:text-on-surface transition-colors">
+                            UI Integration</div>
+                        <div class="col-span-4 text-center font-800 text-primary-container text-sm">100% Brand DNA Match
+                        </div>
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">Branded
+                            Watermarks</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials: Staggered Quote Blocks -->
+        <section class="py-20 relative">
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-12 gap-gutter relative">
+                    <!-- Testimonial 1 -->
+                    <div class="col-span-12 lg:col-span-4 lg:mt-12">
+                        <div class="space-y-8 glass-card p-12 relative">
+                            <div class="text-primary-container text-2xl serif-italic">“</div>
+                            <p class="text-2xl font-light text-white leading-relaxed italic">
+                                "The conversion boost was almost immediate. Our customers love being able to see how a
+                                dress fits them before committing."
+                            </p>
+                            <div class="pt-8 border-t border-white/10">
+                                <p class="text-[10px] uppercase tracking-[0.3em] font-800 text-primary-container">Sarah
+                                    Jenkins</p>
+                                <p class="text-[10px] uppercase tracking-[0.2em] text-white/90">CEO, Urban Thread</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 (Elevated) -->
+                    <div class="col-span-12 lg:col-span-4">
+                        <div class="space-y-8 glass-card p-12 border-t-4 border-primary-container shadow-2xl">
+                            <div class="text-primary-container text-2xl serif-italic">“</div>
+                            <p class="text-2xl font-light text-white leading-relaxed italic">
+                                "Native Shopify integration was the deciding factor. It took us less than 5 minutes to
+                                go live across our catalog."
+                            </p>
+                            <div class="pt-8 border-t border-white/10">
+                                <p class="text-[10px] uppercase tracking-[0.3em] font-800 text-primary-container">David
+                                    Chen</p>
+                                <p class="text-[10px] uppercase tracking-[0.2em] text-white/90">Founder, Studio Wear</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="col-span-12 lg:col-span-4 lg:mt-6">
+                        <div class="space-y-8 glass-card p-12">
+                            <div class="text-primary-container text-2xl serif-italic">“</div>
+                            <p class="text-2xl font-light text-white leading-relaxed italic">
+                                "Return rates dropped by 18%. This app paid for itself within the first week of
+                                installation."
+                            </p>
+                            <div class="pt-8 border-t border-white/10">
+                                <p class="text-[10px] uppercase tracking-[0.3em] font-800 text-primary-container">Elena
+                                    Rodriguez</p>
+                                <p class="text-[10px] uppercase tracking-[0.2em] text-white/90">Ops Director, VogueFit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-24 bg-[#1a1811] relative border-y border-white/5">
+            <div class="absolute inset-0 aura-glow opacity-10"></div>
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+                <!-- Header -->
+                <div class="text-center mb-20 space-y-6">
+                    <div class="inline-flex items-center gap-4 text-primary-container justify-center">
+                        <div class="h-[1px] w-12 bg-primary-container"></div>
+                        <span class="text-[10px] uppercase tracking-[0.4em] font-800">Investment</span>
+                        <div class="h-[1px] w-12 bg-primary-container"></div>
+                    </div>
+                    <h2 class="editorial-heading text-5xl md:text-7xl font-800 text-white">
+                        Choose Your <br /><span class="serif-italic font-normal text-primary-container">Plan</span>
+                    </h2>
+                    <p class="text-lg text-on-surface-variant font-light max-w-xl mx-auto">
+                        Start free, scale as you grow. Every plan includes privacy-first AI processing and native Shopify integration.
+                    </p>
+                </div>
+
+                <!-- Pricing Cards -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+                    <!-- Free Plan -->
+                    <div class="glass-card p-10 flex flex-col group hover:border-white/20 transition-all duration-300">
+                        <div class="mb-8">
+                            <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-on-surface/60 mb-4">Free Plan</p>
+                            <div class="flex items-end gap-2 mb-2">
+                                <span class="text-5xl font-800 text-white">$0</span>
+                                <span class="text-on-surface-variant font-light pb-1">/ forever</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant font-light">10 monthly AI try-ons included</p>
+                            <p class="text-xs text-on-surface/50 mt-1">Additional try-ons at +$0.28 / try-on</p>
+                        </div>
+                        <div class="h-[1px] w-full bg-white/10 mb-8"></div>
+                        <ul class="space-y-4 flex-1 mb-10">
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                10 monthly AI try-ons included
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Mobile &amp; desktop responsive widget
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Privacy consent screen
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Product page try-on support
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Standard AI processing
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Email support
+                            </li>
+                        </ul>
+                        <button class="cta-button w-full py-4 border border-white/20 text-white text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-white/10 transition-all">
+                            Get Started Free
+                        </button>
+                    </div>
+
+                    <!-- Growth Plan (Featured) -->
+                    <div class="glass-card p-10 flex flex-col border-t-4 border-primary-container shadow-[0_0_60px_rgba(244,197,66,0.12)] relative">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                            <span class="bg-primary-container text-on-primary-container text-[10px] uppercase tracking-[0.2em] font-800 px-5 py-1.5 whitespace-nowrap">Most Popular</span>
+                        </div>
+                        <div class="mb-8">
+                            <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container mb-4">Growth Plan</p>
+                            <div class="flex items-end gap-2 mb-2">
+                                <span class="text-5xl font-800 text-white">$19</span>
+                                <span class="text-on-surface-variant font-light pb-1">/ month</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant font-light">100 monthly AI try-ons included</p>
+                            <p class="text-xs text-on-surface/50 mt-1">Additional try-ons at +$0.15 / try-on</p>
+                        </div>
+                        <div class="h-[1px] w-full bg-primary-container/30 mb-8"></div>
+                        <ul class="space-y-4 flex-1 mb-10">
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                100 monthly AI try-ons included
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Collection page mini try-on icons
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Variant image mapping system
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Product-level try-on enable / disable
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Advanced widget customization
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Typography &amp; branding controls
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                WhatsApp share support
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Analytics dashboard
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Customer email collection
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Add-to-cart &amp; conversion tracking
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Faster AI processing queue
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Standard support
+                            </li>
+                        </ul>
+                        <button class="cta-button w-full py-4 bg-primary-container text-on-primary-container text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-white transition-all shadow-[0_0_30px_rgba(244,197,66,0.2)]">
+                            Start Growth Plan
+                        </button>
+                    </div>
+
+                    <!-- Pro Plan -->
+                    <div class="glass-card p-10 flex flex-col group hover:border-white/20 transition-all duration-300">
+                        <div class="mb-8">
+                            <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-on-surface/60 mb-4">Pro Plan</p>
+                            <div class="flex items-end gap-2 mb-2">
+                                <span class="text-5xl font-800 text-white">$49</span>
+                                <span class="text-on-surface-variant font-light pb-1">/ month</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant font-light">500 monthly AI try-ons included</p>
+                            <p class="text-xs text-on-surface/50 mt-1">Additional try-ons at +$0.08 / try-on</p>
+                        </div>
+                        <div class="h-[1px] w-full bg-white/10 mb-8"></div>
+                        <ul class="space-y-4 flex-1 mb-10">
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                500 monthly AI try-ons included
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Advanced analytics dashboard
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Top-performing product insights
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Device-based analytics (mobile vs desktop)
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                7-day trend reporting
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Multi-language widget support
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Premium widget customization
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Priority AI processing &amp; faster rendering
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Custom icon positioning
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Priority support
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Early access to new features
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary-container/60 text-sm mt-0.5 flex-shrink-0">check_circle</span>
+                                Dedicated onboarding assistance
+                            </li>
+                        </ul>
+                        <button class="cta-button w-full py-4 border border-white/20 text-white text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-white/10 transition-all">
+                            Start Pro Plan
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Bottom note -->
+                <p class="text-center text-xs text-on-surface/40 mt-12 uppercase tracking-[0.2em]">
+                    All plans include Shopify 2.0 native integration · No hidden fees · Cancel anytime
+                </p>
+            </div>
+        </section>
+
+        <!-- Final CTA: Cinematic Full-Bleed -->
+        <section class="relative py-24 bg-primary-container overflow-hidden group">
+            <div
+                class="absolute inset-0 bg-background opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
+            </div>
+            <div class="relative z-10 max-w-[1600px] mx-auto px-margin-mobile text-center space-y-12">
+                <h2 class="editorial-heading text-6xl md:text-8xl font-800 text-on-primary-container">Redefine <br />
+                    <span class="serif-italic font-normal italic">Experience.</span>
+                </h2>
+                <p class="text-on-primary-container/70 max-w-2xl mx-auto text-xl font-light leading-relaxed">
+                    Join the vanguard of fashion commerce. Elevate your storefront with the world's most sophisticated
+                    AI dressing room.
+                </p>
+                <div class="flex flex-wrap justify-center gap-8 pt-8">
+                    <button
+                        class="cta-button px-16 py-6 bg-background text-white font-800 text-xs uppercase tracking-[0.3em] hover:bg-white hover:text-background transition-all shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
+                        Install on Shopify
+                    </button>
+                    <button
+                        class="cta-button px-16 py-6 border-2 border-background text-background font-800 text-xs uppercase tracking-[0.3em] hover:bg-background hover:text-white transition-all">
+                        Book Private Demo
+                    </button>
+                </div>
+            </div>
+            <!-- Abstract Decoration -->
+            <div
+                class="absolute -bottom-20 -right-20 text-[200px] font-900 text-background/5 select-none pointer-events-none">
+                The FitSnap</div>
+        </section>
+    </main>
+    <!-- Footer: High-End Minimalist -->
+    <footer class="bg-background py-16 border-t border-white/5">
+        <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-12 lg:col-span-6 space-y-10">
+                    <div class="text-4xl font-800 tracking-tighter text-white">The FitSnap<span
+                            class="text-primary-container">.</span></div>
+                    <p
+                        class="text-on-surface-variant/100 max-w-sm text-[13px] leading-loose uppercase tracking-[0.1em]">
+                        The world's leading AI virtual try-on engine purpose-built for the Shopify luxury fashion
+                        ecosystem.
+                    </p>
+
+                </div>
+                <div class="col-span-6 lg:col-span-3 space-y-10">
+                    <h4 class="text-white font-800 text-[10px] uppercase tracking-[0.4em]">Navigation</h4>
+                    <div class="flex flex-col gap-6">
+                        <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
+                            href="#">Intelligence</a>
+                        <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
+                            href="#">Investment</a>
+                        <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
+                            href="#">Integrations</a>
+                        <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
+                            href="#">Lookbook</a>
+                    </div>
+                </div>
+                <div class="col-span-6 lg:col-span-3 space-y-10">
+                    <h4 class="text-white font-800 text-[10px] uppercase tracking-[0.4em]">Compliance</h4>
+                    <div class="flex flex-col gap-6">
+                        <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
+                            href="#">Terms of Use</a>
+                        <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
+                            href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="mt-24 pt-9 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-12">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/70">© 2026 The FitSnap.
+                    Digifyce.</p>
+
+            </div>
+        </div>
+    </footer>
+    <!-- Modal Backdrop -->
+    <div id="modalBackdrop"
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <!-- Form Modal -->
+        <div id="formModal"
+            class="glass-card w-full max-w-lg p-6 md:p-10 relative transform scale-95 transition-transform duration-300 mx-4 max-h-[90vh] overflow-y-auto no-scrollbar">
+            <button id="closeFormBtn"
+                class="absolute top-4 right-4 md:top-6 md:right-6 text-on-surface-variant hover:text-white transition-colors z-10 bg-background/50 rounded-full w-8 h-8 flex items-center justify-center backdrop-blur-md">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+            <div class="space-y-4 md:space-y-6 mt-2">
+                <div class="text-center space-y-2">
+                    <h3 class="text-2xl md:text-3xl font-800 text-white editorial-heading">Get Started With The Stitch
+                        Flow</h3>
+                    <p class="text-xs md:text-sm text-on-surface-variant font-light">Share your details and we will
+                        contact you shortly.</p>
+                </div>
+                <form id="accessForm" class="space-y-3 md:space-y-4">
+                    <div class="grid grid-cols-2 gap-3 md:gap-4">
+                        <div class="space-y-1.5 text-left">
+                            <label class="text-[10px] uppercase tracking-widest text-on-surface/100 font-700"
+                                for="firstName">First Name</label>
+                            <input required type="text" id="firstName"
+                                class="w-full bg-white/5 border border-white/20 text-white px-3 py-2.5 focus:outline-none focus:border-primary-container transition-colors text-sm"
+                                placeholder="Jane" />
+                        </div>
+                        <div class="space-y-1.5 text-left">
+                            <label class="text-[10px] uppercase tracking-widest text-on-surface/100 font-700"
+                                for="lastName">Last Name</label>
+                            <input required type="text" id="lastName"
+                                class="w-full bg-white/5 border border-white/20 text-white px-3 py-2.5 focus:outline-none focus:border-primary-container transition-colors text-sm"
+                                placeholder="Doe" />
+                        </div>
+                    </div>
+                    <div class="space-y-1.5 text-left">
+                        <label class="text-[10px] uppercase tracking-widest text-on-surface/100 font-700"
+                            for="phone">Phone Number</label>
+                        <input required type="tel" id="phone"
+                            class="w-full bg-white/5 border border-white/20 text-white px-3 py-2.5 focus:outline-none focus:border-primary-container transition-colors text-sm"
+                            placeholder="+1 (555) 000-0000" />
+                    </div>
+                    <div class="space-y-1.5 text-left">
+                        <label class="text-[10px] uppercase tracking-widest text-on-surface/100 font-700"
+                            for="company">Company Name</label>
+                        <input required type="text" id="company"
+                            class="w-full bg-white/5 border border-white/20 text-white px-3 py-2.5 focus:outline-none focus:border-primary-container transition-colors text-sm"
+                            placeholder="Luxury Co." />
+                    </div>
+                    <div class="space-y-1.5 text-left">
+                        <label class="text-[10px] uppercase tracking-widest text-on-surface/100 font-700"
+                            for="shopUrl">Shop URL (Optional)</label>
+                        <input type="url" id="shopUrl"
+                            class="w-full bg-white/5 border border-white/20 text-white px-3 py-2.5 focus:outline-none focus:border-primary-container transition-colors text-sm"
+                            placeholder="https://yourstore.com" />
+                    </div>
+                    <div class="space-y-1.5 text-left">
+                        <label class="text-[10px] uppercase tracking-widest text-on-surface/100 font-700"
+                            for="email">Email ID</label>
+                        <input required type="email" id="email"
+                            class="w-full bg-white/5 border border-white/20 text-white px-3 py-2.5 focus:outline-none focus:border-primary-container transition-colors text-sm"
+                            placeholder="jane@atelier.com" />
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-3 pt-2 md:pt-4">
+                        <button type="button" id="closeFormBtnBottom"
+                            class="w-full sm:w-1/3 py-3 md:py-4 border border-white/30 text-white text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-white/10 transition-all">Close</button>
+                        <button type="submit"
+                            class="w-full sm:w-2/3 py-3 md:py-4 bg-primary-container text-on-primary-container text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-white transition-all shadow-[0_0_30px_rgba(244,197,66,0.2)]">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Thank You Modal -->
+        <div id="thankYouModal"
+            class="glass-card w-full max-w-lg p-12 relative text-center hidden transform scale-95 transition-transform duration-300 mx-4">
+            <button id="closeThanksBtn"
+                class="absolute top-6 right-6 text-on-surface-variant hover:text-white transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="space-y-6 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full border border-primary-container flex items-center justify-center">
+                    <span class="material-symbols-outlined text-3xl text-primary-container">check</span>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-3xl font-800 text-white editorial-heading">Access Granted</h3>
+                    <p class="text-sm text-on-surface-variant font-light leading-relaxed">Thank you for your interest. A
+                        member of our concierge team will contact you shortly to begin your integration.</p>
+                </div>
+                <button id="doneBtn"
+                    class="px-10 py-4 mt-2 border border-white/20 text-white text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-white/10 transition-all">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const formModal = document.getElementById('formModal');
+        const thankYouModal = document.getElementById('thankYouModal');
+        const accessForm = document.getElementById('accessForm');
+        const closeFormBtn = document.getElementById('closeFormBtn');
+        const closeFormBtnBottom = document.getElementById('closeFormBtnBottom');
+        const closeThanksBtn = document.getElementById('closeThanksBtn');
+        const doneBtn = document.getElementById('doneBtn');
+
+        // Get all CTAs
+        const ctas = document.querySelectorAll('.cta-button');
+
+        function openModal() {
+            modalBackdrop.classList.remove('hidden');
+            modalBackdrop.classList.add('flex');
+            // Small delay to allow display:flex to apply before changing opacity
+            setTimeout(() => {
+                modalBackdrop.classList.remove('opacity-0');
+                modalBackdrop.classList.add('opacity-100');
+                formModal.classList.remove('scale-95');
+                formModal.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalBackdrop.classList.remove('opacity-100');
+            modalBackdrop.classList.add('opacity-0');
+            formModal.classList.remove('scale-100');
+            formModal.classList.add('scale-95');
+            thankYouModal.classList.remove('scale-100');
+            thankYouModal.classList.add('scale-95');
+
+            setTimeout(() => {
+                modalBackdrop.classList.remove('flex');
+                modalBackdrop.classList.add('hidden');
+                // Reset state
+                formModal.classList.remove('hidden');
+                thankYouModal.classList.add('hidden');
+                accessForm.reset();
+            }, 300); // match transition duration
+        }
+
+        function showThankYou() {
+            formModal.classList.add('hidden');
+            thankYouModal.classList.remove('hidden');
+
+            setTimeout(() => {
+                thankYouModal.classList.remove('scale-95');
+                thankYouModal.classList.add('scale-100');
+            }, 10);
+        }
+
+        ctas.forEach(cta => {
+            cta.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        closeFormBtn.addEventListener('click', closeModal);
+        closeFormBtnBottom.addEventListener('click', closeModal);
+        closeThanksBtn.addEventListener('click', closeModal);
+        doneBtn.addEventListener('click', closeModal);
+
+        modalBackdrop.addEventListener('click', (e) => {
+            if (e.target === modalBackdrop) {
+                closeModal();
+            }
+        });
+
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzSQo15oGeVXu7BDynuRsvPaYeiofuhEQhAmCCNWp_3wH4IvNThjqKLjEaQZCM7GjPF/exec';
+
+        accessForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const submitBtn = accessForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData();
+            formData.append('firstName', document.getElementById('firstName').value);
+            formData.append('lastName', document.getElementById('lastName').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('company', document.getElementById('company').value);
+            formData.append('shopUrl', document.getElementById('shopUrl').value);
+            formData.append('email', document.getElementById('email').value);
+
+            fetch(APPS_SCRIPT_URL, { method: 'POST', body: formData })
+                .then(() => {
+                    showThankYou();
+                })
+                .catch(() => {
+                    showThankYou();
+                })
+                .finally(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+
+</html>
