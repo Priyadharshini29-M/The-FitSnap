@@ -5,10 +5,11 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>The Brix-Tryon | Virtual Try-On App for Shopify</title>
+    <title>The Brix-Tryon | AI Virtual Try-On App for Shopify</title>
+    <link rel="icon" type="image/png" href="assets/Asset%2015Brix%20Try%20On%201.png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -31,7 +32,7 @@
                         "outline-variant": "#3d3d3d",
                     },
                     "fontFamily": {
-                        "manrope": ["Manrope", "sans-serif"],
+                        "manrope": ["Poppins", "sans-serif"],
                         "serif": ["Playfair Display", "serif"]
                     },
                     "spacing": {
@@ -45,7 +46,7 @@
     </script>
     <style>
         body {
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .serif-italic {
@@ -868,7 +869,69 @@
             .shimmer::after, .animate-float, .pop { animation: none; }
         }
 
+        /* Responsive: bigger root size on large monitors, never scroll sideways */
+        /* keep overflow on <body> only (html must stay visible, otherwise position:sticky breaks) */
+        body { max-width: 100%; }
+
+        /* 12-column grids use a 32px gap; 11 gaps would force 352px of width on phones */
+        @media (max-width: 1023px) {
+            .grid-cols-12 { column-gap: 0 !important; row-gap: 2rem; }
+        }
+
+        @media (min-width: 1920px) { html { font-size: 18px; } }
+        @media (min-width: 2560px) { html { font-size: 22px; } }
+        @media (min-width: 3200px) { html { font-size: 28px; } }
+
+        @media (min-width: 1536px) {
+            html body .max-w-\[1600px\] { max-width: 1840px; }
+        }
+
+        @media (min-width: 2560px) {
+            html body .max-w-\[1600px\] { max-width: 2200px; }
+        }
+
         /* Navbar turns white once the page is scrolled */
+        .fc-card { background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.015)); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; transition: transform .35s, border-color .35s, box-shadow .35s; }
+        .fc-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.35); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+        .fc-icon { transition: transform .35s; }
+        .fc-card:hover .fc-icon { transform: rotate(-8deg) scale(1.08); }
+
+        .jr-card { transition: transform .35s, box-shadow .35s, border-color .35s; }
+        .jr-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.1); border-color: #111; }
+
+        /* ---- Mobile-only refinements (desktop untouched) ---- */
+        @media (max-width: 767px) {
+            /* Numbers: 2x2 stat tiles */
+            #numbers { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+            #numbers .grid { gap: 12px; }
+            #numbers .grid > div { border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 22px 12px; background: rgba(255,255,255,.04); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+            #numbers .grid > div > p:first-child { font-size: 2.75rem; }
+            #numbers .grid > div > p:last-child { font-size: .875rem; line-height: 1.4; color: rgba(255,255,255,.7); }
+
+            /* AI Studio: step cards */
+            #story-steps { display: flex; flex-direction: column; gap: 12px; }
+            #story-steps .story-step { padding: 16px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; background: rgba(255,255,255,.04); align-items: flex-start; gap: 14px; opacity: 1; transform: none; }
+            #story-steps .story-body { max-height: none; opacity: 1; }
+            #story-steps .story-step .num { flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%; font-size: 12px; }
+            #story-steps .story-step .block.text-lg { font-size: 1.05rem; }
+            #story-steps .story-body { font-size: .875rem; }
+
+            /* Product DNA: stacked comparison cards */
+            #dna .grid.border-t { border-top: 0; display: flex; flex-direction: column; gap: 14px; }
+            #dna .grid.border-t > div { border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 16px; grid-template-columns: 1fr 1fr; gap: 10px; background: rgba(255,255,255,.03); }
+            #dna .grid.border-t > div > div { grid-column: auto; }
+            #dna .grid.border-t > div > div:first-child { grid-column: 1 / -1; text-align: left; letter-spacing: .2em; font-size: 11px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.1); }
+            #dna .grid.border-t > div > div:nth-child(n+2) { text-align: left; font-size: .9rem; padding: 10px 12px; border-radius: 10px; }
+            #dna .grid.border-t > div > div:nth-child(2) { background: #fff; color: #111; }
+            #dna .grid.border-t > div > div:nth-child(3) { background: rgba(255,255,255,.06); }
+            #dna .grid.border-t > div > div:nth-child(n+2)::before { display: block; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; font-weight: 800; opacity: .55; margin-bottom: 4px; }
+            #dna .grid.border-t > div > div:nth-child(2)::before { content: "Brix-Tryon"; }
+            #dna .grid.border-t > div > div:nth-child(3)::before { content: "Traditional"; }
+        }
+
+        .nav-logo { filter: invert(1); transition: filter .3s; }
+        nav.scrolled .nav-logo { filter: none; }
+
         nav.scrolled {
             background: #ffffff;
             box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 10px 30px rgba(0, 0, 0, 0.12);
@@ -921,10 +984,11 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-[100] transition-all duration-500">
         <div
-            class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop h-24 flex items-center justify-between gap-10">
-            <a class="text-3xl font-800 tracking-tighter text-on-surface whitespace-nowrap leading-none" href="#">The Brix-Tryon<span
-                    class="text-primary-container">.</span></a>
-            <div class="hidden lg:flex items-center gap-10 xl:gap-12">
+            class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop h-20 sm:h-24 flex items-center justify-between gap-3 sm:gap-10">
+            <a class="flex items-center shrink-0" href="#" aria-label="Brix Try On">
+                <img src="assets/brix-logo.png" alt="Brix Try On" class="nav-logo h-9 sm:h-11 w-auto" />
+            </a>
+            <div class="hidden xl:flex items-center gap-10 xl:gap-12">
                 <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors"
                     href="#">Collection</a>
                 <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors"
@@ -946,13 +1010,28 @@
                     </div>
                 </div>
             </div>
-            <div class="flex items-center gap-6 xl:gap-8">
+            <div class="flex items-center gap-3 sm:gap-6 xl:gap-8">
                 <button
-                    class="hidden md:block text-[11px] uppercase tracking-[0.2em] font-700 hover:text-primary-container transition-colors">Client
+                    class="hidden xl:block text-[11px] uppercase tracking-[0.2em] font-700 hover:text-primary-container transition-colors">Client
                     Login</button>
                 <button
-                    class="cta-button px-8 py-3 bg-primary-container text-on-primary-container text-[11px] uppercase tracking-[0.2em] font-800 rounded-none hover:bg-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">Get
+                    class="cta-button hidden sm:block px-4 py-2.5 sm:px-8 sm:py-3 bg-primary-container text-on-primary-container text-[10px] sm:text-[11px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-800 rounded-none hover:bg-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] whitespace-nowrap">Get
                     Access</button>
+                <button id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                    class="xl:hidden w-10 h-10 flex items-center justify-center border border-white/25">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <div id="nav-panel" class="hidden xl:hidden bg-white text-black border-t border-black/10 shadow-2xl">
+            <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop py-3 grid sm:grid-cols-2 gap-x-8">
+                <a class="py-3 text-[11px] uppercase tracking-[0.2em] font-700 border-b border-black/10" href="#journey">How it works</a>
+                <a class="py-3 text-[11px] uppercase tracking-[0.2em] font-700 border-b border-black/10" href="#features">Features</a>
+                <a class="py-3 text-[11px] uppercase tracking-[0.2em] font-700 border-b border-black/10" href="#ai-studio">AI Studio</a>
+                <a class="py-3 text-[11px] uppercase tracking-[0.2em] font-700 border-b border-black/10" href="#try-free">Try it free</a>
+                <a class="py-3 text-[11px] uppercase tracking-[0.2em] font-700 border-b border-black/10" href="#pricing">Pricing</a>
+                <a class="py-3 text-[11px] uppercase tracking-[0.2em] font-700 border-b border-black/10" href="#faq">FAQ</a>
+                <button type="button" class="cta-button sm:hidden mt-3 mb-1 bg-black text-white text-[11px] uppercase tracking-[0.2em] font-800 py-3">Get Access</button>
             </div>
         </div>
     </nav>
@@ -968,22 +1047,22 @@
             </div>
             <div class="relative z-10 max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop w-full">
                 <div class="grid grid-cols-12 gap-gutter items-center">
-                    <div class="col-span-12 lg:col-span-6 mb-12 lg:mb-0">
+                    <div class="col-span-12 lg:col-span-6 mb-12 lg:mb-0 min-w-0">
                         <div class="space-y-5 max-w-4xl">
                             <div class="inline-flex items-center gap-4 text-primary-container">
                                 <div class="h-[1px] w-12 bg-primary-container"></div>
-                                <span class="text-[10px] uppercase tracking-[0.4em] font-800">Virtual try-on app for Shopify</span>
+                                <span class="text-[10px] uppercase tracking-[0.4em] font-800">AI virtual try-on app for Shopify</span>
                             </div>
-                            <h1 class="editorial-heading text-6xl md:text-7xl lg:text-[clamp(3rem,8.5vh,5.5rem)] font-800 text-white">
-                                Let shoppers <span
-                                    class="serif-italic font-normal italic text-primary-container">try it on</span>
+                            <h1 class="editorial-heading text-4xl min-[420px]:text-5xl sm:text-5xl md:text-6xl lg:text-[clamp(2.5rem,7vh,4.75rem)] font-800 text-white">
+                                AI virtual <span
+                                    class="serif-italic font-normal text-primary-container">try-on</span>
                                 <br />
-                                before they buy.
+                                for Shopify <br class="hidden sm:inline" />fashion stores.
                             </h1>
-                            <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed font-light">
+                            <p class="text-lg text-on-surface-variant max-w-xl leading-relaxed font-light">
                                 Shoppers upload one photo and see your clothes on themselves, right on the product
-                                page. You get more confident buyers and fewer returns, and setup takes about five
-                                minutes.
+                                page. No account or install for them. Need model photos too? The built-in AI Studio
+                                turns flat-lay and ghost-mannequin shots into on-model images in about a minute.
                             </p>
                             <div class="flex flex-wrap gap-4 pt-2">
                                 <button
@@ -1000,8 +1079,8 @@
                         </div>
                     </div>
                     <!-- Glassmorphic floating control -->
-                    <div class="col-span-12 lg:col-span-6 flex lg:justify-end lg:pt-10">
-                        <div class="tryon-fit w-full max-w-[44rem] relative"><div class="tryon-demo relative pb-10" style="width:704px;transform-origin:top left" data-step="0" aria-label="Animated demo of a shopper using Brix-Tryon on a saree store product page">
+                    <div class="col-span-12 lg:col-span-6 flex lg:justify-end lg:pt-10 min-w-0">
+                        <div class="tryon-fit w-full max-w-[44rem] relative overflow-hidden"><div class="tryon-demo relative pb-10" style="width:704px;transform-origin:top left" data-step="0" aria-label="Animated demo of a shopper using Brix-Tryon on a saree store product page">
                             <div class="absolute bottom-7 left-6 right-6 h-8 bg-black/60 blur-2xl rounded-full"></div>
                             <div class="relative flex items-center" style="perspective:1800px">
                             <!-- Desktop browser -->
@@ -1023,13 +1102,13 @@
                                         <!-- 0: product page -->
                                         <div class="only only-0 absolute inset-0 space-y-2">
                                             <p class="text-lg font-800 leading-tight">Emerald Kanjivaram Saree</p>
-                                            <p class="text-[11px] text-black/60">Chameli Studio</p>
-                                            <p class="text-sm font-700">Rs. 7,800.00</p>
+                                            <p class="text-lg text-black/60">Chameli Studio</p>
+                                            <p class="text-lg font-700">Rs. 7,800.00</p>
                                             <div class="border border-black text-center text-[10px] uppercase tracking-widest py-2">Add to cart</div>
                                             <div class="bg-black text-white text-center text-[10px] uppercase tracking-widest py-2 font-800">Buy it now</div>
                                             <div class="tap-btn bg-neutral-800 text-white text-center py-2 rounded-sm">
-                                                <p class="text-[11px] font-800 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">photo_camera</span>Try On This Look</p>
-                                                <p class="text-[9px] opacity-70">See how it fits before you buy</p>
+                                                <p class="text-lg font-800 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">photo_camera</span>Try On This Look</p>
+                                                <p class="text-lg opacity-70">See how it fits before you buy</p>
                                             </div>
                                             <div class="relative h-14 overflow-hidden bg-neutral-200">
                                                 <img src="assets/look-w1-person.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-top" />
@@ -1041,29 +1120,29 @@
                                         </div>
                                         <!-- 1: choose photo -->
                                         <div class="only only-1 absolute inset-0 space-y-3">
-                                            <p class="text-sm font-800">Upload your photo</p>
-                                            <p class="text-[11px] text-black/60 leading-relaxed">Use a full-length photo for the best drape. It is processed privately and deleted afterwards.</p>
+                                            <p class="text-lg font-800">Upload your photo</p>
+                                            <p class="text-lg text-black/60 leading-relaxed">Use a full-length photo for the best drape. It is processed privately and deleted afterwards.</p>
                                             <div class="grid grid-cols-2 gap-2">
                                                 <div class="pick-btn border border-black/30 text-center text-[11px] font-700 py-3 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">image</span>Gallery</div>
                                                 <div class="border border-black/30 text-center text-[11px] font-700 py-3 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">photo_camera</span>Camera</div>
                                             </div>
                                             <div class="border border-dashed border-black/30 p-2 flex items-center gap-3">
                                                 <img src="assets/look-w1-person.jpg" alt="" class="w-10 h-14 object-cover" />
-                                                <div class="text-[11px]"><p class="font-700">my-photo.jpg</p><p class="text-black/50">Uploaded &#10003;</p></div>
+                                                <div class="text-[11px]"><p class="text-lg font-700">my-photo.jpg</p><p class="text-lg text-black/50">Uploaded &#10003;</p></div>
                                             </div>
                                         </div>
                                         <!-- 2: creating -->
                                         <div class="only only-2 absolute inset-0 space-y-3">
-                                            <p class="text-sm font-800">Creating your look&hellip;</p>
-                                            <p class="text-[11px] text-black/60">Matching the silk, drape and pallu to your photo.</p>
+                                            <p class="text-lg font-800">Creating your look&hellip;</p>
+                                            <p class="text-lg text-black/60">Matching the silk, drape and pallu to your photo.</p>
                                             <div class="h-1.5 bg-black/10"><div class="demo-bar h-full bg-black" style="width:0%"></div></div>
-                                            <p class="text-xs font-800"><span class="demo-pct">0%</span></p>
+                                            <p class="text-lg font-800"><span class="demo-pct">0%</span></p>
                                         </div>
                                         <!-- 3: unlock -->
                                         <div class="only only-3 absolute inset-0 space-y-2">
                                             <div class="bg-neutral-900 text-white rounded-full px-3 py-2 text-[10px] font-800 whitespace-nowrap flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-sm">schedule</span>Your look is ready! Decide in <span class="demo-timer">08:54</span></div>
-                                            <p class="text-sm font-800 text-center pt-1">Unlock Size &amp; Buy</p>
-                                            <p class="text-[10px] text-black/50 text-center -mt-1">Enter your details to continue</p>
+                                            <p class="text-lg font-800 text-center pt-1">Unlock Size &amp; Buy</p>
+                                            <p class="text-lg text-black/50 text-center -mt-1">Enter your details to continue</p>
                                             <div class="border border-black/15 bg-neutral-50 px-3 py-2 text-[11px] min-h-[2rem]"><span class="type-email"></span></div>
                                             <div class="border border-black/15 bg-neutral-50 px-3 py-2 text-[11px] min-h-[2rem]"><span class="type-phone"></span></div>
                                             <div class="flex items-center gap-2 text-[10px] text-black/60"><span class="w-3 h-3 bg-black text-white flex items-center justify-center text-[8px]">&#10003;</span>I agree to the Privacy Policy and Terms</div>
@@ -1082,8 +1161,8 @@
                                                 <div class="border border-black/25 text-center py-2 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">download</span>Save</div>
                                                 <div class="bg-neutral-800 text-white text-center py-2 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">share</span>WhatsApp</div>
                                             </div>
-                                            <p class="text-center text-[10px] text-black/50">Gallery &middot; Camera</p>
-                                            <p class="text-right text-[9px] text-black/40">Powered by <b>The Brix-Tryon</b></p>
+                                            <p class="text-lg text-center text-black/50">Gallery &middot; Camera</p>
+                                            <p class="text-lg text-right text-black/40">Powered by <b>The Brix-Tryon</b></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1114,33 +1193,33 @@
                                     <div class="relative flex-1 px-2 pt-2">
                                         <!-- 0 -->
                                         <div class="only only-0 absolute inset-x-2 top-2 space-y-1">
-                                            <p class="text-[9px] font-800 leading-tight">Emerald Kanjivaram Saree</p>
-                                            <p class="text-[8px] text-black/70">Rs. 7,800.00</p>
+                                            <p class="text-lg font-800 leading-tight">Emerald Kanjivaram Saree</p>
+                                            <p class="text-lg text-black/70">Rs. 7,800.00</p>
                                             <div class="border border-black text-center text-[7px] uppercase tracking-widest py-1">Add to cart</div>
                                             <div class="tap-btn bg-neutral-800 text-white text-center py-1">
-                                                <p class="text-[8px] font-800">Try On This Look</p>
-                                                <p class="text-[6px] opacity-70">See how it fits before you buy</p>
+                                                <p class="text-lg font-800">Try On This Look</p>
+                                                <p class="text-lg opacity-70">See how it fits before you buy</p>
                                             </div>
                                         </div>
                                         <!-- 1 -->
                                         <div class="only only-1 absolute inset-x-2 top-2 space-y-1">
-                                            <p class="text-[9px] font-800">Upload your photo</p>
+                                            <p class="text-lg font-800">Upload your photo</p>
                                             <div class="grid grid-cols-2 gap-1">
                                                 <div class="pick-btn border border-black/30 text-center text-[7px] font-700 py-1.5">Gallery</div>
                                                 <div class="border border-black/30 text-center text-[7px] font-700 py-1.5">Camera</div>
                                             </div>
-                                            <p class="text-[6px] text-black/50">Private &middot; deleted after your try-on</p>
+                                            <p class="text-lg text-black/50">Private &middot; deleted after your try-on</p>
                                         </div>
                                         <!-- 2 -->
                                         <div class="only only-2 absolute inset-x-2 top-2 space-y-1.5">
-                                            <p class="text-[9px] font-800">Creating your look&hellip;</p>
+                                            <p class="text-lg font-800">Creating your look&hellip;</p>
                                             <div class="h-1 bg-black/10"><div class="demo-bar h-full bg-black" style="width:0%"></div></div>
-                                            <p class="text-[8px] font-800 demo-pct">0%</p>
+                                            <p class="text-lg font-800 demo-pct">0%</p>
                                         </div>
                                         <!-- 3 -->
                                         <div class="only only-3 absolute inset-x-2 top-1.5 space-y-1">
                                             <div class="bg-neutral-900 text-white rounded-full px-2 py-1 text-[7px] font-800 flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[9px]">schedule</span>Your look is ready! <span class="demo-timer">08:54</span></div>
-                                            <p class="text-[8px] font-800 text-center">Unlock Size &amp; Buy</p>
+                                            <p class="text-lg font-800 text-center">Unlock Size &amp; Buy</p>
                                             <div class="border border-black/15 bg-neutral-50 px-1.5 py-1 text-[7px] min-h-[1.1rem]"><span class="type-email"></span></div>
                                             <div class="unlock-btn bg-black text-white text-center text-[8px] font-800 py-1.5">Unlock My Look</div>
                                         </div>
@@ -1181,19 +1260,19 @@
                             <div class="h-[1px] w-12 bg-primary-container"></div>
                             <span class="text-xs uppercase tracking-[0.4em] font-800">Why Brix-Tryon?</span>
                         </div>
-                        <h2 class="editorial-heading text-5xl lg:text-[clamp(3rem,7.5vh,5rem)] font-800 text-white">
-                            Built for Shopify brands that want <span class="serif-italic font-normal text-primary-container">confident</span> shoppers.
+                        <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">
+                            Built for Shopify fashion brands that want <span class="serif-italic font-normal text-primary-container">confident</span> shoppers.
                         </h2>
-                        <p class="text-lg lg:text-xl text-on-surface-variant font-light leading-relaxed">
-                            Brix-Tryon is more than a photo widget. It is an AI try-on platform that shows each shopper
-                            how a garment looks on them, across every size and colour variant, right on your product
-                            page.
+                        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                            Brix-Tryon is more than a photo widget. It is a virtual try-on app for Shopify that shows
+                            each shopper how a garment looks on them, using their own photo, right on your product
+                            page, plus an AI Studio that creates your on-model photos.
                         </p>
-                        <p class="text-lg lg:text-xl text-on-surface-variant font-light leading-relaxed">
-                            Variant-aware rendering, a privacy-first pipeline and built-in analytics turn browsers into
-                            buyers, and cut the returns that come from guessing the fit.
+                        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                            Lead capture, WhatsApp sharing and built-in analytics help turn browsers into buyers, so
+                            you can see how try-on affects cart and purchase behavior on your own store.
                         </p>
-                        <p class="flex items-center gap-3 text-base lg:text-lg font-medium"><span class="material-symbols-outlined text-primary-container text-xl">check_circle</span>Start free and go live in under 5 minutes</p>
+                        <p class="text-lg flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary-container text-xl">check_circle</span>Start free and go live in under 5 minutes</p>
                     </div>
                     <div class="col-span-12 lg:col-span-7 lg:order-1 grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-4 items-center">
                         <!-- Before -->
@@ -1230,7 +1309,7 @@
                                 <div class="flex justify-between text-sm font-700"><span class="text-white">Add to cart</span><span class="text-white">+<span data-count="32" data-suffix="%">0</span> conv.</span></div>
                             </div>
                         </div>
-                        <p class="sm:col-span-3 text-center text-xs text-on-surface/70 pt-2">From static page to confident cart: <b class="text-white">+32% conversion</b></p>
+                        <p class="text-lg sm:col-span-3 text-center text-on-surface/70 pt-2">From static page to confident cart: <b class="text-white">+32% conversion</b></p>
                     </div>
                 </div>
             </div>
@@ -1241,7 +1320,7 @@
                 <div class="grid grid-cols-12 gap-gutter items-center">
                     <div class="col-span-12 lg:col-span-5 space-y-4">
                         <p class="text-xs uppercase tracking-[0.4em] font-800 text-black/60">Why conversion matters</p>
-                        <h2 class="editorial-heading text-4xl lg:text-[clamp(2.25rem,5.5vh,3.5rem)] font-800 text-black">
+                        <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-black">
                             Get more sales from the visitors you <span class="serif-italic font-normal">already have</span>.
                         </h2>
                         <p class="text-lg text-black/70 font-light leading-relaxed">
@@ -1254,7 +1333,7 @@
                         <div class="bg-white border border-black/10 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.35)] p-5 md:p-6 space-y-5">
                             <!-- step 1: inputs -->
                             <div>
-                                <p class="text-[11px] uppercase tracking-[0.25em] font-800 text-black/50 mb-3">1 &middot; Tell us about your store</p>
+                                <p class="text-xs uppercase tracking-[0.25em] font-800 text-black/50 mb-3">1 &middot; Tell us about your store</p>
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                                     <label class="block space-y-1.5">
                                         <span class="block text-xs text-black/70 leading-snug">People visiting your store each month</span>
@@ -1276,25 +1355,25 @@
 
                             <!-- step 2: result -->
                             <div>
-                                <p class="text-[11px] uppercase tracking-[0.25em] font-800 text-black/50 mb-3">2 &middot; What changes with Brix-Tryon</p>
+                                <p class="text-xs uppercase tracking-[0.25em] font-800 text-black/50 mb-3">2 &middot; What changes with Brix-Tryon</p>
                                 <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 items-stretch">
                                     <div class="border border-black/15 p-4">
-                                        <p class="text-xs text-black/60">Today you make</p>
-                                        <p id="rev-now" class="text-2xl font-800 tracking-tight">$24,000</p>
-                                        <p class="text-xs text-black/60"><span id="ord-now">400</span> orders a month</p>
+                                        <p class="text-lg text-black/60">Today you make</p>
+                                        <p id="rev-now" class="text-lg font-800 tracking-tight">$24,000</p>
+                                        <p class="text-lg text-black/60"><span id="ord-now">400</span> orders a month</p>
                                     </div>
                                     <span class="material-symbols-outlined self-center justify-self-center rotate-90 sm:rotate-0">arrow_forward</span>
                                     <div class="border-2 border-black p-4">
-                                        <p class="text-xs text-black/60">With Brix-Tryon you could make</p>
-                                        <p id="rev-new" class="text-2xl font-800 tracking-tight">$31,680</p>
-                                        <p class="text-xs text-black/60"><span id="ord-new">528</span> orders a month</p>
+                                        <p class="text-lg text-black/60">With Brix-Tryon you could make</p>
+                                        <p id="rev-new" class="text-lg font-800 tracking-tight">$31,680</p>
+                                        <p class="text-lg text-black/60"><span id="ord-new">528</span> orders a month</p>
                                     </div>
                                 </div>
                                 <div class="bg-black text-white px-5 py-4 mt-3 flex flex-wrap items-center justify-between gap-3">
-                                    <p class="text-sm">That's <b class="text-2xl font-800 tracking-tight ml-1">+<span id="gain">$7,680</span></b> <span class="text-white/70">more every month</span></p>
-                                    <p class="text-[11px] text-white/60 max-w-[16rem] leading-snug">Getting the same lift from ads would take about <b class="text-white"><span id="extra-vis">6,400</span> more visitors</b> a month.</p>
+                                    <p class="text-lg ">That's <b class="text-2xl font-800 tracking-tight ml-1">+<span id="gain">$7,680</span></b> <span class="text-white/70">more every month</span></p>
+                                    <p class="text-lg text-white/60 max-w-[16rem] leading-snug">Getting the same lift from ads would take about <b class="text-white"><span id="extra-vis">6,400</span> more visitors</b> a month.</p>
                                 </div>
-                                <p class="text-[10px] text-black/40 mt-2">Estimate based on a 32% increase in the share of visitors who buy. Your results will vary.</p>
+                                <p class="text-lg text-black/40 mt-2">Estimate based on a 32% increase in the share of visitors who buy. Your results will vary.</p>
                             </div>
                         </div>
                     </div>
@@ -1302,6 +1381,7 @@
             </div>
         </section>
         <!-- Trust Bar: Minimalist -->
+<!-- TRUST BAR HIDDEN FOR NOW
         <section class="py-6 border-y border-white/5">
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -1309,30 +1389,31 @@
                         fashion brands</span>
                     <div
                         class="flex flex-wrap justify-center items-center gap-16 opacity-30 hover:opacity-60 transition-opacity">
-                        <span class="text-lg font-700 tracking-tighter serif-italic italic">FashionNova</span>
+                        <span class="text-lg font-700 tracking-tighter serif-italic">FashionNova</span>
                         <span class="text-lg font-700 tracking-widest uppercase">Urban Thread</span>
                         <span class="text-lg font-700 tracking-tight">Minimal Mode</span>
                         <span
-                            class="text-lg font-700 tracking-tighter serif-italic italic text-primary-container opacity-100">Studio
+                            class="text-lg font-700 tracking-tighter serif-text-primary-container opacity-100">Studio
                             Wear</span>
                         <span class="text-lg font-700 tracking-[0.2em] uppercase">VogueFit</span>
                     </div>
                 </div>
             </div>
         </section>
+-->
         <!-- Interactive Features: two-up layout, one screen -->
         <section class="screen py-20 relative">
             <div class="absolute -left-40 top-1/2 w-[600px] h-[600px] aura-glow opacity-30"></div>
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="grid grid-cols-12 gap-gutter mb-8 items-end">
                     <div class="col-span-12 lg:col-span-6">
-                        <h2 class="editorial-heading text-4xl md:text-5xl lg:text-[clamp(2.5rem,6vh,4rem)] font-800 text-white">
-                            Built for an <span class="serif-italic font-normal text-primary-container">accurate</span> fit
+                        <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">
+                            Virtual try-on built for <span class="serif-italic font-normal text-primary-container">trust</span>
                         </h2>
                     </div>
                     <div class="col-span-12 lg:col-span-5 lg:col-start-8">
-                        <p class="text-base text-on-surface-variant font-light leading-relaxed">
-                            Every size and colour renders accurately on each shopper, and their photos stay private.
+                        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                            Shoppers see products on their own photo, with a consent notice up front and a promise that the photo is never stored after processing.
                         </p>
                     </div>
                 </div>
@@ -1343,20 +1424,20 @@
                             <img alt="One shopper in a linen shirt, a tailored blazer and a kurta set" class="w-full h-56 lg:h-[30vh] object-cover object-top group-hover:scale-105 transition-transform duration-700" src="assets/feature-variants.jpg" />
                             <span class="absolute top-0 left-0 glass-card px-4 py-2 text-2xl font-800 text-white/60">01</span>
                         </div>
-                        <div class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">Technology</div>
-                        <h3 class="text-2xl md:text-3xl font-800 text-white leading-tight">Variant-Aware Precision</h3>
-                        <p class="text-base text-on-surface-variant font-light leading-relaxed">
-                            Our AI doesn't just overlay clothing; it understands drape, texture, and fit across
-                            every size and color variant in your catalog.
+                        <div class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">Try-on widget</div>
+                        <h3 class="text-2xl font-800 text-white leading-tight">Try-On on Every Product Page</h3>
+                        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                            Shoppers click Try On This Look, upload or photograph themselves, and see the product
+                            on them, with Add to cart and Buy Now right in the result.
                         </p>
                         <ul class="space-y-2">
                             <li class="flex items-center gap-4 text-sm font-medium border-b border-white/5 pb-2">
                                 <span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
-                                Auto-detection of fabric physics
+                                Upload from gallery or camera
                             </li>
                             <li class="flex items-center gap-4 text-sm font-medium border-b border-white/5 pb-2">
                                 <span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
-                                Multi-angle perspective rendering
+                                Add to cart, buy now, save or share on WhatsApp
                             </li>
                         </ul>
                     </div>
@@ -1366,15 +1447,15 @@
                             <img alt="Shopper viewing her private try-on photo on her phone" class="w-full h-56 lg:h-[30vh] object-cover object-center group-hover:scale-105 transition-transform duration-700" src="assets/feature-privacy.jpg" />
                             <span class="absolute top-0 left-0 glass-card px-4 py-2 text-2xl font-800 text-white/60">02</span>
                         </div>
-                        <div class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">Infrastructure</div>
-                        <h3 class="text-2xl md:text-3xl font-800 text-white leading-tight">Privacy by Design</h3>
-                        <p class="text-base text-on-surface-variant font-light leading-relaxed">
-                            Photos are processed in isolated environments and deleted right after the try-on, so
-                            your customers' photos stay private.
+                        <div class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">Privacy</div>
+                        <h3 class="text-2xl font-800 text-white leading-tight">Privacy by Design</h3>
+                        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
+                            A consent notice appears before upload, and the try-on modal states the photo is never
+                            stored after processing. You can show or hide the notice in Widget Settings.
                         </p>
                         <div class="p-4 border border-primary-container/30 bg-primary-container/5">
-                            <p class="text-xs font-800 uppercase tracking-widest text-primary-container mb-1">Security Benchmark</p>
-                            <p class="text-sm italic opacity-80 font-light">"Zero-retention policy ensuring total GDPR and CCPA compliance for fashion brands worldwide."</p>
+                            <p class="text-xs font-800 uppercase tracking-widest text-primary-container mb-1">Shopper consent</p>
+                            <p class="text-lg opacity-80 font-light">The email and phone number shoppers enter to unlock their result are saved with their marketing-consent status and a timestamp.</p>
                         </div>
                     </div>
                 </div>
@@ -1385,28 +1466,27 @@
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="text-center space-y-4 mb-14">
                     <p class="text-xs uppercase tracking-[0.4em] font-800 text-primary-container">Brix-Tryon in numbers</p>
-                    <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-extrabold text-white tracking-tight">Better conversion, fewer returns</h2>
+                    <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-extrabold text-white tracking-tight">What you get on day one</h2>
                     <p class="text-lg text-on-surface-variant font-light max-w-3xl mx-auto leading-relaxed">
-                        Brix-Tryon helps fashion brands cut returns, build shopper confidence and get more sales from
-                        every product page.
+                        The facts about the app. We will publish merchant results here once we have real ones to share.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 text-center">
                     <div class="space-y-4">
-                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">+<span data-count="32" data-prefix="" data-suffix="%">0</span></p>
-                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">conversion lift reported by merchants</p>
+                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent"><span data-count="5" data-prefix="" data-suffix="">0</span></p>
+                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">AI Studio workflows for on-model photos</p>
                     </div>
                     <div class="space-y-4">
-                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">-<span data-count="18" data-prefix="" data-suffix="%">0</span></p>
-                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">fewer fit-related returns</p>
+                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent"><span data-count="10" data-prefix="" data-suffix="">0</span></p>
+                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">free try-ons every month</p>
                     </div>
                     <div class="space-y-4">
-                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">&lt;<span data-count="3" data-prefix="" data-suffix="s">0</span></p>
-                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">to create a try-on for a shopper</p>
+                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">&le;<span data-count="90" data-prefix="" data-suffix="s">0</span></p>
+                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">to generate an on-model image (30 to 90 seconds)</p>
                     </div>
                     <div class="space-y-4">
-                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent"><span data-count="5" data-prefix="" data-suffix=" min">0</span></p>
-                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">to install and go live on Shopify</p>
+                        <p class="text-6xl lg:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent"><span data-count="3" data-prefix="" data-suffix="">0</span></p>
+                        <p class="text-lg text-on-surface-variant leading-snug max-w-[16rem] mx-auto">plans: Free, Growth and Pro</p>
                     </div>
                     
                 </div>
@@ -1416,60 +1496,84 @@
         <section id="features" class="screen py-20 bg-background">
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="text-center space-y-3 mb-8">
-                    <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">Core features</p>
-                    <h2 class="editorial-heading text-4xl lg:text-[clamp(2.25rem,5.5vh,3.5rem)] font-800 text-white">Everything you need to turn try-ons into <span class="serif-italic font-normal text-primary-container">sales</span></h2>
+                    <p class="text-xs uppercase tracking-[0.4em] font-800 text-primary-container">Core features</p>
+                    <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">Everything you need to turn try-ons into <span class="serif-italic font-normal text-primary-container">sales</span></h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <div class="glass-card p-5 space-y-3 lift">
-                        <div class="h-20 bg-white/5 flex items-center justify-center gap-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="fc-card group relative overflow-hidden p-7 flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="fc-icon w-11 h-11 flex items-center justify-center rounded-full bg-white text-black"><span class="material-symbols-outlined text-[22px]">tune</span></span>
+                            <span class="text-[11px] font-800 tracking-[0.3em] text-white/30">01</span>
+                        </div>
+                        <p class="text-lg font-800 text-white tracking-tight">Widget Settings with Live Preview</p>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">Button text, colours, radius, size, padding and fonts, set separately for desktop and mobile, with a live preview.</p>
+                        <div class="mt-auto pt-2"><div class="h-20 bg-black/40 border border-white/5 flex items-center justify-center gap-3">
                             <span class="w-6 h-6 rounded-full bg-neutral-300"></span><span class="w-6 h-6 rounded-full bg-neutral-500"></span><span class="w-6 h-6 rounded-full bg-neutral-700 ring-2 ring-white"></span>
-                            <span class="text-[10px] uppercase tracking-widest border border-white/30 px-2 py-1">M · Moss</span>
-                        </div>
-                        <p class="text-sm font-800 text-white">Variant-Aware Try-On</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">Every size and colour renders accurately, with drape, texture and fit that match the real garment.</p>
+                            <span class="text-[10px] uppercase tracking-widest border border-white/30 px-2 py-1">Desktop · Mobile</span>
+                        </div></div>
                     </div>
-                    <div class="glass-card p-5 space-y-3 lift">
-                        <div class="h-20 bg-white/5 flex items-center justify-center gap-3">
+                    <div class="fc-card group relative overflow-hidden p-7 flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="fc-icon w-11 h-11 flex items-center justify-center rounded-full bg-white text-black"><span class="material-symbols-outlined text-[22px]">lock</span></span>
+                            <span class="text-[11px] font-800 tracking-[0.3em] text-white/30">02</span>
+                        </div>
+                        <p class="text-lg font-800 text-white tracking-tight">Privacy by Design</p>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">A consent notice appears before upload, and the modal states the photo is never stored after processing.</p>
+                        <div class="mt-auto pt-2"><div class="h-20 bg-black/40 border border-white/5 flex items-center justify-center gap-3">
                             <span class="material-symbols-outlined text-2xl">lock</span>
-                            <span class="text-[10px] uppercase tracking-widest border border-white/30 px-2 py-1">Photo purged · 0 retained</span>
-                        </div>
-                        <p class="text-sm font-800 text-white">Privacy by Design</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">Photos are processed in isolation and instantly deleted, with a consent screen built in.</p>
+                            <span class="text-[10px] uppercase tracking-widest border border-white/30 px-2 py-1">Photo never stored</span>
+                        </div></div>
                     </div>
-                    <div class="glass-card p-5 space-y-3 lift">
-                        <div class="h-20 bg-white/5 flex items-center justify-center gap-3">
+                    <div class="fc-card group relative overflow-hidden p-7 flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="fc-icon w-11 h-11 flex items-center justify-center rounded-full bg-white text-black"><span class="material-symbols-outlined text-[22px]">grid_view</span></span>
+                            <span class="text-[11px] font-800 tracking-[0.3em] text-white/30">03</span>
+                        </div>
+                        <p class="text-lg font-800 text-white tracking-tight">Collection Page Try-On Icons</p>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">A small try-on icon on product-listing cards, over the image or in the action corner, with your choice of icon, colour and size.</p>
+                        <div class="mt-auto pt-2"><div class="h-20 bg-black/40 border border-white/5 flex items-center justify-center gap-3">
                             <span class="relative w-9 h-9 bg-neutral-600"><span class="absolute -top-1 -right-1 w-4 h-4 bg-white text-black rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[10px]">photo_camera</span></span></span>
                             <span class="relative w-9 h-9 bg-neutral-500"><span class="absolute -top-1 -right-1 w-4 h-4 bg-white text-black rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[10px]">photo_camera</span></span></span>
                             <span class="relative w-9 h-9 bg-neutral-400"><span class="absolute -top-1 -right-1 w-4 h-4 bg-white text-black rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[10px]">photo_camera</span></span></span>
-                        </div>
-                        <p class="text-sm font-800 text-white">Collection Page Try-On Icons</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">Mini try-on icons on collection grids let shoppers start a try-on without opening the product.</p>
+                        </div></div>
                     </div>
-                    <div class="glass-card p-5 space-y-3 lift">
-                        <div class="h-20 bg-white/5 flex items-center justify-center gap-3 text-[10px] uppercase tracking-widest">
-                            <span class="border border-white/30 px-2 py-1">Black</span><span class="material-symbols-outlined text-sm">arrow_forward</span><span class="bg-white text-black px-2 py-1 font-800">img_01</span>
+                    <div class="fc-card group relative overflow-hidden p-7 flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="fc-icon w-11 h-11 flex items-center justify-center rounded-full bg-white text-black"><span class="material-symbols-outlined text-[22px]">toggle_on</span></span>
+                            <span class="text-[11px] font-800 tracking-[0.3em] text-white/30">04</span>
                         </div>
-                        <p class="text-sm font-800 text-white">Variant Image Mapping</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">Map each variant to the right product image so the try-on always shows the colour they picked.</p>
+                        <p class="text-lg font-800 text-white tracking-tight">Product Catalog Controls</p>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">Switch try-on on or off for each collection or product from one screen, with a grid of every try-on enabled product.</p>
+                        <div class="mt-auto pt-2"><div class="h-20 bg-black/40 border border-white/5 flex items-center justify-center gap-3 text-[10px] uppercase tracking-widest">
+                            <span class="border border-white/30 px-2 py-1">Collection</span><span class="material-symbols-outlined text-sm">arrow_forward</span><span class="bg-white text-black px-2 py-1 font-800">Try-on on</span>
+                        </div></div>
                     </div>
-                    <div class="glass-card p-5 space-y-3 lift">
-                        <div class="h-20 bg-white/5 flex items-end justify-center gap-2 pb-3">
+                    <div class="fc-card group relative overflow-hidden p-7 flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="fc-icon w-11 h-11 flex items-center justify-center rounded-full bg-white text-black"><span class="material-symbols-outlined text-[22px]">insights</span></span>
+                            <span class="text-[11px] font-800 tracking-[0.3em] text-white/30">05</span>
+                        </div>
+                        <p class="text-lg font-800 text-white tracking-tight">Analytics Dashboard</p>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">See try-ons, cart rate, purchase rate, revenue and device split, plus the products with the highest try-to-cart conversion.</p>
+                        <div class="mt-auto pt-2"><div class="h-20 bg-black/40 border border-white/5 flex items-end justify-center gap-2 pb-3">
                             <span class="w-3 bg-white/30 h-4"></span><span class="w-3 bg-white/40 h-6"></span><span class="w-3 bg-white/50 h-5"></span><span class="w-3 bg-white/70 h-9"></span><span class="w-3 bg-white h-12"></span>
-                            <span class="text-[10px] font-800 ml-2 self-start pt-2">+32%</span>
-                        </div>
-                        <p class="text-sm font-800 text-white">Analytics Dashboard</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">See which products get tried on, what converts, and how mobile compares with desktop.</p>
+                            <span class="text-[10px] font-800 ml-2 self-start pt-2">Cart rate</span>
+                        </div></div>
                     </div>
-                    <div class="glass-card p-5 space-y-3 lift">
-                        <div class="h-20 bg-white/5 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest">
-                            <span class="border border-white/30 px-2 py-1">EN</span><span class="border border-white/30 px-2 py-1">ES</span><span class="border border-white/30 px-2 py-1">FR</span>
-                            <span class="bg-white text-black px-2 py-1 font-800">Share</span>
+                    <div class="fc-card group relative overflow-hidden p-7 flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="fc-icon w-11 h-11 flex items-center justify-center rounded-full bg-white text-black"><span class="material-symbols-outlined text-[22px]">forum</span></span>
+                            <span class="text-[11px] font-800 tracking-[0.3em] text-white/30">06</span>
                         </div>
-                        <p class="text-sm font-800 text-white">Multi-Language &amp; Sharing</p>
-                        <p class="text-xs text-on-surface-variant leading-relaxed">A widget in your shopper's language, with WhatsApp share so friends can weigh in on the look.</p>
+                        <p class="text-lg font-800 text-white tracking-tight">Lead Capture &amp; WhatsApp Sharing</p>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">Shoppers enter email and phone to unlock their full-size result, and can save the image or share it on WhatsApp so friends can weigh in.</p>
+                        <div class="mt-auto pt-2"><div class="h-20 bg-black/40 border border-white/5 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest">
+                            <span class="border border-white/30 px-2 py-1">Email</span><span class="border border-white/30 px-2 py-1">Phone</span><span class="border border-white/30 px-2 py-1">Save</span>
+                            <span class="bg-white text-black px-2 py-1 font-800">WhatsApp</span>
+                        </div></div>
                     </div>
                 </div>
-                <p class="text-center mt-5"><a href="#pricing" class="text-[11px] uppercase tracking-[0.2em] font-800 text-white hover:text-primary-container transition-colors">Explore all plans &rarr;</a></p>
+                <p class="text-lg text-center mt-5"><a href="#pricing" class="text-[11px] uppercase tracking-[0.2em] font-800 text-white hover:text-primary-container transition-colors">Explore all plans &rarr;</a></p>
             </div>
         </section>
         <!-- AI Studio: scroll-driven story, every feature -->
@@ -1479,8 +1583,8 @@
                     <div class="grid grid-cols-12 gap-gutter items-center">
                         <div class="col-span-12 lg:col-span-5 space-y-5">
                             <div class="space-y-3">
-                                <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">AI Studio &middot; for merchants</p>
-                                <h2 class="editorial-heading text-4xl lg:text-[clamp(2.25rem,5vh,3.25rem)] font-800 text-white">
+                                <p class="text-xs uppercase tracking-[0.4em] font-800 text-primary-container">AI Studio &middot; for merchants</p>
+                                <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">
                                     Every creative your store needs, <span class="serif-italic font-normal text-primary-container">from one photo</span>.
                                 </h2>
                             </div>
@@ -1489,48 +1593,48 @@
                                 <span class="num">01</span>
                                 <span class="flex-1">
                                     <span class="block text-lg font-800 text-white leading-tight">AI Model Generation</span>
-                                    <span class="meta block mt-0.5">~45 sec &middot; 5 steps</span>
-                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Put your garment on a realistic AI model, with fabric, drape and colour kept true.</span>
+                                    <span class="meta block mt-0.5">~45 sec &middot; 6 steps</span>
+                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Generate a realistic product-on-model image from a plain product photo.</span>
                                 </span>
                             </li>
                             <li class="story-step flex gap-4" data-i="1">
                                 <span class="num">02</span>
                                 <span class="flex-1">
                                     <span class="block text-lg font-800 text-white leading-tight">Flat Lay to Model</span>
-                                    <span class="meta block mt-0.5">~60 sec &middot; 5 steps</span>
-                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Turn a flat product photo into an on-model shot, no photoshoot needed.</span>
+                                    <span class="meta block mt-0.5">~60 sec &middot; 7 steps</span>
+                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Convert a flat-lay garment photo into worn-on-model photography, no photoshoot needed.</span>
                                 </span>
                             </li>
                             <li class="story-step flex gap-4" data-i="2">
                                 <span class="num">03</span>
                                 <span class="flex-1">
                                     <span class="block text-lg font-800 text-white leading-tight">Ghost Mannequin to Model</span>
-                                    <span class="meta block mt-0.5">~50 sec &middot; 5 steps</span>
-                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Swap the invisible mannequin for a real model while keeping every detail.</span>
+                                    <span class="meta block mt-0.5">~50 sec &middot; 6 steps</span>
+                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Turn invisible-mannequin photography into realistic model photography.</span>
                                 </span>
                             </li>
                             <li class="story-step flex gap-4" data-i="3">
                                 <span class="num">04</span>
                                 <span class="flex-1">
                                     <span class="block text-lg font-800 text-white leading-tight">Accessories Try-On</span>
-                                    <span class="meta block mt-0.5">~40 sec &middot; 5 steps</span>
-                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Watches, jewellery and bags shown on a model at the right scale.</span>
+                                    <span class="meta block mt-0.5">~40 sec &middot; 7 steps</span>
+                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Place watches, jewellery and bags onto realistic model visuals.</span>
                                 </span>
                             </li>
                             <li class="story-step flex gap-4" data-i="4">
                                 <span class="num">05</span>
                                 <span class="flex-1">
                                     <span class="block text-lg font-800 text-white leading-tight">Marketing Infographic</span>
-                                    <span class="meta block mt-0.5">~90 sec &middot; 4 steps</span>
-                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Feature callouts added to your product shot, ready for ads and product pages.</span>
+                                    <span class="meta block mt-0.5">~90 sec &middot; 5 steps</span>
+                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Turn a saved model photo, or a fresh upload, into a promotional infographic.</span>
                                 </span>
                             </li>
                             <li class="story-step flex gap-4" data-i="5">
                                 <span class="num">06</span>
                                 <span class="flex-1">
-                                    <span class="block text-lg font-800 text-white leading-tight">Asset library & publish</span>
-                                    <span class="meta block mt-0.5">One-click publish</span>
-                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Every result is saved to your library, reusable across products, and published to your store in one click.</span>
+                                    <span class="block text-lg font-800 text-white leading-tight">Asset Library</span>
+                                    <span class="meta block mt-0.5">Search &amp; download</span>
+                                    <span class="story-body block text-sm text-on-surface-variant font-light leading-relaxed mt-1">Every generation and saved model lands in the Asset Library, searchable by type, with View and Download on each item.</span>
                                 </span>
                             </li>
                             
@@ -1538,7 +1642,7 @@
                             <div class="h-px bg-white/10 relative"><div id="story-bar" class="absolute inset-y-0 left-0 bg-white" style="width:0%"></div></div>
                         </div>
                         <div class="col-span-12 lg:col-span-7">
-                            <div id="story-stage" data-step="0" class="stage-grid glass-card relative h-[28rem] lg:h-[64vh] overflow-hidden">
+                            <div id="story-stage" data-step="0" class="stage-grid glass-card relative h-[33rem] sm:h-[30rem] lg:h-[64vh] overflow-hidden">
                                 <div class="absolute top-3 left-4 right-4 z-10 flex items-center justify-between text-[10px] uppercase tracking-[0.25em] font-800 text-white/70">
                                     <span class="flex items-center gap-2"><span class="material-symbols-outlined text-base">auto_awesome</span><span id="st-title">AI Model Generation</span></span>
                                     <span><span id="st-meta">~45 sec &middot; 5 steps</span> &middot; <span id="story-n">1</span> / 6</span>
@@ -1549,23 +1653,23 @@
                                     <div class="w-full space-y-5">
                                         <div class="grid grid-cols-[1fr_auto_1fr] gap-6 items-center">
                                             <div class="flex flex-col items-end gap-2">
-                                                <p class="text-[10px] uppercase tracking-[0.25em] font-800 text-white/60">Your product photo</p>
-                                                <img id="wf-in" src="assets/look-w2-garment.jpg" alt="Original product photo" class="h-[34vh] max-h-80 aspect-[3/4] object-cover opacity-80" />
+                                                <p class="text-xs uppercase tracking-[0.25em] font-800 text-white/60">Your product photo</p>
+                                                <img id="wf-in" src="assets/look-w2-garment.jpg" alt="Original product photo" class="w-full max-w-[7.5rem] sm:max-w-[11rem] lg:max-w-none lg:w-auto h-auto lg:h-[34vh] max-h-80 aspect-[3/4] object-cover opacity-80" />
                                             </div>
                                             <div class="flex flex-col items-center gap-2">
                                                 <span class="material-symbols-outlined text-4xl text-primary-container">arrow_forward</span>
                                                 <span id="gen-pct" class="text-xl font-800 text-white">0%</span>
                                             </div>
                                             <div class="flex flex-col items-start gap-2">
-                                                <p class="text-[10px] uppercase tracking-[0.25em] font-800 text-white/60">AI Studio result</p>
-                                                <div class="relative h-[34vh] max-h-80 aspect-[3/4] overflow-hidden bg-neutral-800">
+                                                <p class="text-xs uppercase tracking-[0.25em] font-800 text-white/60">AI Studio result</p>
+                                                <div class="relative w-full max-w-[7.5rem] sm:max-w-[11rem] lg:max-w-none lg:w-auto h-auto lg:h-[34vh] max-h-80 aspect-[3/4] overflow-hidden bg-neutral-800">
                                                     <img id="wf-base" src="assets/look-w2-garment.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30" />
                                                     <img id="wf-out" src="assets/studio-dress-model.jpg" alt="AI Studio result" class="absolute inset-0 w-full h-full object-cover" style="clip-path:inset(0 100% 0 0)" />
                                                     <span id="gen-scan" class="gen-scan" style="left:0"></span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="grid grid-cols-3 gap-3">
+                                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                                             <div class="feat-chip border border-white/20 bg-white/5 px-3 py-2.5 text-xs font-700 text-white flex items-start gap-2"><span class="material-symbols-outlined text-base shrink-0">check_circle</span><span data-f="0"></span></div>
                                             <div class="feat-chip border border-white/20 bg-white/5 px-3 py-2.5 text-xs font-700 text-white flex items-start gap-2"><span class="material-symbols-outlined text-base shrink-0">check_circle</span><span data-f="1"></span></div>
                                             <div class="feat-chip border border-white/20 bg-white/5 px-3 py-2.5 text-xs font-700 text-white flex items-start gap-2"><span class="material-symbols-outlined text-base shrink-0">check_circle</span><span data-f="2"></span></div>
@@ -1577,10 +1681,10 @@
                                 <div class="stage-layer Llib">
                                     <div class="w-full space-y-4">
                                         <div class="flex items-center justify-between">
-                                            <p class="text-base font-800 text-white">Asset library <span class="text-white/50 font-light">&middot; 5 creatives saved</span></p>
-                                            <span class="bg-white text-black text-[10px] font-800 uppercase tracking-widest px-3 py-1.5">Publish to store</span>
+                                            <p class="text-lg font-800 text-white">Asset Library <span class="text-white/50 font-light">&middot; 5 creatives saved</span></p>
+                                            <span class="bg-white text-black text-[10px] font-800 uppercase tracking-widest px-3 py-1.5">Download</span>
                                         </div>
-                                        <div id="lib-grid" class="grid grid-cols-5 gap-3">
+                                        <div id="lib-grid" class="grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3">
                                             <div class="lib-tile relative aspect-[3/4] overflow-hidden bg-neutral-800"><img src="assets/studio-dress-model.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" /><span class="absolute bottom-0 inset-x-0 bg-black/65 text-[9px] uppercase tracking-widest font-800 text-white px-2 py-1 leading-tight">AI Model Generation</span></div>
 <div class="lib-tile relative aspect-[3/4] overflow-hidden bg-neutral-800"><img src="assets/studio-flat-model.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" /><span class="absolute bottom-0 inset-x-0 bg-black/65 text-[9px] uppercase tracking-widest font-800 text-white px-2 py-1 leading-tight">Flat Lay to Model</span></div>
 <div class="lib-tile relative aspect-[3/4] overflow-hidden bg-neutral-800"><img src="assets/studio-ghost-model.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" /><span class="absolute bottom-0 inset-x-0 bg-black/65 text-[9px] uppercase tracking-widest font-800 text-white px-2 py-1 leading-tight">Ghost Mannequin to Model</span></div>
@@ -1591,9 +1695,9 @@
                                         <div class="flex items-center justify-between gap-4 flex-wrap">
                                             
                                             <div class="flex flex-wrap gap-2 text-[11px] font-700 text-white">
-                                                <span class="lib-tile border border-white/25 px-3 py-1.5">Product page</span>
-                                                <span class="lib-tile border border-white/25 px-3 py-1.5">Instagram</span>
-                                                <span class="lib-tile border border-white/25 px-3 py-1.5">Ad banner</span>
+                                                <span class="lib-tile border border-white/25 px-3 py-1.5">Search</span>
+                                                <span class="lib-tile border border-white/25 px-3 py-1.5">Filter</span>
+                                                <span class="lib-tile border border-white/25 px-3 py-1.5">Download</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1605,48 +1709,34 @@
             </div>
         </section>
         <!-- The Journey: three steps in one row -->
-        <section id="journey" class="screen py-20 bg-background">
+        <section id="journey" class="screen py-20 bg-white text-neutral-900">
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
-                <div class="text-center mb-10 space-y-4">
-                    <h2 class="editorial-heading text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-800 text-white">The Journey</h2>
-                    <div class="w-24 h-[1px] bg-primary-container mx-auto"></div>
+                <div class="text-center mb-14 space-y-3">
+                    <p class="text-xs uppercase tracking-[0.4em] font-800 text-neutral-500">Simple by design</p>
+                    <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-neutral-900">How virtual try-on <span class="serif-italic font-normal">works</span></h2>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="space-y-5 group">
-                        <div class="relative bg-white/5 border border-white/10 h-48 lg:h-[26vh] flex flex-col items-center justify-center text-center group-hover:border-primary-container/50 transition-colors">
-                            <span class="material-symbols-outlined text-5xl text-primary-container/40 mb-4 group-hover:text-primary-container transition-colors">upload_file</span>
-                            <p class="text-xs uppercase tracking-[0.2em] font-800 text-white">Capture the Silhouette</p>
-                            <div class="absolute top-2 left-4 text-4xl font-800 text-primary-container/20">01</div>
-                        </div>
-                        <p class="text-base text-on-surface-variant font-light leading-relaxed">
-                            Customers upload a single high-resolution portrait. Our AI instantly normalizes lighting
-                            and body geometry.
-                        </p>
+                <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="hidden lg:block absolute top-7 left-[16%] right-[16%] border-t border-dashed border-neutral-300"></div>
+                    <div class="jr-card relative bg-neutral-50 border border-neutral-200 rounded-3xl p-8 pt-12 text-center space-y-5">
+                        <span class="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-neutral-900 text-white flex items-center justify-center text-lg font-800 ring-8 ring-white">1</span>
+                        <div class="mx-auto w-20 h-20 rounded-2xl bg-white border border-neutral-200 flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-4xl text-neutral-900">upload_file</span></div>
+                        <h3 class="text-2xl font-800 tracking-tight">Shopper uploads a photo</h3>
+                        <p class="text-lg text-neutral-600 leading-relaxed">On the product page, shoppers click Try On This Look, accept the privacy notice and upload or photograph themselves. No account or install needed.</p>
                     </div>
-                    <div class="space-y-5 group">
-                        <div class="relative bg-white/5 border border-white/10 h-48 lg:h-[26vh] p-3 group-hover:border-primary-container/50 transition-colors">
-                            <img class="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiAQeLSzR_KPktsRRtnkEPvtSD6NsxCPBtOXwdxbjwg8MufSuzFK1NblR5TOvodoC6I6b43a_QpGVj5XZsad2L5sYCoSlDO03H78f7aDRbxEjJU4kmg6o33-m2fJy6tdMwLUXhlqQyWdNTYn0Tvs_TxR-1SFBkbWwrnftZPYQGjbcBKGF3eYgmhDA-A7HumOG9WTMihgQoKrmnryn-dQblID4BVsxM5oRaV8a_L37xJ1kyWiG3yr1RG-tvonC4pif0SVGdN5tdACY" />
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="glass-card px-5 py-2 text-[10px] uppercase tracking-widest text-primary-container font-800 border-primary-container">Processing Neural Fit</div>
-                            </div>
-                            <div class="absolute top-2 left-4 text-4xl font-800 text-white/30">02</div>
+                    <div class="jr-card relative bg-neutral-50 border border-neutral-200 rounded-3xl p-8 pt-12 text-center space-y-5">
+                        <span class="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-neutral-900 text-white flex items-center justify-center text-lg font-800 ring-8 ring-white">2</span>
+                        <div class="relative mx-auto w-full max-w-[16rem] h-20 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm">
+                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiAQeLSzR_KPktsRRtnkEPvtSD6NsxCPBtOXwdxbjwg8MufSuzFK1NblR5TOvodoC6I6b43a_QpGVj5XZsad2L5sYCoSlDO03H78f7aDRbxEjJU4kmg6o33-m2fJy6tdMwLUXhlqQyWdNTYn0Tvs_TxR-1SFBkbWwrnftZPYQGjbcBKGF3eYgmhDA-A7HumOG9WTMihgQoKrmnryn-dQblID4BVsxM5oRaV8a_L37xJ1kyWiG3yr1RG-tvonC4pif0SVGdN5tdACY" alt="" />
+                            <span class="absolute inset-0 flex items-center justify-center"><span class="bg-white/90 text-neutral-900 text-[10px] uppercase tracking-widest font-800 px-3 py-1.5 rounded-full">Creating the try-on</span></span>
                         </div>
-                        <p class="text-base text-on-surface-variant font-light leading-relaxed">
-                            Proprietary generative engines render the garment onto the user, maintaining fabric
-                            fidelity and brand-accurate sizing.
-                        </p>
+                        <h3 class="text-2xl font-800 tracking-tight">AI creates the look</h3>
+                        <p class="text-lg text-neutral-600 leading-relaxed">Brix-Tryon generates a photo of the shopper wearing the product and shows it with a decision countdown.</p>
                     </div>
-                    <div class="space-y-5 group">
-                        <div class="relative bg-white/5 border border-white/10 h-48 lg:h-[26vh] flex flex-col items-center justify-center text-center group-hover:border-primary-container/50 transition-colors">
-                            <span class="material-symbols-outlined text-5xl text-primary-container mb-3 group-hover:scale-110 transition-transform">shopping_bag</span>
-                            <h4 class="text-2xl font-800 text-white italic serif-italic">"Seamless Conversion"</h4>
-                            <div class="absolute top-2 left-4 text-4xl font-800 text-primary-container/20">03</div>
-                        </div>
-                        <p class="text-base text-on-surface-variant font-light leading-relaxed">
-                            Confidence confirmed. With visual doubt removed, the purchase becomes an intuitive next
-                            step in the shopping experience.
-                        </p>
+                    <div class="jr-card relative bg-neutral-50 border border-neutral-200 rounded-3xl p-8 pt-12 text-center space-y-5">
+                        <span class="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-neutral-900 text-white flex items-center justify-center text-lg font-800 ring-8 ring-white">3</span>
+                        <div class="mx-auto w-20 h-20 rounded-2xl bg-white border border-neutral-200 flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-4xl text-neutral-900">shopping_bag</span></div>
+                        <h3 class="text-2xl font-800 tracking-tight serif-italic">Add to cart or buy now</h3>
+                        <p class="text-lg text-neutral-600 leading-relaxed">An email and phone number unlock the full-size result and become a captured lead. Shoppers can add to cart, buy now, save the image or share it on WhatsApp.</p>
                     </div>
                 </div>
             </div>
@@ -1657,15 +1747,15 @@
                 <div class="grid grid-cols-12 gap-gutter items-center">
                     <div class="col-span-12 lg:col-span-5 space-y-5">
                         <p class="text-xs uppercase tracking-[0.4em] font-800 text-primary-container">Try it free</p>
-                        <h2 class="editorial-heading text-4xl lg:text-[clamp(2.25rem,5.5vh,3.5rem)] font-800 text-white">
+                        <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">
                             Try it on. <span class="serif-italic font-normal text-primary-container">For real.</span>
                         </h2>
                         <p class="text-lg text-on-surface-variant font-light leading-relaxed">
-                            Pick a piece, upload a photo of yourself and see it on you in seconds. No sign-up. Every
-                            visitor gets one free try.
+                            Pick a piece, upload a photo of yourself and see it on you in under a minute. No sign-up.
+                            Every visitor gets one free try.
                         </p>
                         <div>
-                            <p class="text-[11px] uppercase tracking-[0.25em] font-800 text-white/60 mb-3">1 &middot; Choose a piece</p>
+                            <p class="text-xs uppercase tracking-[0.25em] font-800 text-white/60 mb-3">1 &middot; Choose a piece</p>
                             <div class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-6 gap-2.5" id="tf-thumbs">
                                 <button type="button" class="tf-thumb tf-sel text-left" data-g="dress" data-name="Sage Floral Wrap Dress" data-src="assets/look-w2-garment.jpg" aria-pressed="true">
                                 <span class="block aspect-[3/4] overflow-hidden bg-neutral-800"><img src="assets/look-w2-garment.jpg" alt="Sage Floral Wrap Dress" class="w-full h-full object-cover" loading="lazy" /></span>
@@ -1694,7 +1784,7 @@
                             
                             </div>
                         </div>
-                        <p id="tf-badge" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-widest font-800 border border-white/25 px-3 py-1.5"><span class="material-symbols-outlined text-base">redeem</span><span id="tf-badge-text">1 free try available</span></p>
+                        <p id="tf-badge" class="text-xs inline-flex items-center gap-2 uppercase tracking-widest font-800 border border-white/25 px-3 py-1.5"><span class="material-symbols-outlined text-base">redeem</span><span id="tf-badge-text">1 free try available</span></p>
                     </div>
 
                     <div class="col-span-12 lg:col-span-7">
@@ -1702,7 +1792,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <!-- photo -->
                                 <div class="space-y-2">
-                                    <p class="text-[11px] uppercase tracking-[0.25em] font-800 text-white/60">2 &middot; Your photo</p>
+                                    <p class="text-xs uppercase tracking-[0.25em] font-800 text-white/60">2 &middot; Your photo</p>
                                     <label id="tf-drop" for="tf-file" class="relative block aspect-[3/4] max-h-[46vh] w-full overflow-hidden border-2 border-dashed border-white/30 bg-neutral-900 cursor-pointer text-center">
                                         <img id="tf-preview" alt="Your photo" class="absolute inset-0 w-full h-full object-contain bg-neutral-900 hidden" />
                                         <span id="tf-drop-hint" class="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-white/70">
@@ -1716,14 +1806,14 @@
                                 </div>
                                 <!-- result -->
                                 <div class="space-y-2">
-                                    <p class="text-[11px] uppercase tracking-[0.25em] font-800 text-white/60">3 &middot; Your try-on</p>
+                                    <p class="text-xs uppercase tracking-[0.25em] font-800 text-white/60">3 &middot; Your try-on</p>
                                     <div class="relative aspect-[3/4] max-h-[46vh] w-full overflow-hidden bg-neutral-900 border border-white/15">
                                         <img id="tf-garment" src="assets/look-w2-garment.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30" />
                                         <img id="tf-result" alt="Your try-on result" class="absolute inset-0 w-full h-full object-contain bg-neutral-900 hidden" />
                                         <div id="tf-status" class="absolute inset-0 flex flex-col items-center justify-center gap-2 px-5 text-center">
                                             <span id="tf-status-icon" class="material-symbols-outlined text-4xl text-white">auto_awesome</span>
-                                            <p id="tf-status-text" class="text-sm font-700 text-white">Your result appears here</p>
-                                            <p id="tf-status-sub" class="text-[11px] text-white/60"></p>
+                                            <p id="tf-status-text" class="text-lg font-700 text-white">Your result appears here</p>
+                                            <p id="tf-status-sub" class="text-lg text-white/60"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1734,7 +1824,7 @@
                                 </button>
                                 <a id="tf-download" class="hidden border border-white/40 text-white text-[11px] uppercase tracking-[0.2em] font-800 px-5 py-3.5 flex items-center gap-2" download="brix-tryon.png"><span class="material-symbols-outlined text-base">download</span>Save image</a>
                                 <button id="tf-cta" type="button" class="cta-button hidden border border-white/40 text-white text-[11px] uppercase tracking-[0.2em] font-800 px-5 py-3.5">Get this on your store</button>
-                                <p id="tf-msg" class="text-xs text-white/60 flex-1 min-w-[10rem]">Your photo is used once to create the try-on and is not stored.</p>
+                                <p id="tf-msg" class="text-lg text-white/60 flex-1 min-w-[10rem]">Your photo is used once to create the try-on and is not stored.</p>
                             </div>
                         </div>
                     </div>
@@ -1751,32 +1841,32 @@
                                 <span class="flex gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-white/25"></span><span class="w-2.5 h-2.5 rounded-full bg-white/25"></span><span class="w-2.5 h-2.5 rounded-full bg-white/25"></span></span>
                                 <span class="text-[10px] uppercase tracking-[0.2em] font-800 text-white/70">Shopify theme editor &middot; Product page</span>
                             </div>
-                            <div class="grid grid-cols-[11rem_1fr] min-h-[19rem]">
+                            <div class="grid grid-cols-1 sm:grid-cols-[11rem_1fr] min-h-[19rem]">
                                 <!-- blocks -->
                                 <div class="border-r border-white/10 p-3 space-y-1.5 text-[11px] font-700">
-                                    <p class="text-[9px] uppercase tracking-[0.25em] text-white/40 pb-1">Product information</p>
-                                    <p class="px-2 py-1.5 bg-white/5">Title</p>
-                                    <p class="px-2 py-1.5 bg-white/5">Price</p>
-                                    <p class="px-2 py-1.5 bg-white/5">Buy buttons</p>
-                                    <p class="ib-block px-2 py-1.5 bg-white text-black flex items-center justify-between"><span>Brix-Tryon</span><span class="material-symbols-outlined text-sm">add_circle</span></p>
-                                    <p class="ib-added text-[10px] text-white/70 pt-1 flex items-center gap-1"><span class="material-symbols-outlined text-sm">check_circle</span>App block added</p>
+                                    <p class="text-xs uppercase tracking-[0.25em] text-white/40 pb-1">Product information</p>
+                                    <p class="text-lg px-2 py-1.5 bg-white/5">Title</p>
+                                    <p class="text-lg px-2 py-1.5 bg-white/5">Price</p>
+                                    <p class="text-lg px-2 py-1.5 bg-white/5">Buy buttons</p>
+                                    <p class="text-lg ib-block px-2 py-1.5 bg-white text-black flex items-center justify-between"><span>Brix-Tryon</span><span class="material-symbols-outlined text-sm">add_circle</span></p>
+                                    <p class="text-lg ib-added text-white/70 pt-1 flex items-center gap-1"><span class="material-symbols-outlined text-sm">check_circle</span>App block added</p>
                                 </div>
                                 <!-- preview -->
                                 <div class="p-4 grid grid-cols-[auto_1fr] gap-4 items-start">
                                     <img src="assets/look-w2-result.jpg" alt="Product page preview" class="h-56 aspect-[3/4] object-cover" loading="lazy" />
                                     <div class="space-y-2.5">
-                                        <p class="text-sm font-800 text-white">Sage Floral Wrap Dress</p>
-                                        <p class="text-xs text-white/60">$79.00</p>
+                                        <p class="text-lg font-800 text-white">Sage Floral Wrap Dress</p>
+                                        <p class="text-lg text-white/60">$79.00</p>
                                         <div class="flex gap-1.5 text-[10px]"><span class="border border-white/25 px-2 py-1">S</span><span class="bg-white text-black px-2 py-1 font-800">M</span><span class="border border-white/25 px-2 py-1">L</span></div>
-                                        <p class="border border-white/40 text-center text-[10px] uppercase tracking-widest py-2">Add to cart</p>
-                                        <p class="ib-btn bg-white text-black text-center text-[10px] uppercase tracking-widest font-800 py-2 flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-sm">photo_camera</span>Try it on</p>
+                                        <p class="text-xs border border-white/40 text-center uppercase tracking-widest py-2">Add to cart</p>
+                                        <p class="text-xs ib-btn bg-white text-black text-center uppercase tracking-widest font-800 py-2 flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-sm">photo_camera</span>Try it on</p>
                                     </div>
                                 </div>
                             </div>
                             <ol class="grid grid-cols-4 border-t border-white/10 text-[10px] uppercase tracking-widest font-800">
                                 <li class="ib-s ib-s1 px-3 py-2.5 flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">check_circle</span>Install</li>
                                 <li class="ib-s ib-s2 px-3 py-2.5 flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">check_circle</span>Add block</li>
-                                <li class="ib-s ib-s3 px-3 py-2.5 flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">check_circle</span>Map variants</li>
+                                <li class="ib-s ib-s3 px-3 py-2.5 flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">check_circle</span>Enable try-on</li>
                                 <li class="ib-s ib-s4 px-3 py-2.5 flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">check_circle</span>Go live</li>
                             </ol>
                         </div>
@@ -1786,11 +1876,11 @@
                             NATIVE</div>
                     </div>
                     <div class="col-span-12 lg:col-span-4 lg:col-start-9 space-y-5">
-                        <h2 class="editorial-heading text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-800 text-white">Refined <br /> <span
-                                class="serif-italic font-normal text-primary-container">Ecosystem</span></h2>
+                        <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">Built for <br /> <span
+                                class="serif-italic font-normal text-primary-container">Shopify</span></h2>
                         <p class="text-lg text-on-surface-variant font-light leading-relaxed">
-                            The Brix-Tryon isn't an add-on; it's a native extension of your digital storefront. Zero
-                            code, zero friction, infinite possibilities.
+                            Brix-Tryon is a Shopify app that adds a Try On This Look button to your product page.
+                            Add the app block in your theme editor, then enable try-on by collection or product.
                         </p>
                         <div class="space-y-3">
                             <div class="flex items-center gap-6 group cursor-default">
@@ -1799,8 +1889,7 @@
                                     <span
                                         class="material-symbols-outlined text-[12px] text-primary-container group-hover:text-background font-800">done</span>
                                 </div>
-                                <span class="text-sm tracking-widest uppercase font-700 text-on-surface/80">Shopify 2.0
-                                    Native Architecture</span>
+                                <span class="text-sm tracking-widest uppercase font-700 text-on-surface/80">Embedded on the product page</span>
                             </div>
                             <div class="flex items-center gap-6 group cursor-default">
                                 <div
@@ -1808,15 +1897,14 @@
                                     <span
                                         class="material-symbols-outlined text-[12px] text-primary-container group-hover:text-background font-800">done</span>
                                 </div>
-                                <span class="text-sm tracking-widest uppercase font-700 text-on-surface/80">Automated
-                                    SKU Syncing</span>
+                                <span class="text-sm tracking-widest uppercase font-700 text-on-surface/80">Enable by collection or product</span>
                             </div>
                         </div>
                         <div class="pt-1">
                             <div class="inline-block border-l-4 border-primary-container px-6 py-2 bg-white/5">
-                                <p class="text-[10px] uppercase tracking-[0.2em] font-800 text-primary-container">Pro
-                                    Intelligence</p>
-                                <p class="text-xs text-white/100">Unlimited SKU Mapping Included</p>
+                                <p class="text-xs uppercase tracking-[0.2em] font-800 text-primary-container">Product
+                                    catalog</p>
+                                <p class="text-lg text-white/100">One screen for every try-on enabled product</p>
                             </div>
                         </div>
                     </div>
@@ -1829,25 +1917,25 @@
                 <div class="grid grid-cols-12 gap-gutter items-center">
                     <div class="col-span-12 lg:col-span-5 space-y-5">
                         <p class="text-xs uppercase tracking-[0.4em] font-800 text-primary-container">Analytics</p>
-                        <h2 class="editorial-heading text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-800 text-white">
-                            See every try-on <span class="serif-italic font-normal text-primary-container">as it happens</span>.
+                        <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">
+                            See how try-on affects <span class="serif-italic font-normal text-primary-container">cart and purchases</span>.
                         </h2>
                         <p class="text-lg text-on-surface-variant font-light leading-relaxed">
-                            Your dashboard shows which products shoppers try on, which ones end up in the cart, and how
-                            it changes your numbers, all in real time.
+                            Your Analytics page shows try-ons initiated, cart rate, purchase rate and revenue versus
+                            the previous period, plus device split, top-performing fits and captured leads.
                         </p>
                         <div class="grid grid-cols-3 gap-3 pt-2">
                             <div class="border border-white/15 bg-white/5 p-3">
-                                <p class="text-2xl font-extrabold tracking-tight text-white" id="kpi-today">1,284</p>
-                                <p class="text-[10px] uppercase tracking-widest text-white/60 mt-1">Try-ons today</p>
+                                <p class="text-lg font-extrabold tracking-tight text-white" id="kpi-today">1,299</p>
+                                <p class="text-xs uppercase tracking-widest text-white/60 mt-1">Sample try-ons</p>
                             </div>
                             <div class="border border-white/15 bg-white/5 p-3">
-                                <p class="text-2xl font-extrabold tracking-tight text-white" id="kpi-cart">18.4%</p>
-                                <p class="text-[10px] uppercase tracking-widest text-white/60 mt-1">Add to cart</p>
+                                <p class="text-lg font-extrabold tracking-tight text-white" id="kpi-cart">19.3%</p>
+                                <p class="text-xs uppercase tracking-widest text-white/60 mt-1">Sample cart rate</p>
                             </div>
                             <div class="border border-white/15 bg-white/5 p-3">
-                                <p class="text-2xl font-extrabold tracking-tight text-white">2.4s</p>
-                                <p class="text-[10px] uppercase tracking-widest text-white/60 mt-1">Avg render</p>
+                                <p class="text-lg font-extrabold tracking-tight text-white">10</p>
+                                <p class="text-xs uppercase tracking-widest text-white/60 mt-1">Free try-ons a month</p>
                             </div>
                         </div>
                     </div>
@@ -1855,12 +1943,12 @@
                     <div class="col-span-12 lg:col-span-7">
                         <div class="glass-card overflow-hidden">
                             <div class="flex items-center justify-between px-5 py-3 border-b border-white/10">
-                                <p class="text-xs uppercase tracking-[0.25em] font-800 text-white flex items-center gap-2"><span class="relative flex w-2 h-2"><span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-70 animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-white"></span></span>Live try-ons</p>
-                                <p class="text-[10px] uppercase tracking-widest text-white/50">Updates in real time</p>
+                                <p class="text-xs uppercase tracking-[0.25em] font-800 text-white flex items-center gap-2"><span class="relative flex w-2 h-2"><span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-70 animate-ping"></span><span class="relative inline-flex w-2 h-2 rounded-full bg-white"></span></span>Sample feed</p>
+                                <p class="text-xs uppercase tracking-widest text-white/50">Simulated demo data</p>
                             </div>
                             <ul id="live-feed" class="divide-y divide-white/10 h-[19.5rem] overflow-hidden"></ul>
                             <div class="border-t border-white/10 px-5 pt-3 pb-4">
-                                <p class="text-[10px] uppercase tracking-widest text-white/50 mb-2">Try-ons per minute</p>
+                                <p class="text-xs uppercase tracking-widest text-white/50 mb-2">Try-ons over time (sample)</p>
                                 <svg id="live-chart" viewBox="0 0 400 60" preserveAspectRatio="none" class="w-full h-14">
                                     <polygon id="live-area" fill="rgba(255,255,255,0.10)" points="" />
                                     <polyline id="live-line" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" points="" />
@@ -1872,9 +1960,9 @@
             </div>
         </section>
         <!-- Product DNA Comparison: Minimalist Line Art -->
-        <section class="screen py-20">
+        <section id="dna" class="screen py-20">
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
-                <h2 class="text-center editorial-heading text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-800 text-white mb-8">The Product <span
+                <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] text-center editorial-heading font-800 text-white mb-8">The Product <span
                         class="serif-italic font-normal text-primary-container">DNA</span></h2>
                 <div class="grid grid-cols-12 border-t border-white/10">
                     <!-- Feature Rows -->
@@ -1884,7 +1972,7 @@
                             Variant Mapping</div>
                         <div class="col-span-4 text-center font-800 text-primary-container text-sm">Automated Neural
                             Sync</div>
-                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">Manual
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light ">Manual
                             Correlation</div>
                     </div>
                     <div class="col-span-12 py-6 border-b border-white/10 grid grid-cols-12 items-center group">
@@ -1893,7 +1981,7 @@
                             Digital Sharing</div>
                         <div class="col-span-4 text-center font-800 text-primary-container text-sm">Direct Social Tunnel
                         </div>
-                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">Static File
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light ">Static File
                             Export</div>
                     </div>
                     <div class="col-span-12 py-6 border-b border-white/10 grid grid-cols-12 items-center group">
@@ -1902,7 +1990,7 @@
                             Processing Latency</div>
                         <div class="col-span-4 text-center font-800 text-primary-container text-sm">&lt; 3.0 Seconds
                         </div>
-                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">8.0 — 12.0
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light ">8.0 — 12.0
                             Seconds</div>
                     </div>
                     <div class="col-span-12 py-6 border-b border-white/10 grid grid-cols-12 items-center group">
@@ -1911,7 +1999,7 @@
                             UI Integration</div>
                         <div class="col-span-4 text-center font-800 text-primary-container text-sm">100% Brand DNA Match
                         </div>
-                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light italic">Branded
+                        <div class="col-span-4 text-right text-sm text-on-surface/80 font-light ">Branded
                             Watermarks</div>
                     </div>
                 </div>
@@ -1922,7 +2010,7 @@
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="text-center space-y-3 mb-8">
                     <p class="text-xs uppercase tracking-[0.4em] font-800 text-primary-container">What merchants say</p>
-                    <h2 class="text-4xl lg:text-[clamp(2.25rem,5.5vh,3.5rem)] font-extrabold text-white tracking-tight">Loved by fashion brands</h2>
+                    <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-extrabold text-white tracking-tight">Loved by fashion brands</h2>
                 </div>
             </div>
             <div class="wave-mask relative w-full">
@@ -2106,10 +2194,10 @@
                     <div class="col-span-12 lg:col-span-5 glass-card p-8 flex flex-col justify-between space-y-6 lift">
                         <div class="space-y-4">
                             <div class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container">Case study</div>
-                            <h2 class="editorial-heading text-3xl lg:text-[clamp(2rem,4.5vh,3rem)] font-800 text-white">
+                            <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">
                                 How VogueFit cut returns by <span class="serif-italic font-normal text-primary-container">18%</span>
                             </h2>
-                            <p class="text-base text-on-surface-variant font-light leading-relaxed">
+                            <p class="text-lg text-on-surface-variant font-light leading-relaxed">
                                 By adding variant-aware virtual try-on to every product page, a fast-growing fashion
                                 brand gave shoppers the confidence to buy the right size the first time.
                             </p>
@@ -2126,10 +2214,10 @@
                                 <span class="material-symbols-outlined absolute bottom-3 right-3 text-4xl text-white/80">local_mall</span>
                             </div>
                             <div class="p-5 flex flex-col gap-2 flex-1">
-                                <p class="text-sm font-800 text-white leading-snug">Reduce fashion returns with virtual try-on</p>
-                                <p class="text-xs text-on-surface-variant leading-relaxed flex-1">How showing the fit before purchase lowers size-related returns, and where to place the widget.</p>
-                                <p class="text-[10px] text-on-surface/60">Oct 8, 2026 · 7 min read</p>
-                                <p class="text-[11px] font-800 text-white">Read article &rarr;</p>
+                                <p class="text-lg font-800 text-white leading-snug">Reduce fashion returns with virtual try-on</p>
+                                <p class="text-lg text-on-surface-variant leading-relaxed flex-1">How showing the fit before purchase lowers size-related returns, and where to place the widget.</p>
+                                <p class="text-lg text-on-surface/60">Oct 8, 2026 · 7 min read</p>
+                                <p class="text-lg font-800 text-white">Read article &rarr;</p>
                             </div>
                         </a>
 <a href="#" class="glass-card flex flex-col overflow-hidden lift">
@@ -2138,10 +2226,10 @@
                                 <span class="material-symbols-outlined absolute bottom-3 right-3 text-4xl text-white/80">tune</span>
                             </div>
                             <div class="p-5 flex flex-col gap-2 flex-1">
-                                <p class="text-sm font-800 text-white leading-snug">Mapping variant images for accurate try-ons</p>
-                                <p class="text-xs text-on-surface-variant leading-relaxed flex-1">A step-by-step guide to pairing every colour and size with the right product image.</p>
-                                <p class="text-[10px] text-on-surface/60">Oct 6, 2026 · 8 min read</p>
-                                <p class="text-[11px] font-800 text-white">Read article &rarr;</p>
+                                <p class="text-lg font-800 text-white leading-snug">Mapping variant images for accurate try-ons</p>
+                                <p class="text-lg text-on-surface-variant leading-relaxed flex-1">A step-by-step guide to pairing every colour and size with the right product image.</p>
+                                <p class="text-lg text-on-surface/60">Oct 6, 2026 · 8 min read</p>
+                                <p class="text-lg font-800 text-white">Read article &rarr;</p>
                             </div>
                         </a>
 <a href="#" class="glass-card flex flex-col overflow-hidden lift">
@@ -2150,14 +2238,14 @@
                                 <span class="material-symbols-outlined absolute bottom-3 right-3 text-4xl text-white/80">insights</span>
                             </div>
                             <div class="p-5 flex flex-col gap-2 flex-1">
-                                <p class="text-sm font-800 text-white leading-snug">Try-on analytics: what to track first</p>
-                                <p class="text-xs text-on-surface-variant leading-relaxed flex-1">Which try-on signals predict add-to-cart, and how to read them on your dashboard.</p>
-                                <p class="text-[10px] text-on-surface/60">Oct 4, 2026 · 6 min read</p>
-                                <p class="text-[11px] font-800 text-white">Read article &rarr;</p>
+                                <p class="text-lg font-800 text-white leading-snug">Try-on analytics: what to track first</p>
+                                <p class="text-lg text-on-surface-variant leading-relaxed flex-1">Which try-on signals predict add-to-cart, and how to read them on your dashboard.</p>
+                                <p class="text-lg text-on-surface/60">Oct 4, 2026 · 6 min read</p>
+                                <p class="text-lg font-800 text-white">Read article &rarr;</p>
                             </div>
                         </a>
 </div>
-                        <p class="text-center"><a href="#" class="inline-block text-[11px] uppercase tracking-[0.2em] font-800 border border-white/25 px-6 py-3 hover:bg-white hover:text-black transition-all">View all articles &rarr;</a></p>
+                        <p class="text-lg text-center"><a href="#" class="inline-block text-[11px] uppercase tracking-[0.2em] font-800 border border-white/25 px-6 py-3 hover:bg-white hover:text-black transition-all">View all articles &rarr;</a></p>
                     </div>
                 </div>
             </div>
@@ -2173,10 +2261,10 @@
                         <span class="text-[10px] uppercase tracking-[0.4em] font-800">Pricing</span>
                         <div class="h-[1px] w-12 bg-primary-container"></div>
                     </div>
-                    <h2 class="editorial-heading text-4xl lg:text-[clamp(2.25rem,5.5vh,3.5rem)] font-800 text-white">
+                    <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">
                         Choose Your <span class="serif-italic font-normal text-primary-container">Plan</span>
                     </h2>
-                    <p class="text-sm text-on-surface-variant font-light max-w-xl mx-auto">
+                    <p class="text-lg text-on-surface-variant font-light max-w-xl mx-auto">
                         Start free, scale as you grow. Every plan includes privacy-first AI processing and native Shopify integration.
                     </p>
                 </div>
@@ -2187,13 +2275,13 @@
                     <!-- Free Plan -->
                     <div class="glass-card p-6 flex flex-col group hover:border-white/20 transition-all duration-300">
                         <div class="mb-4">
-                            <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-on-surface/60 mb-2">Free Plan</p>
+                            <p class="text-xs uppercase tracking-[0.4em] font-800 text-on-surface/60 mb-2">Free Plan</p>
                             <div class="flex items-end gap-2 mb-2">
                                 <span class="text-4xl font-800 text-white">$0</span>
                                 <span class="text-on-surface-variant font-light pb-1">/ forever</span>
                             </div>
-                            <p class="text-sm text-on-surface-variant font-light">10 monthly AI try-ons included</p>
-                            <p class="text-xs text-on-surface/50 mt-1">Additional try-ons at +$0.28 / try-on</p>
+                            <p class="text-lg text-on-surface-variant font-light">10 monthly AI try-ons included</p>
+                            <p class="text-lg text-on-surface/50 mt-1">Additional try-ons at +$0.28 / try-on</p>
                         </div>
                         <div class="h-[1px] w-full bg-white/10 mb-4"></div>
                         <ul class="space-y-1.5 flex-1 mb-5">
@@ -2233,13 +2321,13 @@
                             <span class="bg-primary-container text-on-primary-container text-[10px] uppercase tracking-[0.2em] font-800 px-5 py-1.5 whitespace-nowrap">Most Popular</span>
                         </div>
                         <div class="mb-4">
-                            <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-primary-container mb-2">Growth Plan</p>
+                            <p class="text-xs uppercase tracking-[0.4em] font-800 text-primary-container mb-2">Growth Plan</p>
                             <div class="flex items-end gap-2 mb-2">
                                 <span class="text-4xl font-800 text-white">$19</span>
                                 <span class="text-on-surface-variant font-light pb-1">/ month</span>
                             </div>
-                            <p class="text-sm text-on-surface-variant font-light">100 monthly AI try-ons included</p>
-                            <p class="text-xs text-on-surface/50 mt-1">Additional try-ons at +$0.15 / try-on</p>
+                            <p class="text-lg text-on-surface-variant font-light">100 monthly AI try-ons included</p>
+                            <p class="text-lg text-on-surface/50 mt-1">Additional try-ons at +$0.15 / try-on</p>
                         </div>
                         <div class="h-[1px] w-full bg-primary-container/30 mb-4"></div>
                         <ul class="space-y-1.5 flex-1 mb-5">
@@ -2300,13 +2388,13 @@
                     <!-- Pro Plan -->
                     <div class="glass-card p-6 flex flex-col group hover:border-white/20 transition-all duration-300">
                         <div class="mb-4">
-                            <p class="text-[10px] uppercase tracking-[0.4em] font-800 text-on-surface/60 mb-2">Pro Plan</p>
+                            <p class="text-xs uppercase tracking-[0.4em] font-800 text-on-surface/60 mb-2">Pro Plan</p>
                             <div class="flex items-end gap-2 mb-2">
                                 <span class="text-4xl font-800 text-white">$49</span>
                                 <span class="text-on-surface-variant font-light pb-1">/ month</span>
                             </div>
-                            <p class="text-sm text-on-surface-variant font-light">500 monthly AI try-ons included</p>
-                            <p class="text-xs text-on-surface/50 mt-1">Additional try-ons at +$0.08 / try-on</p>
+                            <p class="text-lg text-on-surface-variant font-light">500 monthly AI try-ons included</p>
+                            <p class="text-lg text-on-surface/50 mt-1">Additional try-ons at +$0.08 / try-on</p>
                         </div>
                         <div class="h-[1px] w-full bg-white/10 mb-4"></div>
                         <ul class="space-y-1.5 flex-1 mb-5">
@@ -2367,7 +2455,7 @@
                 </div>
 
                 <!-- Bottom note -->
-                <p class="text-center text-xs text-on-surface/40 mt-5 uppercase tracking-[0.2em]">
+                <p class="text-xs text-center text-on-surface/40 mt-5 uppercase tracking-[0.2em]">
                     All plans include Shopify 2.0 native integration · No hidden fees · Cancel anytime
                 </p>
             </div>
@@ -2377,39 +2465,59 @@
         <section id="faq" class="screen py-20 bg-background">
             <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
                 <div class="text-center mb-8 space-y-4">
-                    <h2 class="editorial-heading text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] font-800 text-white">Questions, <span class="serif-italic font-normal text-primary-container">answered</span></h2>
+                    <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white">Questions, <span class="serif-italic font-normal text-primary-container">answered</span></h2>
                     <div class="w-24 h-[1px] bg-primary-container mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
                     <details class="faq glass-card px-6 py-4">
-                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">How long does setup take?
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">What is virtual try-on for Shopify?
                             <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
-                        <p class="pt-3 text-sm text-on-surface-variant font-light leading-relaxed">Most stores go live in under five minutes. The app is a native Shopify 2.0 extension, so there is no code to write.</p>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">Virtual try-on lets shoppers see a product on themselves. They upload or take a photo on your product page and Brix-Tryon shows them wearing it, so they can decide with more confidence.</p>
                     </details>
                     <details class="faq glass-card px-6 py-4">
-                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">Are customer photos stored?
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">How does Brix-Tryon work?
                             <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
-                        <p class="pt-3 text-sm text-on-surface-variant font-light leading-relaxed">No. Photos are processed in isolated environments and instantly purged, with a zero-retention policy built in.</p>
-                    </details>
-                    <details class="faq glass-card px-6 py-4">
-                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">Does it work with my theme?
-                            <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
-                        <p class="pt-3 text-sm text-on-surface-variant font-light leading-relaxed">Yes. Brix-Tryon is built on Shopify 2.0 architecture and adapts to your storefront, with widget and typography controls on paid plans.</p>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">Shoppers click Try On This Look on your product page, accept the privacy notice and upload or take a photo. Brix-Tryon generates a photo of them wearing the product. They enter an email and phone number to unlock the full-size result, then add to cart, buy now, save the image or share it on WhatsApp.</p>
                     </details>
                     <details class="faq glass-card px-6 py-4">
                         <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">What does the free plan include?
                             <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
-                        <p class="pt-3 text-sm text-on-surface-variant font-light leading-relaxed">10 monthly AI try-ons, a responsive widget, a privacy consent screen and product page try-on support. No credit card required.</p>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">10 monthly AI try-ons, a responsive widget for mobile and desktop, a privacy consent screen, try-on on the product page, standard AI processing and email support.</p>
+                    </details>
+                    <details class="faq glass-card px-6 py-4">
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">How much does Brix-Tryon cost?
+                            <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">Free is $0 with 10 try-ons a month. Growth is $19 a month with 100 try-ons, and Pro is $49 a month with 500 try-ons.</p>
+                    </details>
+                    <details class="faq glass-card px-6 py-4">
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">What is the Brix-Tryon AI Studio?
+                            <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">AI Studio is the merchant side of the app. It turns plain product photos into on-model images and marketing creatives, and saves every result in your Asset Library.</p>
                     </details>
                     <details class="faq glass-card px-6 py-4">
                         <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">What happens if I go over my try-on limit?
                             <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
-                        <p class="pt-3 text-sm text-on-surface-variant font-light leading-relaxed">Extra try-ons are billed per use at a small per-try-on rate shown on each plan, so your store never stops working.</p>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">Extra try-ons are billed per use at the rate shown on your plan: $0.28 on Free, $0.15 on Growth and $0.08 on Pro. Try-on keeps working for your shoppers.</p>
                     </details>
                     <details class="faq glass-card px-6 py-4">
-                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">Can I cancel any time?
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">Which products does Brix-Tryon support?
                             <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
-                        <p class="pt-3 text-sm text-on-surface-variant font-light leading-relaxed">Yes. All plans are cancel-anytime with no hidden fees, and uninstalling removes your data from our systems.</p>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">Brix-Tryon is built for fashion and apparel, and for accessories such as watches, jewellery and bags through AI Studio. You can enable try-on by collection or by product.</p>
+                    </details>
+                    <details class="faq glass-card px-6 py-4">
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">Can I turn flat-lay or ghost-mannequin photos into model photos?
+                            <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">Yes. The Flat Lay to Model and Ghost Mannequin to Model workflows in AI Studio convert those photos into on-model photography, with no photoshoot needed.</p>
+                    </details>
+                    <details class="faq glass-card px-6 py-4">
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">Does virtual try-on reduce returns?
+                            <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">It can help, because shoppers have less to guess about how a piece looks on them. Your Analytics page shows try-ons, cart rate and purchase rate, so you can see the effect on your own store.</p>
+                    </details>
+                    <details class="faq glass-card px-6 py-4">
+                        <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white">Can I customise how the try-on button looks?
+                            <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
+                        <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed">Yes. In Widget Settings you can set button text, colours, radius, size, padding and fonts separately for desktop and mobile, with a live preview.</p>
                     </details>
                     
                 </div>
@@ -2421,17 +2529,17 @@
                 class="absolute inset-0 bg-background opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
             </div>
             <div class="relative z-10 max-w-[1600px] mx-auto px-margin-mobile text-center space-y-8">
-                <h2 class="editorial-heading text-5xl md:text-7xl lg:text-[clamp(3rem,10vh,6rem)] font-800 text-on-primary-container">Cut returns <br />
-                    <span class="serif-italic font-normal italic">and sell more.</span>
+                <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-on-primary-container">Let shoppers <br />
+                    <span class="serif-italic font-normal">try it on.</span>
                 </h2>
-                <p class="text-on-primary-container/70 max-w-2xl mx-auto text-xl font-light leading-relaxed">
-                    Add virtual try-on to your Shopify store today. Start free, no credit card needed, and go
-                    live in about five minutes.
+                <p class="text-lg text-on-primary-container/70 max-w-2xl mx-auto font-light leading-relaxed">
+                    Add AI virtual try-on to your Shopify store, and skip the photoshoot with the AI Studio.
+                    Start free with 10 try-ons a month.
                 </p>
                 <div class="flex flex-wrap justify-center gap-6 pt-2">
                     <button
                         class="cta-button px-12 py-5 bg-background text-white font-800 text-xs uppercase tracking-[0.3em] hover:bg-white hover:text-background transition-all shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
-                        Install on Shopify
+                        Get early access
                     </button>
                     <button
                         class="cta-button px-12 py-5 border-2 border-background text-background font-800 text-xs uppercase tracking-[0.3em] hover:bg-background hover:text-white transition-all">
@@ -2450,10 +2558,9 @@
         <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
             <div class="grid grid-cols-12 gap-gutter">
                 <div class="col-span-12 lg:col-span-6 space-y-4">
-                    <div class="text-4xl font-800 tracking-tighter text-white">The Brix-Tryon<span
-                            class="text-primary-container">.</span></div>
+                    <img src="assets/brix-logo.png" alt="Brix Try On" class="h-14 w-auto invert" />
                     <p
-                        class="text-on-surface-variant/100 max-w-sm text-[13px] leading-relaxed uppercase tracking-[0.1em]">
+                        class="text-xs text-on-surface-variant/100 max-w-sm leading-relaxed uppercase tracking-[0.1em]">
                         AI virtual try-on for Shopify fashion stores. Show shoppers how clothes fit before they
                         buy.
                     </p>
@@ -2464,12 +2571,12 @@
                                 class="flex-1 bg-white/5 border border-white/20 text-white px-3 py-2.5 text-sm focus:outline-none focus:border-white" />
                             <button type="submit" class="px-5 bg-white text-black text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-neutral-300 transition-colors">Join</button>
                         </div>
-                        <p id="nl-msg" class="text-xs text-on-surface-variant min-h-[1rem]"></p>
+                        <p id="nl-msg" class="text-lg text-on-surface-variant min-h-[1rem]"></p>
                     </form>
 
                 </div>
                 <div class="col-span-6 lg:col-span-3 space-y-4">
-                    <h4 class="text-white font-800 text-[10px] uppercase tracking-[0.4em]">Navigation</h4>
+                    <h4 class="text-xs text-white font-800 uppercase tracking-[0.4em]">Navigation</h4>
                     <div class="flex flex-col gap-3">
                         <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
                             href="#">Intelligence</a>
@@ -2482,7 +2589,7 @@
                     </div>
                 </div>
                 <div class="col-span-6 lg:col-span-3 space-y-4">
-                    <h4 class="text-white font-800 text-[10px] uppercase tracking-[0.4em]">Compliance</h4>
+                    <h4 class="text-xs text-white font-800 uppercase tracking-[0.4em]">Compliance</h4>
                     <div class="flex flex-col gap-3">
                         <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors"
                             href="terms-of-service.html">Terms of Use</a>
@@ -2493,7 +2600,7 @@
             </div>
             <div
                 class="mt-6 pt-4 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/70">© 2026 The Brix-Tryon.
+                <p class="text-xs uppercase tracking-[0.3em] text-on-surface-variant/70">© 2026 The Brix-Tryon.
                     Digifyce.</p>
 
             </div>
@@ -2511,9 +2618,9 @@
             </button>
             <div class="space-y-4 md:space-y-6 mt-2">
                 <div class="text-center space-y-2">
-                    <h3 class="text-2xl md:text-3xl font-800 text-white editorial-heading">Get Started With The Stitch
+                    <h3 class="text-2xl font-800 text-white editorial-heading">Get Started With The Stitch
                         Flow</h3>
-                    <p class="text-xs md:text-sm text-on-surface-variant font-light">Share your details and we will
+                    <p class="text-lg text-on-surface-variant font-light">Share your details and we will
                         contact you shortly.</p>
                 </div>
                 <form id="accessForm" class="space-y-3 md:space-y-4">
@@ -2583,8 +2690,8 @@
                     <span class="material-symbols-outlined text-3xl text-primary-container">check</span>
                 </div>
                 <div class="space-y-2">
-                    <h3 class="text-3xl font-800 text-white editorial-heading">Access Granted</h3>
-                    <p class="text-sm text-on-surface-variant font-light leading-relaxed">Thank you for your interest. A
+                    <h3 class="text-2xl font-800 text-white editorial-heading">Access Granted</h3>
+                    <p class="text-lg text-on-surface-variant font-light leading-relaxed">Thank you for your interest. A
                         member of our concierge team will contact you shortly to begin your integration.</p>
                 </div>
                 <button id="doneBtn"
@@ -2595,6 +2702,18 @@
 
     <script>
         (function () {
+            const tg = document.getElementById('nav-toggle');
+            const panel = document.getElementById('nav-panel');
+            if (tg && panel) {
+                const set = (open) => {
+                    panel.classList.toggle('hidden', !open);
+                    tg.setAttribute('aria-expanded', String(open));
+                    tg.querySelector('span').textContent = open ? 'close' : 'menu';
+                };
+                tg.addEventListener('click', () => set(panel.classList.contains('hidden')));
+                panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => set(false)));
+                window.addEventListener('resize', () => { if (window.innerWidth >= 1280) set(false); });
+            }
             const nav = document.querySelector('nav');
             const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
             window.addEventListener('scroll', onScroll, { passive: true });
@@ -2731,7 +2850,7 @@
             };
 
             // reveal on scroll
-            const targets = document.querySelectorAll('main section:not(.screen-hero):not(#ai-studio) > div > .grid > *, main section:not(.screen-hero):not(#ai-studio) > div > *:not(.grid):not(.absolute)');
+            const targets = Array.from(document.querySelectorAll('main section:not(.screen-hero):not(#ai-studio) > div > .grid > *, main section:not(.screen-hero):not(#ai-studio) > div > *:not(.grid):not(.absolute)')).filter((el) => !el.closest('.wave-mask'));
             targets.forEach((el, i) => {
                 el.classList.add('reveal');
                 el.style.transitionDelay = ((i % 4) * 90) + 'ms';
@@ -2744,7 +2863,7 @@
                     e.target.querySelectorAll('[data-bar]').forEach((b) => { b.style.width = b.dataset.bar + '%'; });
                     io.unobserve(e.target);
                 });
-            }, { threshold: 0.15 });
+            }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
             targets.forEach((el) => io.observe(el));
             // bars/counters sitting inside elements that were not tagged
             document.querySelectorAll('[data-count], [data-bar]').forEach((el) => {
@@ -2840,7 +2959,7 @@
             const fit = demo.parentElement;
             const BASE = 704;
             const resize = () => {
-                const k = Math.min(1.1, fit.clientWidth / BASE);
+                const k = Math.min(1.5, fit.clientWidth / BASE);
                 demo.style.transform = 'scale(' + k + ')';
                 fit.style.height = (demo.offsetHeight * k) + 'px';
             };
@@ -2910,7 +3029,7 @@
     
         // ----- AI Studio: scroll-driven story (all features) -----
         (function () {
-            const WF = [{"t": "AI Model Generation", "d": "Put your garment on a realistic AI model, with fabric, drape and colour kept true.", "tm": "~45 sec", "st": 5, "b": "assets/look-w2-garment.jpg", "a": "assets/studio-dress-model.jpg", "f": ["Dresses the model in your exact garment", "Fabric, drape and colour stay true", "Any size, skin tone or style"]}, {"t": "Flat Lay to Model", "d": "Turn a flat product photo into an on-model shot, no photoshoot needed.", "tm": "~60 sec", "st": 5, "b": "assets/studio-flat.jpg", "a": "assets/studio-flat-model.jpg", "f": ["Flat photo in, on-model image out", "No mannequin or studio required", "Consistent look across your catalog"]}, {"t": "Ghost Mannequin to Model", "d": "Swap the invisible mannequin for a real model while keeping every detail.", "tm": "~50 sec", "st": 5, "b": "assets/studio-ghost.jpg", "a": "assets/studio-ghost-model.jpg", "f": ["Replaces the mannequin with a real model", "Keeps cut, collar and fit details", "Same model across your whole range"]}, {"t": "Accessories Try-On", "d": "Watches, jewellery and bags shown on a model at the right scale.", "tm": "~40 sec", "st": 5, "b": "assets/studio-bag.jpg", "a": "assets/studio-bag-model2.jpg", "f": ["Bags, watches and jewellery on a model", "Correct scale and placement", "Lifestyle shots without a shoot"]}, {"t": "Marketing Infographic", "d": "Feature callouts added to your product shot, ready for ads and product pages.", "tm": "~90 sec", "st": 4, "b": "assets/studio-ghost-model.jpg", "a": "assets/studio-infographic2.jpg", "f": ["Feature callouts added automatically", "Ready for ads and product pages", "Clean, on-brand layout"]}];
+            const WF = [{"t": "AI Model Generation", "d": "Generate a realistic product-on-model image from a plain product photo.", "tm": "~45 sec", "st": 6, "b": "assets/look-w2-garment.jpg", "a": "assets/studio-dress-model.jpg", "f": ["Dresses the model in your exact garment", "Fabric, drape and colour stay true", "Any size, skin tone or style"]}, {"t": "Flat Lay to Model", "d": "Convert a flat-lay garment photo into worn-on-model photography, no photoshoot needed.", "tm": "~60 sec", "st": 7, "b": "assets/studio-flat.jpg", "a": "assets/studio-flat-model.jpg", "f": ["Flat photo in, on-model image out", "No mannequin or studio required", "Consistent look across your catalog"]}, {"t": "Ghost Mannequin to Model", "d": "Turn invisible-mannequin photography into realistic model photography.", "tm": "~50 sec", "st": 6, "b": "assets/studio-ghost.jpg", "a": "assets/studio-ghost-model.jpg", "f": ["Replaces the mannequin with a real model", "Keeps cut, collar and fit details", "Same model across your whole range"]}, {"t": "Accessories Try-On", "d": "Place watches, jewellery and bags onto realistic model visuals.", "tm": "~40 sec", "st": 7, "b": "assets/studio-bag.jpg", "a": "assets/studio-bag-model2.jpg", "f": ["Bags, watches and jewellery on a model", "Correct scale and placement", "Lifestyle shots without a shoot"]}, {"t": "Marketing Infographic", "d": "Turn a saved model photo, or a fresh upload, into a promotional infographic.", "tm": "~90 sec", "st": 5, "b": "assets/studio-ghost-model.jpg", "a": "assets/studio-infographic2.jpg", "f": ["Feature callouts added automatically", "Ready for ads and product pages", "Clean, on-brand layout"]}];
             const N = 6;
             const sec = document.getElementById('ai-studio');
             const stage = document.getElementById('story-stage');
@@ -2952,8 +3071,8 @@
                     chips.forEach((c, k) => c.classList.toggle('on', gen >= 1 && within > 0.62 + k * 0.1));
                 } else {
                     last = 5;
-                    title.textContent = 'Asset library & publish';
-                    meta.textContent = 'One-click publish';
+                    title.textContent = 'Asset Library';
+                    meta.textContent = 'Search & download';
                     tiles.forEach((t, k) => t.classList.toggle('on', within > 0.05 + k * 0.07));
                 }
             }
@@ -3068,9 +3187,9 @@
             ];
             const cities = ['Mumbai', 'Berlin', 'Austin', 'Lagos', 'London', 'Dubai', 'Toronto', 'Sydney'];
             const devices = ['Mobile', 'Desktop'];
-            const states = ['Perfect fit', 'Added to cart', 'Saved look', 'Perfect fit'];
+            const states = ['Tried on', 'Saved look', 'Shared', 'Tried on'];
             const pick = (a) => a[Math.floor(Math.random() * a.length)];
-            let lookIdx = 0, today = 1284;
+            let lookIdx = 0, today = 1299;
             const kToday = document.getElementById('kpi-today');
             const kCart = document.getElementById('kpi-cart');
             const line = document.getElementById('live-line');
@@ -3082,10 +3201,10 @@
                 li.className = 'feed-row flex items-center gap-4 px-5 py-2.5';
                 li.innerHTML =
                     '<img src="' + l.i + '" alt="" class="w-10 h-12 object-cover shrink-0" />' +
-                    '<div class="flex-1 min-w-0"><p class="text-sm font-800 text-white truncate">' + l.n + '</p>' +
-                    '<p class="text-[11px] text-white/55">' + pick(devices) + ' &middot; ' + pick(cities) + ' &middot; just now</p></div>' +
+                    '<div class="flex-1 min-w-0"><p class="text-lg font-800 text-white truncate">' + l.n + '</p>' +
+                    '<p class="text-lg text-white/55">' + pick(devices) + ' &middot; ' + pick(cities) + ' &middot; just now</p></div>' +
                     '<span class="text-[10px] uppercase tracking-widest font-800 px-2.5 py-1 ' +
-                    (state === 'Added to cart' ? 'bg-white text-black' : 'border border-white/30 text-white') + '">' + state + '</span>';
+                    (state === 'Shared' ? 'bg-white text-black' : 'border border-white/30 text-white') + '">' + state + '</span>';
                 return li;
             }
             function draw() {
@@ -3104,7 +3223,7 @@
                 while (feed.children.length > 5) feed.removeChild(feed.lastChild);
                 today += 1;
                 kToday.textContent = today.toLocaleString('en-US');
-                kCart.textContent = (18 + Math.random() * 1.6).toFixed(1) + '%';
+                kCart.textContent = (19 + Math.random() * 0.6).toFixed(1) + '%';
                 series.shift(); series.push(20 + Math.round(10 * Math.sin(lookIdx / 2)) + Math.round(Math.random() * 10));
                 draw();
             }
