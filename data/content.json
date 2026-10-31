@@ -1,0 +1,1136 @@
+{
+  "groups": [
+    {
+      "name": "Site & SEO",
+      "fields": [
+        {
+          "key": "site.title",
+          "label": "Browser tab / Google title",
+          "type": "text",
+          "default": "The Brix-Tryon | AI Virtual Try-On App for Shopify"
+        },
+        {
+          "key": "site.description",
+          "label": "Google description (meta)",
+          "type": "textarea",
+          "default": "Brix-Tryon is an AI virtual try-on app for Shopify fashion stores. Shoppers see clothes on themselves from one photo, right on your product page."
+        },
+        {
+          "key": "brand.logo",
+          "label": "Logo (navigation and footer)",
+          "type": "image",
+          "default": "assets/brix-logo.png"
+        },
+        {
+          "key": "brand.favicon",
+          "label": "Favicon (browser tab icon)",
+          "type": "image",
+          "default": "assets/Asset%206Brix%20Try%20On.png"
+        }
+      ]
+    },
+    {
+      "name": "Hero",
+      "fields": [
+        {
+          "key": "hero.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "AI virtual try-on app for Shopify"
+        },
+        {
+          "key": "hero.title",
+          "label": "Heading (put *word* in stars for the italic accent, new line = line break)",
+          "type": "title",
+          "default": "AI virtual *try-on*\nfor Shopify\nfashion stores."
+        },
+        {
+          "key": "hero.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "Shoppers upload one photo and see your clothes on themselves, right on the product page. No account or install for them. Fewer doubts at the cart, fewer returns after delivery, more orders."
+        },
+        {
+          "key": "hero.cta1",
+          "label": "Main button",
+          "type": "text",
+          "default": "Start free"
+        },
+        {
+          "key": "hero.cta2",
+          "label": "Second button",
+          "type": "text",
+          "default": "Book a demo"
+        },
+        {
+          "key": "hero.bg",
+          "label": "Background photo",
+          "type": "image",
+          "default": "https://lh3.googleusercontent.com/aida-public/AB6AXuATpuYLMAbQl6IzSC3MiuRxsdoRIabAEc2O4x5wuQwUsDMxysODNMJdoYMG7B_0ZnqTgROsEgSJlhtjaVC7QbMHY_HxBCk60z9NWepVWQQYgCfoRRI-4HBAcU9my1gEIsWqSunRMOTxKigplJ_fCHo2-_CWm7Zi-QyYT_Kd2V0EGftSOJbwwI3SQgFX7480VTncD3b4pTMail5-OBzLddaYFmBCsSuHtgoJYRlx8MErinozDCLfkbu9hseEymAJ6Prz8RkjbF-y-lU"
+        },
+        {
+          "key": "hero.rating_show",
+          "label": "Show the star rating under the buttons (1 = show, 0 = hide)",
+          "type": "text",
+          "default": "1"
+        },
+        {
+          "key": "hero.rating_score",
+          "label": "Rating score",
+          "type": "text",
+          "default": "5.0/5.0"
+        },
+        {
+          "key": "hero.rating_text",
+          "label": "Rating text",
+          "type": "text",
+          "default": "on the Shopify App Store"
+        },
+        {
+          "key": "hero.rating_link",
+          "label": "Link for the rating (your Shopify App Store page, optional)",
+          "type": "text",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "name": "Why Brix-Tryon",
+      "fields": [
+        {
+          "key": "why.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Why Brix-Tryon?"
+        },
+        {
+          "key": "why.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Built for Shopify fashion brands that want *confident* shoppers."
+        },
+        {
+          "key": "why.p1",
+          "label": "Paragraph 1",
+          "type": "textarea",
+          "default": "Brix-Tryon is more than a photo widget. It is a virtual try-on app for Shopify that shows each shopper how a garment looks on them, using their own photo, right on your product page, so they buy with confidence."
+        },
+        {
+          "key": "why.p2",
+          "label": "Paragraph 2",
+          "type": "textarea",
+          "default": "Lead capture, WhatsApp sharing and built-in analytics help turn browsers into buyers, so you can see how try-on affects cart and purchase behavior on your own store."
+        },
+        {
+          "key": "why.bullet",
+          "label": "Highlight line",
+          "type": "text",
+          "default": "Start free and go live in under 5 minutes"
+        }
+      ]
+    },
+    {
+      "name": "Conversion calculator",
+      "fields": [
+        {
+          "key": "conv.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Why conversion matters"
+        },
+        {
+          "key": "conv.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Get more sales from the visitors you *already have*."
+        },
+        {
+          "key": "conv.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "Many shoppers leave because they can't tell how a piece will fit. Virtual try-on removes that doubt, so more of your visitors buy. Enter your numbers to see the difference."
+        }
+      ]
+    },
+    {
+      "name": "Trust features",
+      "fields": [
+        {
+          "key": "trust.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Virtual try-on built for *trust*"
+        },
+        {
+          "key": "trust.text",
+          "label": "Intro paragraph",
+          "type": "textarea",
+          "default": "Shoppers see products on their own photo, with a consent notice up front and a promise that the photo is never stored after processing."
+        },
+        {
+          "key": "trust1.image",
+          "label": "Feature 1 image",
+          "type": "image",
+          "default": "assets/feature-variants.jpg"
+        },
+        {
+          "key": "trust1.tag",
+          "label": "Feature 1 label",
+          "type": "text",
+          "default": "Try-on widget"
+        },
+        {
+          "key": "trust1.title",
+          "label": "Feature 1 title",
+          "type": "text",
+          "default": "Try-On on Every Product Page"
+        },
+        {
+          "key": "trust1.text",
+          "label": "Feature 1 text",
+          "type": "textarea",
+          "default": "Shoppers click Try On This Look, upload or photograph themselves, and see the product on them, with Add to cart and Buy Now right in the result."
+        },
+        {
+          "key": "trust1.b1",
+          "label": "Feature 1 bullet 1",
+          "type": "text",
+          "default": "Upload from gallery or camera"
+        },
+        {
+          "key": "trust1.b2",
+          "label": "Feature 1 bullet 2",
+          "type": "text",
+          "default": "Add to cart, buy now, save or share on WhatsApp"
+        },
+        {
+          "key": "trust2.image",
+          "label": "Feature 2 image",
+          "type": "image",
+          "default": "assets/feature-privacy.jpg"
+        },
+        {
+          "key": "trust2.tag",
+          "label": "Feature 2 label",
+          "type": "text",
+          "default": "Privacy"
+        },
+        {
+          "key": "trust2.title",
+          "label": "Feature 2 title",
+          "type": "text",
+          "default": "Privacy by Design"
+        },
+        {
+          "key": "trust2.text",
+          "label": "Feature 2 text",
+          "type": "textarea",
+          "default": "A consent notice appears before upload, and the try-on modal states the photo is never stored after processing. You can show or hide the notice in Widget Settings."
+        },
+        {
+          "key": "trust2.note_title",
+          "label": "Feature 2 note title",
+          "type": "text",
+          "default": "Shopper consent"
+        },
+        {
+          "key": "trust2.note",
+          "label": "Feature 2 note",
+          "type": "textarea",
+          "default": "The email and phone number shoppers enter to unlock their result are saved with their marketing-consent status and a timestamp."
+        }
+      ]
+    },
+    {
+      "name": "Numbers",
+      "fields": [
+        {
+          "key": "num.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Brix-Tryon in numbers"
+        },
+        {
+          "key": "num.title",
+          "label": "Heading",
+          "type": "text",
+          "default": "What you get on day one"
+        },
+        {
+          "key": "num.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "The facts about the app. We will publish merchant results here once we have real ones to share."
+        },
+        {
+          "key": "num1.value",
+          "label": "Number 1 value (digits only)",
+          "type": "text",
+          "default": "1"
+        },
+        {
+          "key": "num1.label",
+          "label": "Number 1 label",
+          "type": "text",
+          "default": "photo is all a shopper needs to try on a look"
+        },
+        {
+          "key": "num2.value",
+          "label": "Number 2 value (digits only)",
+          "type": "text",
+          "default": "10"
+        },
+        {
+          "key": "num2.label",
+          "label": "Number 2 label",
+          "type": "text",
+          "default": "free try-ons every month"
+        },
+        {
+          "key": "num3.value",
+          "label": "Number 3 value (digits only)",
+          "type": "text",
+          "default": "5"
+        },
+        {
+          "key": "num3.label",
+          "label": "Number 3 label",
+          "type": "text",
+          "default": "minutes to install and go live"
+        },
+        {
+          "key": "num4.value",
+          "label": "Number 4 value (digits only)",
+          "type": "text",
+          "default": "3"
+        },
+        {
+          "key": "num4.label",
+          "label": "Number 4 label",
+          "type": "text",
+          "default": "plans: Free, Growth and Pro"
+        }
+      ]
+    },
+    {
+      "name": "Core features",
+      "fields": [
+        {
+          "key": "cf.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Core features"
+        },
+        {
+          "key": "cf.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Everything you need to turn try-ons into *sales*"
+        },
+        {
+          "key": "cf1.title",
+          "label": "Card 1 title",
+          "type": "text",
+          "default": "Widget Settings with Live Preview"
+        },
+        {
+          "key": "cf1.text",
+          "label": "Card 1 text",
+          "type": "textarea",
+          "default": "Button text, colours, radius, size, padding and fonts, set separately for desktop and mobile, with a live preview."
+        },
+        {
+          "key": "cf2.title",
+          "label": "Card 2 title",
+          "type": "text",
+          "default": "Privacy by Design"
+        },
+        {
+          "key": "cf2.text",
+          "label": "Card 2 text",
+          "type": "textarea",
+          "default": "A consent notice appears before upload, and the modal states the photo is never stored after processing."
+        },
+        {
+          "key": "cf3.title",
+          "label": "Card 3 title",
+          "type": "text",
+          "default": "Collection Page Try-On Icons"
+        },
+        {
+          "key": "cf3.text",
+          "label": "Card 3 text",
+          "type": "textarea",
+          "default": "A small try-on icon on product-listing cards, over the image or in the action corner, with your choice of icon, colour and size."
+        },
+        {
+          "key": "cf4.title",
+          "label": "Card 4 title",
+          "type": "text",
+          "default": "Product Catalog Controls"
+        },
+        {
+          "key": "cf4.text",
+          "label": "Card 4 text",
+          "type": "textarea",
+          "default": "Switch try-on on or off for each collection or product from one screen, with a grid of every try-on enabled product."
+        },
+        {
+          "key": "cf5.title",
+          "label": "Card 5 title",
+          "type": "text",
+          "default": "Analytics Dashboard"
+        },
+        {
+          "key": "cf5.text",
+          "label": "Card 5 text",
+          "type": "textarea",
+          "default": "See try-ons, cart rate, purchase rate, revenue and device split, plus the products with the highest try-to-cart conversion."
+        },
+        {
+          "key": "cf6.title",
+          "label": "Card 6 title",
+          "type": "text",
+          "default": "Lead Capture & WhatsApp Sharing"
+        },
+        {
+          "key": "cf6.text",
+          "label": "Card 6 text",
+          "type": "textarea",
+          "default": "Shoppers enter email and phone to unlock their full-size result, and can save the image or share it on WhatsApp so friends can weigh in."
+        }
+      ]
+    },
+    {
+      "name": "Benefits",
+      "fields": [
+        {
+          "key": "benefits.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Why try-on pays off"
+        },
+        {
+          "key": "benefits.title",
+          "label": "Heading (*word* = italic accent)",
+          "type": "title",
+          "default": "Fewer returns, *more* orders"
+        },
+        {
+          "key": "benefits.text",
+          "label": "Intro paragraph",
+          "type": "textarea",
+          "default": "When shoppers can see a piece on themselves, they hesitate less, return less and come back more. Here is what virtual try-on does for your store."
+        }
+      ]
+    },
+    {
+      "name": "How it works",
+      "fields": [
+        {
+          "key": "jr.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Simple by design"
+        },
+        {
+          "key": "jr.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "How virtual try-on *works*"
+        },
+        {
+          "key": "jr1.title",
+          "label": "Step 1 title",
+          "type": "text",
+          "default": "Shopper uploads a photo"
+        },
+        {
+          "key": "jr1.text",
+          "label": "Step 1 text",
+          "type": "textarea",
+          "default": "On the product page, shoppers click Try On This Look, accept the privacy notice and upload or photograph themselves. No account or install needed."
+        },
+        {
+          "key": "jr2.image",
+          "label": "Step 2 image",
+          "type": "image",
+          "default": "assets/model-fur-collar-coat.jpg"
+        },
+        {
+          "key": "jr2.badge",
+          "label": "Step 2 image label",
+          "type": "text",
+          "default": "Creating the try-on"
+        },
+        {
+          "key": "jr2.title",
+          "label": "Step 2 title",
+          "type": "text",
+          "default": "AI creates the look"
+        },
+        {
+          "key": "jr2.text",
+          "label": "Step 2 text",
+          "type": "textarea",
+          "default": "Brix-Tryon generates a photo of the shopper wearing the product and shows it with a decision countdown."
+        },
+        {
+          "key": "jr3.title",
+          "label": "Step 3 title",
+          "type": "text",
+          "default": "Add to cart or buy now"
+        },
+        {
+          "key": "jr3.text",
+          "label": "Step 3 text",
+          "type": "textarea",
+          "default": "An email and phone number unlock the full-size result and become a captured lead. Shoppers can add to cart, buy now, save the image or share it on WhatsApp."
+        }
+      ]
+    },
+    {
+      "name": "Try it free",
+      "fields": [
+        {
+          "key": "tf.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Try it free"
+        },
+        {
+          "key": "tf.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Try it on. *For real.*"
+        },
+        {
+          "key": "tf.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "Pick a piece, upload a photo of yourself and see it on you in under a minute. No sign-up. Every visitor gets one free try."
+        }
+      ]
+    },
+    {
+      "name": "Built for Shopify",
+      "fields": [
+        {
+          "key": "shop.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Built for *Shopify*"
+        },
+        {
+          "key": "shop.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "Brix-Tryon is a Shopify app that adds a Try On This Look button to your product page. Add the app block in your theme editor, then enable try-on by collection or product."
+        },
+        {
+          "key": "shop.b1",
+          "label": "Bullet 1",
+          "type": "text",
+          "default": "Embedded on the product page"
+        },
+        {
+          "key": "shop.b2",
+          "label": "Bullet 2",
+          "type": "text",
+          "default": "Enable by collection or product"
+        },
+        {
+          "key": "shop.note_title",
+          "label": "Note title",
+          "type": "text",
+          "default": "Product catalog"
+        },
+        {
+          "key": "shop.note",
+          "label": "Note text",
+          "type": "text",
+          "default": "One screen for every try-on enabled product"
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "fields": [
+        {
+          "key": "an.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Analytics"
+        },
+        {
+          "key": "an.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "See how try-on affects *cart and purchases*."
+        },
+        {
+          "key": "an.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "Your Analytics page shows try-ons initiated, cart rate, purchase rate and revenue versus the previous period, plus device split, top-performing fits and captured leads."
+        }
+      ]
+    },
+    {
+      "name": "Comparison table",
+      "fields": [
+        {
+          "key": "dna.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Brix-Tryon vs. *other try-on apps*"
+        }
+      ]
+    },
+    {
+      "name": "Testimonials",
+      "fields": [
+        {
+          "key": "stories.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "What merchants say"
+        },
+        {
+          "key": "stories.title",
+          "label": "Heading",
+          "type": "text",
+          "default": "Loved by fashion brands"
+        }
+      ]
+    },
+    {
+      "name": "Case study & articles",
+      "fields": [
+        {
+          "key": "cs.tag",
+          "label": "Case study label",
+          "type": "text",
+          "default": "Case study"
+        },
+        {
+          "key": "cs.title",
+          "label": "Case study heading",
+          "type": "title",
+          "default": "How Brix-Tryon cut returns by *18%*"
+        },
+        {
+          "key": "cs.text",
+          "label": "Case study paragraph",
+          "type": "textarea",
+          "default": "By adding variant-aware virtual try-on to every product page, a fast-growing fashion brand gave shoppers the confidence to buy the right size the first time."
+        }
+      ]
+    },
+    {
+      "name": "Pricing",
+      "fields": [
+        {
+          "key": "pr.eyebrow",
+          "label": "Small line above heading",
+          "type": "text",
+          "default": "Pricing"
+        },
+        {
+          "key": "pr.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Choose Your *Plan*"
+        },
+        {
+          "key": "pr.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "Start free, scale as you grow. Every plan includes privacy-first AI processing and native Shopify integration."
+        },
+        {
+          "key": "pr.note",
+          "label": "Small note under the plans",
+          "type": "text",
+          "default": "All plans include Shopify 2.0 native integration · No hidden fees · Cancel anytime"
+        }
+      ]
+    },
+    {
+      "name": "FAQ",
+      "fields": [
+        {
+          "key": "faq.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Questions, *answered*"
+        }
+      ]
+    },
+    {
+      "name": "Final call to action",
+      "fields": [
+        {
+          "key": "cta.title",
+          "label": "Heading",
+          "type": "title",
+          "default": "Let shoppers\n*try it on.*"
+        },
+        {
+          "key": "cta.text",
+          "label": "Paragraph",
+          "type": "textarea",
+          "default": "Add AI virtual try-on to your Shopify store and let shoppers see the fit before they buy. Start free with 10 try-ons a month."
+        },
+        {
+          "key": "cta.btn1",
+          "label": "Button 1",
+          "type": "text",
+          "default": "Get early access"
+        },
+        {
+          "key": "cta.btn2",
+          "label": "Button 2",
+          "type": "text",
+          "default": "Book a demo"
+        }
+      ]
+    },
+    {
+      "name": "Footer",
+      "fields": [
+        {
+          "key": "footer.text",
+          "label": "Short description under logo",
+          "type": "textarea",
+          "default": "AI virtual try-on for Shopify fashion stores. Show shoppers how clothes fit before they buy."
+        },
+        {
+          "key": "footer.newsletter",
+          "label": "Newsletter label",
+          "type": "text",
+          "default": "Try-On Insights newsletter"
+        },
+        {
+          "key": "footer.copyright",
+          "label": "Copyright line",
+          "type": "text",
+          "default": "© 2026 The Brix-Tryon. Digifyce."
+        }
+      ]
+    },
+    {
+      "name": "Pop-up forms",
+      "fields": [
+        {
+          "key": "modal.title",
+          "label": "Sign-up form heading",
+          "type": "text",
+          "default": "Get started with Brix-Tryon"
+        },
+        {
+          "key": "modal.text",
+          "label": "Sign-up form text",
+          "type": "textarea",
+          "default": "Share your details and our team will contact you shortly to get your store set up."
+        },
+        {
+          "key": "thanks.title",
+          "label": "Thank-you heading",
+          "type": "text",
+          "default": "Access Granted"
+        },
+        {
+          "key": "thanks.text",
+          "label": "Thank-you text",
+          "type": "textarea",
+          "default": "Thank you for your interest. A member of our concierge team will contact you shortly to begin your integration."
+        }
+      ]
+    },
+    {
+      "name": "Google Sheet",
+      "fields": [
+        {
+          "key": "sheet.webhook",
+          "label": "Web app address of your Google Apps Script (leave empty to turn sending off)",
+          "type": "text",
+          "default": "https://script.google.com/macros/s/AKfycbzSQo15oGeVXu7BDynuRsvPaYeiofuhEQhAmCCNWp_3wH4IvNThjqKLjEaQZCM7GjPF/exec"
+        }
+      ]
+    }
+  ],
+  "lists": {
+    "compare": {
+      "label": "Comparison rows",
+      "singular": "row",
+      "group": "Comparison table",
+      "titleField": "feature",
+      "fields": [
+        {
+          "key": "feature",
+          "label": "Feature",
+          "type": "text"
+        },
+        {
+          "key": "ours",
+          "label": "Brix-Tryon",
+          "type": "text"
+        },
+        {
+          "key": "theirs",
+          "label": "Other apps",
+          "type": "text"
+        }
+      ],
+      "items": [
+        {
+          "feature": "Variant Mapping",
+          "ours": "Automated Neural Sync",
+          "theirs": "Manual Correlation"
+        },
+        {
+          "feature": "Digital Sharing",
+          "ours": "Direct Social Tunnel",
+          "theirs": "Static File Export"
+        },
+        {
+          "feature": "Processing Latency",
+          "ours": "< 3.0 Seconds",
+          "theirs": "8.0 — 12.0 Seconds"
+        },
+        {
+          "feature": "UI Integration",
+          "ours": "100% Brand DNA Match",
+          "theirs": "Branded Watermarks"
+        }
+      ]
+    },
+    "testimonials": {
+      "label": "Testimonials",
+      "singular": "testimonial",
+      "group": "Testimonials",
+      "titleField": "name",
+      "fields": [
+        {
+          "key": "quote",
+          "label": "Quote",
+          "type": "textarea"
+        },
+        {
+          "key": "name",
+          "label": "Person name",
+          "type": "text"
+        },
+        {
+          "key": "role",
+          "label": "Role, company",
+          "type": "text"
+        }
+      ],
+      "items": [
+        {
+          "name": "Sarah Jenkins",
+          "role": "CEO, Urban Thread",
+          "quote": "The conversion boost was almost immediate. Our customers love being able to see how a dress fits them before committing."
+        },
+        {
+          "name": "David Chen",
+          "role": "Founder, Studio Wear",
+          "quote": "Native Shopify integration was the deciding factor. It took us less than 5 minutes to go live across our catalog."
+        },
+        {
+          "name": "Elena Rodriguez",
+          "role": "Ops Director, VogueFit",
+          "quote": "Return rates dropped by 18%. This app paid for itself within the first week of installation."
+        },
+        {
+          "name": "Priya Nair",
+          "role": "Head of CX, Chameli Studio",
+          "quote": "Shoppers who try on rarely ask about sizing any more. Our support tickets dropped noticeably after launch."
+        },
+        {
+          "name": "Marcus Lee",
+          "role": "E-commerce Manager, Northline Apparel",
+          "quote": "Variant mapping took an afternoon, and the try-on matches every colour we sell."
+        },
+        {
+          "name": "Amira Khan",
+          "role": "Merchandising Lead, Sol Collective",
+          "quote": "The analytics show exactly which products get tried on and which get bought. It changed how we merchandise."
+        }
+      ]
+    },
+    "articles": {
+      "label": "Articles / guides",
+      "singular": "article",
+      "group": "Case study & articles",
+      "titleField": "title",
+      "fields": [
+        {
+          "key": "tag",
+          "label": "Label (e.g. Strategy)",
+          "type": "text"
+        },
+        {
+          "key": "icon",
+          "label": "Icon name (Material Symbols, e.g. insights, tune, local_mall)",
+          "type": "text"
+        },
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "summary",
+          "label": "Summary",
+          "type": "textarea"
+        },
+        {
+          "key": "meta",
+          "label": "Date and read time",
+          "type": "text"
+        },
+        {
+          "key": "url",
+          "label": "Link (page URL, or # for none)",
+          "type": "text"
+        }
+      ],
+      "items": [
+        {
+          "tag": "Strategy",
+          "icon": "local_mall",
+          "title": "Reduce fashion returns with virtual try-on",
+          "summary": "How showing the fit before purchase lowers size-related returns, and where to place the widget.",
+          "meta": "Oct 8, 2026 · 7 min read",
+          "url": "#"
+        },
+        {
+          "tag": "Setup",
+          "icon": "tune",
+          "title": "Mapping variant images for accurate try-ons",
+          "summary": "A step-by-step guide to pairing every colour and size with the right product image.",
+          "meta": "Oct 6, 2026 · 8 min read",
+          "url": "#"
+        },
+        {
+          "tag": "Analytics",
+          "icon": "insights",
+          "title": "Try-on analytics: what to track first",
+          "summary": "Which try-on signals predict add-to-cart, and how to read them on your dashboard.",
+          "meta": "Oct 4, 2026 · 6 min read",
+          "url": "#"
+        }
+      ]
+    },
+    "plans": {
+      "label": "Pricing plans",
+      "singular": "plan",
+      "group": "Pricing",
+      "titleField": "name",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Plan name",
+          "type": "text"
+        },
+        {
+          "key": "price",
+          "label": "Price (e.g. $19)",
+          "type": "text"
+        },
+        {
+          "key": "period",
+          "label": "Period (e.g. / month)",
+          "type": "text"
+        },
+        {
+          "key": "included",
+          "label": "What is included (headline)",
+          "type": "text"
+        },
+        {
+          "key": "extra",
+          "label": "Extra-usage line (optional)",
+          "type": "text"
+        },
+        {
+          "key": "features",
+          "label": "Feature list (one per line)",
+          "type": "textarea"
+        },
+        {
+          "key": "button",
+          "label": "Button text",
+          "type": "text"
+        },
+        {
+          "key": "featured",
+          "label": "Highlight as featured plan",
+          "type": "checkbox"
+        },
+        {
+          "key": "badge",
+          "label": "Badge on featured plan (e.g. Most Popular)",
+          "type": "text"
+        }
+      ],
+      "items": [
+        {
+          "name": "Free Plan",
+          "price": "$0",
+          "period": "/ forever",
+          "included": "10 monthly AI try-ons included",
+          "extra": "Additional try-ons at +$0.28 / try-on",
+          "features": "10 monthly AI try-ons included\nMobile & desktop responsive widget\nPrivacy consent screen\nProduct page try-on support\nStandard AI processing\nEmail support",
+          "button": "Get Started Free",
+          "featured": "0",
+          "badge": ""
+        },
+        {
+          "name": "Growth Plan",
+          "price": "$19",
+          "period": "/ month",
+          "included": "100 monthly AI try-ons included",
+          "extra": "Additional try-ons at +$0.15 / try-on",
+          "features": "100 monthly AI try-ons included\nCollection page mini try-on icons\nVariant image mapping system\nProduct-level try-on enable / disable\nAdvanced widget customization\nTypography & branding controls\nWhatsApp share support\nAnalytics dashboard\nCustomer email collection\nAdd-to-cart & conversion tracking\nFaster AI processing queue\nStandard support",
+          "button": "Start Growth Plan",
+          "featured": "1",
+          "badge": "Most Popular"
+        },
+        {
+          "name": "Pro Plan",
+          "price": "$49",
+          "period": "/ month",
+          "included": "500 monthly AI try-ons included",
+          "extra": "Additional try-ons at +$0.08 / try-on",
+          "features": "500 monthly AI try-ons included\nAdvanced analytics dashboard\nTop-performing product insights\nDevice-based analytics (mobile vs desktop)\n7-day trend reporting\nMulti-language widget support\nPremium widget customization\nPriority AI processing & faster rendering\nCustom icon positioning\nPriority support\nEarly access to new features\nDedicated onboarding assistance",
+          "button": "Start Pro Plan",
+          "featured": "0",
+          "badge": ""
+        }
+      ]
+    },
+    "faqs": {
+      "label": "FAQ questions",
+      "singular": "question",
+      "group": "FAQ",
+      "titleField": "question",
+      "fields": [
+        {
+          "key": "question",
+          "label": "Question",
+          "type": "text"
+        },
+        {
+          "key": "answer",
+          "label": "Answer",
+          "type": "textarea"
+        }
+      ],
+      "items": [
+        {
+          "question": "What is virtual try-on for Shopify?",
+          "answer": "Virtual try-on lets shoppers see a product on themselves. They upload or take a photo on your product page and Brix-Tryon shows them wearing it, so they can decide with more confidence."
+        },
+        {
+          "question": "How does Brix-Tryon work?",
+          "answer": "Shoppers click Try On This Look on your product page, accept the privacy notice and upload or take a photo. Brix-Tryon generates a photo of them wearing the product. They enter an email and phone number to unlock the full-size result, then add to cart, buy now, save the image or share it on WhatsApp."
+        },
+        {
+          "question": "How does virtual try-on help conversion?",
+          "answer": "Shoppers who can see a garment on themselves have less to guess about fit and look, so they feel more sure about adding it to the cart. Brix-Tryon also captures an email and phone number for follow-up, and the Analytics page shows try-ons, cart rate and purchase rate so you can measure the effect on your own store."
+        },
+        {
+          "question": "Do shoppers need an account or an app?",
+          "answer": "No. Shoppers click Try On This Look on your product page, accept the privacy notice and upload or take a photo. There is nothing to install and no account to create."
+        },
+        {
+          "question": "Is the shopper's photo stored?",
+          "answer": "A consent notice appears before upload, and the photo is not stored after processing."
+        },
+        {
+          "question": "What does the free plan include?",
+          "answer": "10 monthly AI try-ons, a responsive widget for mobile and desktop, a privacy consent screen, try-on on the product page, standard AI processing and email support."
+        },
+        {
+          "question": "How much does Brix-Tryon cost?",
+          "answer": "Free is $0 with 10 try-ons a month. Growth is $19 a month with 100 try-ons, and Pro is $49 a month with 500 try-ons."
+        },
+        {
+          "question": "What happens if I go over my try-on limit?",
+          "answer": "Extra try-ons are billed per use at the rate shown on your plan: $0.28 on Free, $0.15 on Growth and $0.08 on Pro. Try-on keeps working for your shoppers."
+        },
+        {
+          "question": "Which products does Brix-Tryon support?",
+          "answer": "Brix-Tryon is built for fashion and apparel: dresses, tops, jackets, suits and more. You can enable try-on by collection or by product."
+        },
+        {
+          "question": "Does virtual try-on reduce returns?",
+          "answer": "It can help, because shoppers have less to guess about how a piece looks on them. Your Analytics page shows try-ons, cart rate and purchase rate, so you can see the effect on your own store."
+        },
+        {
+          "question": "Can I customise how the try-on button looks?",
+          "answer": "Yes. In Widget Settings you can set button text, colours, radius, size, padding and fonts separately for desktop and mobile, with a live preview."
+        }
+      ]
+    },
+    "benefits": {
+      "label": "Benefits (cards)",
+      "singular": "benefit",
+      "group": "Benefits",
+      "titleField": "title",
+      "fields": [
+        {
+          "key": "icon",
+          "label": "Icon name (Material Symbols, e.g. shopping_cart_checkout)",
+          "type": "text"
+        },
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "text",
+          "label": "Text",
+          "type": "textarea"
+        }
+      ],
+      "items": [
+        {
+          "icon": "shopping_cart_checkout",
+          "title": "Higher conversion",
+          "text": "Shoppers who can see a piece on themselves have fewer doubts at the cart, so more browsers become buyers."
+        },
+        {
+          "icon": "assignment_return",
+          "title": "Fewer returns",
+          "text": "Seeing the fit and the look before buying means fewer size and style surprises after delivery."
+        },
+        {
+          "icon": "verified_user",
+          "title": "Confident shoppers",
+          "text": "A clear, personal preview replaces guesswork, so shoppers decide faster and with more certainty."
+        },
+        {
+          "icon": "person_add",
+          "title": "Leads on every try-on",
+          "text": "Shoppers share an email and phone number to unlock their full-size result, giving you leads with consent."
+        },
+        {
+          "icon": "devices",
+          "title": "Works on mobile and desktop",
+          "text": "No app download and no account. Shoppers try on straight from your product page on any device."
+        },
+        {
+          "icon": "monitoring",
+          "title": "Know what works",
+          "text": "See try-ons, cart rate and purchase rate in Analytics, and learn which products shoppers try on the most."
+        }
+      ]
+    }
+  }
+}

@@ -1,534 +1,238 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | The Brix-Tryon</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <meta name="description" content="How Brix-Tryon collects, uses, shares and protects personal data under Indian law." />
+  <link rel="icon" type="image/png" href="assets/Asset%206Brix%20Try%20On.png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#9e9e9e",
-            "on-primary": "#ffffff",
-            "primary-container": "#f2f2f2",
-            "on-primary-container": "#111111",
-            "background": "#0a0a0a",
-            "surface": "#262626",
-            "on-surface": "#fafafa",
-            "on-surface-variant": "#bdbdbd",
-            "outline": "#757575",
-            "outline-variant": "#3d3d3d",
-          },
-          fontFamily: {
-            "manrope": ["Poppins", "sans-serif"],
-            "serif": ["Playfair Display", "serif"]
-          },
-          spacing: {
-            "margin-desktop": "80px",
-            "margin-mobile": "24px",
-            "gutter": "32px",
-          }
-        }
-      }
-    }
-  </script>
   <style>
-    body { font-family: 'Poppins', sans-serif; }
-    .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
-    .aura-glow {
-      background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
-      filter: blur(60px);
+    :root { --ink:#2B2440; --muted:#5C5675; --pink:#FEB8D7; --deep:#C93B83; --blue:#6FB3F7; --blue-d:#3F94EC; --line:#F3C4DA; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body { margin: 0; font-family: 'Poppins', sans-serif; color: var(--ink); background: linear-gradient(180deg, #FFF4F9, #FFE8F2); line-height: 1.7; }
+    a { color: inherit; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+    nav.top { position: sticky; top: 0; z-index: 50; background: rgba(255,244,249,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    nav.top .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    nav.top img { height: 40px; width: auto; display: block; }
+    nav.top .links { display: flex; align-items: center; gap: 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; }
+    nav.top .links a { text-decoration: none; }
+    nav.top .links a.on { color: var(--deep); }
+    .btn { display: inline-block; text-decoration: none; background: var(--blue); color: #fff; border: 1.5px solid var(--blue-d); border-radius: 12px; padding: 10px 20px; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; box-shadow: 0 10px 20px -12px rgba(63,148,236,.9); white-space: nowrap; }
+    .hero { padding: 64px 0 36px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 14px; color: var(--deep); font-size: 11px; font-weight: 800; letter-spacing: .4em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 48px; height: 1px; background: var(--deep); }
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -.02em; font-weight: 500; margin: 18px 0 12px; }
+    h1 i { font-family: 'Playfair Display', serif; color: var(--deep); font-weight: 700; }
+    .upd { color: var(--muted); font-size: 15px; margin: 0 0 22px; }
+    .upd b { color: var(--deep); }
+    .intro { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--pink); border-radius: 18px; padding: 22px 26px; max-width: 880px; color: var(--muted); font-size: 15px; }
+    .intro p { margin: 0; }
+    .layout { display: grid; grid-template-columns: 290px 1fr; gap: 36px; padding-bottom: 80px; align-items: start; }
+    aside .toc { position: sticky; top: 96px; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 22px; max-height: calc(100vh - 120px); overflow: auto; }
+    aside .toc p { margin: 0 0 12px; font-size: 11px; font-weight: 800; letter-spacing: .3em; text-transform: uppercase; color: var(--deep); }
+    aside .toc a { display: block; padding: 6px 0; font-size: 13px; color: var(--muted); text-decoration: none; line-height: 1.35; }
+    aside .toc a:hover { color: var(--deep); }
+    .sec { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 34px 38px; margin-bottom: 22px; box-shadow: 0 24px 50px -38px rgba(201,59,131,.5); }
+    .sh { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .num { flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--pink); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; }
+    h2 { font-size: 22px; font-weight: 600; margin: 0; line-height: 1.25; }
+    h3 { font-size: 15px; font-weight: 700; margin: 22px 0 8px; color: var(--ink); }
+    .sec p, .sec li { font-size: 15px; color: var(--muted); }
+    .sec p { margin: 10px 0; }
+    .sec b { color: var(--ink); }
+    ul { padding-left: 0; margin: 10px 0; list-style: none; }
+    li { position: relative; padding-left: 22px; margin: 7px 0; }
+    li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); }
+    .tw { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px; }
+    th { text-align: left; background: #FFE8F2; color: var(--ink); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 12px 16px; }
+    td { padding: 14px 16px; vertical-align: top; color: var(--muted); border-top: 1px solid #F8DCE9; }
+    td:first-child { width: 30%; color: var(--ink); }
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px; }
+    .contact > div { background: #FFF4F9; border: 1px solid var(--line); border-radius: 18px; padding: 8px 22px 14px; }
+    .blank { display: inline-block; min-width: 180px; border-bottom: 1px dashed #d9b5c8; vertical-align: bottom; height: 1.2em; }
+    footer { background: #FFE8F2; border-top: 1px solid var(--line); padding: 28px 0; }
+    footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    footer a { text-decoration: none; margin-right: 22px; }
+    footer img { height: 44px; display: block; }
+    @media (max-width: 1023px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { display: none; }
+      nav.top .links { display: none; }
     }
-    .glass-card {
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.1);
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      .sec { padding: 24px 20px; border-radius: 20px; }
+      .contact { grid-template-columns: 1fr; }
+      .hero { padding: 40px 0 24px; }
     }
-    .editorial-heading { letter-spacing: -0.04em; line-height: 0.9; }
   </style>
 </head>
-
-<body class="bg-background text-on-surface overflow-x-hidden">
-
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-[100] transition-all duration-500 bg-background/80 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop h-24 flex items-center justify-between">
-      <a class="text-3xl font-800 tracking-tighter text-on-surface" href="index.html">The Brix-Tryon<span class="text-primary-container">.</span></a>
-      <div class="hidden lg:flex items-center gap-12">
-        <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors" href="index.html#pricing">Pricing</a>
-        <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-on-surface/100 hover:text-primary-container transition-colors" href="terms-of-service.html">Terms</a>
-        <a class="text-[11px] uppercase tracking-[0.2em] font-700 text-primary-container transition-colors" href="privacy-policy.html">Privacy</a>
+<body>
+  <nav class="top">
+    <div class="wrap">
+      <a href="index.php" aria-label="Brix Try On"><img src="assets/brix-logo.png" alt="Brix Try On" /></a>
+      <div class="links">
+        <a href="index.php#pricing">Pricing</a>
+        <a href="terms-of-service.html">Terms</a>
+        <a href="privacy-policy.html" class="on">Privacy</a>
       </div>
-      <a href="index.html" class="px-8 py-3 bg-primary-container text-on-primary-container text-[11px] uppercase tracking-[0.2em] font-800 hover:bg-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-        Back to Home
-      </a>
+      <a class="btn" href="index.php">Back to home</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="relative pt-40 pb-20 overflow-hidden">
-    <div class="absolute inset-0 aura-glow opacity-20 pointer-events-none"></div>
-    <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
-      <div class="inline-flex items-center gap-4 text-primary-container mb-8">
-        <div class="h-[1px] w-12 bg-primary-container"></div>
-        <span class="text-[10px] uppercase tracking-[0.4em] font-800">Legal</span>
-      </div>
-      <h1 class="editorial-heading text-6xl md:text-8xl font-800 text-white mb-6">
-        Privacy <span class="serif-italic font-normal text-primary-container">Policy</span>
-      </h1>
-      <p class="text-lg text-on-surface-variant font-light max-w-xl">
-        Last Updated: <span class="text-primary-container font-700">May 19, 2026</span>
-      </p>
-      <div class="mt-10 glass-card p-6 max-w-2xl border-l-4 border-l-primary-container">
-        <p class="text-lg text-on-surface-variant font-light leading-relaxed">
-          Welcome to Brix-Tryon. This Privacy Policy explains how Brix-Tryon ("Brix-Tryon", "we", "our", or "us") collects,
-          uses, processes, and protects information when merchants and customers use our AI-powered virtual try-on
-          application for Shopify stores. By using Brix-Tryon, you agree to the practices described in this Privacy Policy.
-        </p>
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Legal</span>
+      <h1>Brix-Tryon <i>Privacy Policy</i></h1>
+      <p class="upd">Last updated: <b>October 14, 2026</b></p>
+      <div class="intro">
+        <p>This Privacy Policy explains how Brix-Tryon ("Brix-Tryon", "we", "our" or "us") collects, uses, shares and protects personal data when merchants and shoppers in India use our AI virtual try-on and AI Studio app, on Shopify or on other e-commerce platforms, and when you visit our website. It is written under Indian law. If you are a shopper, please read Sections 3, 4 and 9 first.</p>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Content -->
-  <main class="pb-24">
-    <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
-      <div class="grid grid-cols-12 gap-gutter">
-
-        <!-- Sticky TOC -->
-        <aside class="col-span-12 lg:col-span-3 hidden lg:block">
-          <div class="sticky top-32 glass-card p-8 space-y-4">
-            <p class="text-[10px] uppercase tracking-[0.3em] font-800 text-primary-container mb-6">Contents</p>
-            <nav class="flex flex-col gap-3">
-              <a href="#p1"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">1. Information We Collect</a>
-              <a href="#p2"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">2. Customer Photos</a>
-              <a href="#p3"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">3. How We Use Info</a>
-              <a href="#p4"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">4. Shopify Data Access</a>
-              <a href="#p5"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">5. Analytics &amp; Tracking</a>
-              <a href="#p6"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">6. Data Storage</a>
-              <a href="#p7"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">7. GDPR Compliance</a>
-              <a href="#p8"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">8. Third-Party Services</a>
-              <a href="#p9"  class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">9. Data Retention</a>
-              <a href="#p10" class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">10. Children's Privacy</a>
-              <a href="#p11" class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">11. App Uninstallation</a>
-              <a href="#p12" class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">12. Policy Changes</a>
-              <a href="#p13" class="text-[11px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary-container transition-colors">13. Contact Us</a>
-            </nav>
-          </div>
-        </aside>
-
-        <!-- Sections -->
-        <div class="col-span-12 lg:col-span-9 space-y-12">
-
-          <!-- 1 -->
-          <section id="p1" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">01</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Information We Collect</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="border border-white/10 p-6 bg-white/[0.02]">
-                <p class="text-[10px] uppercase tracking-widest font-800 text-primary-container mb-4">A. Merchant Information</p>
-                <ul class="space-y-2">
-                  <li class="text-sm text-on-surface-variant font-light">Store name and Shopify domain</li>
-                  <li class="text-sm text-on-surface-variant font-light">Merchant contact information</li>
-                  <li class="text-sm text-on-surface-variant font-light">Shopify account and store data</li>
-                  <li class="text-sm text-on-surface-variant font-light">Product and variant information</li>
-                  <li class="text-sm text-on-surface-variant font-light">Theme and app configuration settings</li>
-                  <li class="text-sm text-on-surface-variant font-light">Billing and subscription information</li>
-                  <li class="text-sm text-on-surface-variant font-light">Analytics and usage data</li>
-                </ul>
-              </div>
-              <div class="border border-primary-container/30 p-6 bg-primary-container/[0.03]">
-                <p class="text-[10px] uppercase tracking-widest font-800 text-primary-container mb-4">B. Customer Information</p>
-                <ul class="space-y-2">
-                  <li class="text-sm text-on-surface-variant font-light">Uploaded photos/images</li>
-                  <li class="text-sm text-on-surface-variant font-light">Selected product variants</li>
-                  <li class="text-sm text-on-surface-variant font-light">Device and browser information</li>
-                  <li class="text-sm text-on-surface-variant font-light">Session identifiers</li>
-                  <li class="text-sm text-on-surface-variant font-light">Interaction and usage events</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- 2 -->
-          <section id="p2" class="glass-card p-10 scroll-mt-32 border-t-4 border-primary-container">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">02</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">How Customer Photos Are Processed</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">Brix-Tryon uses AI-based image processing technology to generate virtual try-on results.</p>
-            <div class="border border-primary-container/30 p-6 bg-primary-container/[0.04] space-y-4">
-              <p class="text-[10px] uppercase tracking-widest font-800 text-primary-container">Important Privacy Commitment</p>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                  <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">shield</span>
-                  Customer photos are processed temporarily for generating try-on results.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                  <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">shield</span>
-                  Photos are not permanently stored after processing is completed.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                  <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">shield</span>
-                  Temporary image files may be cached briefly for processing reliability and are automatically deleted.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                  <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">shield</span>
-                  We do not sell, share, or use uploaded photos for advertising purposes.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                  <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">shield</span>
-                  Photos are never used to train AI models without explicit permission.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- 3 -->
-          <section id="p3" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">03</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">How We Use Information</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">We use collected information to:</p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Provide virtual try-on functionality
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Generate AI try-on images
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Enable product variant mapping
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Improve app performance and reliability
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Provide analytics and reporting
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Track conversions and app engagement
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Provide customer support
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Prevent fraud, abuse, or misuse
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Comply with legal obligations
-              </li>
-            </ul>
-          </section>
-
-          <!-- 4 -->
-          <section id="p4" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">04</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Shopify Data Access</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">Brix-Tryon accesses Shopify store data only as required for app functionality, including:</p>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Products
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Product variants
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Theme integration
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Orders for conversion tracking
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                App configuration settings
-              </li>
-            </ul>
-            <p class="text-lg text-on-surface-variant font-light">We follow Shopify's API and Partner Program requirements.</p>
-          </section>
-
-          <!-- 5 -->
-          <section id="p5" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">05</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Analytics &amp; Tracking</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">Brix-Tryon may collect analytics data including:</p>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">analytics</span>
-                Try-on initiations
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">analytics</span>
-                Conversion events
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">analytics</span>
-                Cart interactions
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">analytics</span>
-                Device type
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">analytics</span>
-                Session activity
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">analytics</span>
-                Feature usage statistics
-              </li>
-            </ul>
-            <p class="text-lg text-on-surface-variant font-light">This information helps merchants understand customer engagement and improve store performance.</p>
-          </section>
-
-          <!-- 6 -->
-          <section id="p6" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">06</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Data Storage &amp; Security</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">We implement industry-standard security measures to protect data, including:</p>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">lock</span>
-                Secure API communication
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">lock</span>
-                Access controls
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">lock</span>
-                Encrypted connections (HTTPS)
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">lock</span>
-                Temporary file cleanup processes
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">lock</span>
-                Protected server environments
-              </li>
-            </ul>
-            <p class="text-lg text-on-surface-variant font-light">While we strive to protect information, no online service can guarantee absolute security.</p>
-          </section>
-
-          <!-- 7 -->
-          <section id="p7" class="glass-card p-10 scroll-mt-32 border-t-4 border-primary-container">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">07</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">GDPR &amp; Privacy Compliance</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">Brix-Tryon is designed with privacy-first principles and supports merchants in meeting privacy expectations. Customers may have rights under applicable privacy laws, including:</p>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">gavel</span>
-                Right to access information
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">gavel</span>
-                Right to request deletion
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">gavel</span>
-                Right to withdraw consent
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">gavel</span>
-                Right to object to processing
-              </li>
-            </ul>
-            <p class="text-lg text-on-surface-variant font-light">Merchants remain responsible for ensuring their own compliance with applicable laws and regulations.</p>
-          </section>
-
-          <!-- 8 -->
-          <section id="p8" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">08</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Third-Party Services</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">Brix-Tryon may use trusted third-party providers for:</p>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">cloud</span>
-                Cloud storage
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">cloud</span>
-                Image processing
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">cloud</span>
-                Analytics
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">cloud</span>
-                Infrastructure hosting
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-outline text-sm mt-0.5 flex-shrink-0">cloud</span>
-                Customer support tools
-              </li>
-            </ul>
-            <p class="text-lg text-on-surface-variant font-light">These providers only process data as necessary to provide services to Brix-Tryon.</p>
-          </section>
-
-          <!-- 9 -->
-          <section id="p9" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">09</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Data Retention</h2>
-            </div>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Uploaded images are retained only temporarily for processing purposes.
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Analytics and operational data may be retained for reporting, fraud prevention, and service improvement.
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Merchants may request account deletion at any time.
-              </li>
-            </ul>
-          </section>
-
-          <!-- 10 -->
-          <section id="p10" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">10</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Children's Privacy</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light leading-relaxed">
-              Brix-Tryon is not intended for direct use by children. Merchants are responsible for ensuring lawful use of customer data on their stores.
-            </p>
-          </section>
-
-          <!-- 11 -->
-          <section id="p11" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">11</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">App Uninstallation</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light mb-6">When a merchant uninstalls Brix-Tryon:</p>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Shopify access tokens are revoked
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Store-related data may be deleted or anonymized
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Remaining temporary files are automatically cleaned up
-              </li>
-              <li class="flex items-start gap-3 text-sm text-on-surface-variant font-light">
-                <span class="material-symbols-outlined text-primary-container text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                Certain billing or legal records may be retained where required by law
-              </li>
-            </ul>
-          </section>
-
-          <!-- 12 -->
-          <section id="p12" class="glass-card p-10 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">12</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Changes to This Policy</h2>
-            </div>
-            <p class="text-lg text-on-surface-variant font-light leading-relaxed">
-              We may update this Privacy Policy periodically. Continued use of Brix-Tryon after updates constitutes acceptance of the revised policy.
-            </p>
-          </section>
-
-          <!-- 13 -->
-          <section id="p13" class="glass-card p-10 scroll-mt-32 border border-primary-container/30">
-            <div class="flex items-center gap-4 mb-6">
-              <span class="text-4xl font-800 text-primary-container/20 font-serif">13</span>
-              <h2 class="text-2xl font-800 text-white uppercase tracking-wide">Contact Us</h2>
-            </div>
-            <div class="space-y-4">
-              <p class="text-[10px] uppercase tracking-[0.3em] font-800 text-primary-container">Brix-Tryon Support</p>
-              <div class="space-y-2 text-sm text-on-surface-variant font-light">
-                <p>Email: <a href="mailto:thefitsnap@gmail.com" class="text-primary-container hover:text-white transition-colors">thefitsnap@gmail.com</a></p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Related links -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-4">
-            <a href="terms-of-service.html" class="flex-1 glass-card p-6 border-l-4 border-l-primary-container hover:bg-white/5 transition-all group">
-              <p class="text-[10px] uppercase tracking-widest text-primary-container font-800 mb-1">Also Read</p>
-              <p class="text-lg font-700 text-white group-hover:text-primary-container transition-colors">Terms of Service &rarr;</p>
-            </a>
-            <a href="index.html" class="flex-1 glass-card p-6 hover:bg-white/5 transition-all group">
-              <p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-800 mb-1">Return to</p>
-              <p class="text-lg font-700 text-white group-hover:text-primary-container transition-colors">Home &rarr;</p>
-            </a>
-          </div>
-
-        </div>
+  <main class="wrap layout">
+    <aside>
+      <div class="toc">
+        <p>Contents</p>
+        <nav>
+          <a href="#s1">1. Who We Are</a>
+          <a href="#s2">2. Information We Collect</a>
+          <a href="#s3">3. How Shopper Photos Are Processed</a>
+          <a href="#s4">4. Leads and Marketing Consent</a>
+          <a href="#s5">5. AI Studio Content and Model Photos</a>
+          <a href="#s6">6. How We Use Information</a>
+          <a href="#s7">7. Who We Share Information With</a>
+          <a href="#s8">8. Analytics and Cookies</a>
+          <a href="#s9">9. Children's Privacy</a>
+          <a href="#s10">10. Data Retention</a>
+          <a href="#s11">11. Your Rights</a>
+          <a href="#s12">12. Where Data Is Processed</a>
+          <a href="#s13">13. Security</a>
+          <a href="#s14">14. Uninstall and Deletion Requests</a>
+          <a href="#s15">15. Changes and Governing Law</a>
+          <a href="#s16">16. Contact and Grievances</a>
+        </nav>
       </div>
+    </aside>
+    <div>
+      <section id="s1" class="sec">
+        <div class="sh"><span class="num">01</span><h2>Who We Are</h2></div>
+        <p>Brix-Tryon is an AI virtual try-on and AI model photo app for e-commerce stores in India. It runs as a Shopify app and can also be used on other e-commerce platforms and websites that add the Brix-Tryon widget. It is operated by Digifyce.</p>
+<p><b>Merchant account data.</b> For information about merchants and their stores, we decide how and why data is used. We act as the data fiduciary.</p>
+<p><b>Shopper data in a merchant's store.</b> When a shopper uses try-on on a merchant's store, the merchant decides why the data is used and is the data fiduciary. We process it on the merchant's behalf as a data processor, under the merchant's instructions.</p>
+<h3>This policy covers</h3>
+<ul><li>Merchants who install Brix-Tryon from the Shopify App Store, and the shoppers on their Shopify stores</li><li>Merchants who use Brix-Tryon on other platforms or websites and the shoppers on those stores</li><li>Visitors to our website</li></ul>
+<p>Where this policy says "store", "Shopify" or "Shopify app", it also covers the equivalent on another platform. We note where a platform makes a difference.</p>
+      </section>
+
+      <section id="s2" class="sec">
+        <div class="sh"><span class="num">02</span><h2>Information We Collect</h2></div>
+        <h3>A. Merchants</h3>
+<ul><li>Store name and Shopify domain</li><li>Merchant contact details</li><li>Store data we access from the merchant's platform (Shopify or other): products, collections, variants, theme integration and orders for conversion tracking</li><li>App and widget configuration</li><li>Plan and billing information, handled through Shopify or the merchant's platform</li><li>Usage and credit data</li></ul>
+<h3>B. Shoppers</h3>
+<ul><li>The photo the shopper takes or uploads for try-on</li><li>Email address and phone number entered to unlock the full-size result, with the marketing-consent choice and a timestamp</li><li>Product viewed and selected variant</li><li>Device type, browser information and a session identifier</li><li>Actions after a try-on: add to cart, buy now, save image, share on WhatsApp, orders attributed</li></ul>
+<h3>C. AI Studio</h3>
+<ul><li>Product photos merchants upload: front, back and detail views</li><li>Model reference photos merchants upload</li><li>Generation settings such as pose, background and aspect ratio</li><li>Generated images saved to the Asset Library and Saved Models</li></ul>
+      </section>
+
+      <section id="s3" class="sec">
+        <div class="sh"><span class="num">03</span><h2>How Shopper Photos Are Processed</h2></div>
+        <p>Brix-Tryon uses AI image processing to create a try-on image of the shopper wearing the product.</p>
+<h3>Our commitments</h3>
+<ul><li>A consent notice is shown before the shopper uploads or takes a photo. The merchant can switch the notice on or off, and we recommend leaving it on.</li><li>The photo is used only to create that shopper's try-on image and is not stored after processing.</li><li>Temporary files may exist briefly while the image is processed. They are deleted automatically.</li><li>We do not sell shopper photos, use them for advertising, or use them to train AI models without explicit permission.</li><li>Merchants see the email, phone number and consent status a shopper enters, not the shopper's photo.</li></ul>
+<p>To create the image we send the photo to an AI image-processing provider acting on our instructions.</p>
+      </section>
+
+      <section id="s4" class="sec">
+        <div class="sh"><span class="num">04</span><h2>Leads and Marketing Consent</h2></div>
+        <p>Before the full-size try-on result is shown, a shopper enters an email address and phone number and accepts the store's privacy policy and terms.</p>
+<ul><li>We pass these details to the merchant. They appear in the merchant's Captured Leads table with the marketing-consent choice and a timestamp.</li><li>The merchant is responsible for contacting shoppers only as their consent allows and in line with applicable marketing, telecom and privacy law.</li><li>We do not use shopper email addresses or phone numbers to market to shoppers ourselves.</li><li>A shopper can ask the merchant, or us, to correct or delete these details or to withdraw marketing consent (see Section 11).</li></ul>
+      </section>
+
+      <section id="s5" class="sec">
+        <div class="sh"><span class="num">05</span><h2>AI Studio Content and Model Photos</h2></div>
+        <ul><li>Merchants own the product photos they upload and the images they generate, subject to our Terms of Service.</li><li>Generated images and saved models stay in the merchant's Asset Library until the merchant deletes them or uninstalls the app (see Section 14).</li><li>A merchant who uploads a photo of a real person as a model reference must have that person's written permission, and must not upload photos of children without verifiable parental consent.</li><li>Merchants are responsible for labelling AI-generated images where the law requires it.</li><li>We do not use merchant uploads or generated images to train AI models without the merchant's explicit permission.</li></ul>
+      </section>
+
+      <section id="s6" class="sec">
+        <div class="sh"><span class="num">06</span><h2>How We Use Information</h2></div>
+        <div class="tw"><table><thead><tr><th>Purpose</th><th>Details and basis under Indian law</th></tr></thead><tbody><tr><td><b>Provide try-on and AI Studio</b></td><td>Generate try-on and studio images, enable products and collections, run the widget. Basis: the shopper's consent, given through the merchant's store.</td></tr><tr><td><b>Analytics and reporting</b></td><td>Show merchants try-ons, cart rate, purchase rate, revenue, device split and top-performing products. Basis: the merchant's instructions and our service agreement with them.</td></tr><tr><td><b>Billing and plans</b></td><td>Apply the merchant's plan, credits and limits through Shopify billing. Basis: the merchant's plan and our service agreement with them.</td></tr><tr><td><b>Support and communication</b></td><td>Answer merchant questions and send service messages. Basis: the merchant's request, and legitimate use under the DPDP Act.</td></tr><tr><td><b>Security and legal</b></td><td>Prevent fraud, abuse and misuse, and comply with legal obligations. Basis: legitimate use under Section 7 of the DPDP Act, including compliance with the law.</td></tr></tbody></table></div>
+      </section>
+
+      <section id="s7" class="sec">
+        <div class="sh"><span class="num">07</span><h2>Who We Share Information With</h2></div>
+        <p>We do not sell personal data. We share it only as follows:</p>
+<ul><li>Shopify and other e-commerce platforms, to run the app, authenticate merchants and process billing.</li><li>The merchant, whose store the shopper is using, for leads and analytics.</li><li>Service providers that process data on our instructions: cloud hosting, AI image processing, analytics and customer support tools.</li><li>WhatsApp, only when a shopper chooses to share a try-on image. That sharing is governed by WhatsApp's own privacy policy.</li><li>Authorities and advisers, where the law requires it or to protect rights and safety, and a successor in a merger or sale of our business, with notice to affected merchants.</li></ul>
+      </section>
+
+      <section id="s8" class="sec">
+        <div class="sh"><span class="num">08</span><h2>Analytics and Cookies</h2></div>
+        <p>The widget and our website record events and use session identifiers, cookies or similar browser storage to work and to report on use:</p>
+<ul><li>Try-ons started and completed</li><li>Add to cart, buy now, save image and WhatsApp share</li><li>Device type (mobile, desktop, tablet)</li><li>A session cookie on our website that limits the free demo try-on to one per visitor</li></ul>
+<p>We use this data to give merchants reports and to keep the service working. We do not use it for advertising and do not build advertising profiles. You can block cookies in your browser, but the demo and parts of the widget may stop working.</p>
+      </section>
+
+      <section id="s9" class="sec">
+        <div class="sh"><span class="num">09</span><h2>Children's Privacy</h2></div>
+        <p>Brix-Tryon is intended for use by adults. Under India's Digital Personal Data Protection Act, 2023, a child is anyone under 18.</p>
+<ul><li>A shopper under 18 must not use try-on unless a parent or lawful guardian uses it for them or gives verifiable consent.</li><li>We do not store photos of children or adults. A photo used for try-on is processed only to create the try-on image and is not stored by us.</li><li>We do not knowingly collect contact details from children, and we do not track or behaviorally monitor children or show them targeted advertising.</li><li>Merchants who sell children's products must obtain verifiable parental consent before a child's image is uploaded, or turn try-on off for those products. Merchants remain responsible for lawful use of customer data on their stores.</li><li>If you believe a child's data has been collected without consent, contact us using Section 16 and we will delete it.</li></ul>
+      </section>
+
+      <section id="s10" class="sec">
+        <div class="sh"><span class="num">10</span><h2>Data Retention</h2></div>
+        <div class="tw"><table><thead><tr><th>Data</th><th>How long we keep it</th></tr></thead><tbody><tr><td><b>Shopper photos</b></td><td>Not stored after processing. Temporary files are deleted automatically.</td></tr><tr><td><b>Captured leads</b></td><td>Kept for the merchant until the merchant deletes them or the app is uninstalled, then deleted within 3 months.</td></tr><tr><td><b>Analytics events</b></td><td>Kept for 6 months to power reports, then deleted or anonymised.</td></tr><tr><td><b>AI Studio assets</b></td><td>Kept in the Asset Library until the merchant deletes them or uninstalls the app.</td></tr><tr><td><b>Billing and legal records</b></td><td>Kept as long as the law requires.</td></tr></tbody></table></div>
+      </section>
+
+      <section id="s11" class="sec">
+        <div class="sh"><span class="num">11</span><h2>Your Rights</h2></div>
+        <p>Under India's Digital Personal Data Protection Act, 2023, you have the right to:</p>
+<ul><li>Get a summary of the personal data held about you and who it has been shared with</li><li>Ask for your data to be corrected, completed, updated or erased</li><li>Withdraw your consent at any time, as easily as you gave it</li><li>Have your grievance addressed</li><li>Nominate another person to exercise these rights if you die or become unable to</li></ul>
+<p><b>Shoppers:</b> the merchant whose store you used is responsible for your data, so please ask them first. You can also write to us using Section 16 and we will act on the request or pass it to the merchant. Merchants: contact us through the app or Section 16. Parents and guardians can make a request for a child.</p>
+<p>We respond within the time Indian law requires. If your grievance is not resolved, you may complain to the Data Protection Board of India.</p>
+      </section>
+
+      <section id="s12" class="sec">
+        <div class="sh"><span class="num">12</span><h2>Where Data Is Processed</h2></div>
+        <p>Data is processed and stored in India. We transfer personal data outside India only where the Digital Personal Data Protection Act, 2023 allows it, which means not to any country or territory the Government of India has restricted.</p>
+      </section>
+
+      <section id="s13" class="sec">
+        <div class="sh"><span class="num">13</span><h2>Security</h2></div>
+        <ul><li>Encrypted connections (HTTPS) and secure API communication</li><li>Access controls limited to people who need the data</li><li>Automatic cleanup of temporary files</li><li>Protected server environments</li></ul>
+<p>No online service can promise absolute security. If a personal data breach affects you, we will notify the affected merchants, individuals and authorities as the law requires.</p>
+      </section>
+
+      <section id="s14" class="sec">
+        <div class="sh"><span class="num">14</span><h2>Uninstall and Deletion Requests</h2></div>
+        <p>When a merchant uninstalls Brix-Tryon:</p>
+<ul><li>Shopify access tokens are revoked.</li><li>We delete or anonymise the store's data, including leads, analytics and AI Studio assets, within the period in Section 10.</li><li>We act on Shopify's customer data request, customer erasure and store erasure notices, and on the equivalent notices from any other platform.</li><li>Some billing or legal records may be kept where the law requires it.</li></ul>
+      </section>
+
+      <section id="s15" class="sec">
+        <div class="sh"><span class="num">15</span><h2>Changes and Governing Law</h2></div>
+        <p>We may update this policy. We will change the date at the top and, for material changes, notify merchants in the app or by email before the change takes effect.</p>
+<p>This policy follows the Digital Personal Data Protection Act, 2023, the Information Technology Act, 2000 and the rules under them, to the extent they are in force, and is governed by the laws of India. The courts at Coimbatore, India have jurisdiction without limiting any right you have under Indian law.</p>
+      </section>
+
+      <section id="s16" class="sec">
+        <div class="sh"><span class="num">16</span><h2>Contact and Grievances</h2></div>
+        <div class="contact"><div><h3>Brix-Tryon Support</h3><p>Email: <span class="blank"></span></p><p>Operator: Digifyce</p></div><div><h3>Grievance Officer / Data Protection Contact</h3><p>Name: <span class="blank"></span></p><p>Email: <span class="blank"></span></p></div></div>
+<p>We acknowledge complaints within 24 hours and resolve them within 3 to 4 days.</p>
+      </section>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-surface py-6 border-t border-white/5">
-    <div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop">
-      <div class="grid grid-cols-12 gap-gutter">
-        <div class="col-span-12 lg:col-span-6 space-y-4">
-          <div class="text-4xl font-800 tracking-tighter text-white">The Brix-Tryon<span class="text-primary-container">.</span></div>
-          <p class="text-on-surface-variant/100 max-w-sm text-[13px] leading-relaxed uppercase tracking-[0.1em]">
-            AI virtual try-on for Shopify fashion stores. Show shoppers how clothes fit before they buy.
-          </p>
-        </div>
-        <div class="col-span-6 lg:col-span-3 space-y-4">
-          <h4 class="text-white font-800 text-[10px] uppercase tracking-[0.4em]">Navigation</h4>
-          <div class="flex flex-col gap-3">
-            <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors" href="index.html">Home</a>
-            <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors" href="index.html#pricing">Pricing</a>
-          </div>
-        </div>
-        <div class="col-span-6 lg:col-span-3 space-y-4">
-          <h4 class="text-white font-800 text-[10px] uppercase tracking-[0.4em]">Compliance</h4>
-          <div class="flex flex-col gap-3">
-            <a class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/90 hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
-            <a class="text-[11px] uppercase tracking-[0.2em] text-primary-container transition-colors" href="privacy-policy.html">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-      <div class="mt-6 pt-4 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/70">&copy; 2026 The Brix-Tryon. Digifyce.</p>
-      </div>
+  <footer>
+    <div class="wrap">
+      <a href="index.php"><img src="assets/brix-logo.png" alt="Brix Try On" /></a>
+      <div><a href="index.php">Home</a><a href="terms-of-service.html">Terms of Service</a><a href="privacy-policy.html" style="color:var(--deep)">Privacy Policy</a></div>
+      <span>&copy; 2026 The Brix-Tryon. Digifyce.</span>
     </div>
   </footer>
-
 </body>
 </html>

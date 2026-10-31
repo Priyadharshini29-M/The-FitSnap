@@ -1,0 +1,14 @@
+DirectoryIndex index.php index.html
+Options -Indexes
+
+# keep server code and local secrets out of the browser
+RewriteEngine On
+RewriteRule ^(server|lib|data)(/|$) - [R=404,L]
+<FilesMatch "^(config(\.local|\.sample)?\.php|install\.php|\.env.*)$">
+    Require all denied
+</FilesMatch>
+
+# The live "Try it free" demo calls /api/tryon, which is served by the Node app in /server.
+# If you host that app on the same machine, uncomment (needs mod_proxy + mod_proxy_http):
+# ProxyPass        /api http://127.0.0.1:3000/api
+# ProxyPassReverse /api http://127.0.0.1:3000/api

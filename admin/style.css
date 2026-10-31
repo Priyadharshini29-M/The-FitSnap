@@ -1,0 +1,65 @@
+:root{--bg:#f4f5f7;--card:#fff;--ink:#14161a;--muted:#667085;--line:#e3e6ea;--accent:#111;--danger:#b42318;--ok:#067647}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);display:flex;min-height:100vh}
+a{color:inherit}
+.side{width:250px;flex:none;background:#111;color:#e8e8e8;padding:18px 0;position:sticky;top:0;height:100vh;overflow:auto}
+.side .brand{display:block;padding:0 20px 14px;font-weight:700;font-size:17px;text-decoration:none;color:#fff}
+.side .brand small{font-weight:400;color:#999;font-size:12px}
+.side nav a{display:block;padding:7px 20px;text-decoration:none;color:#cfcfcf;font-size:14px}
+.side nav a:hover{background:#1d1d1d;color:#fff}
+.side nav a.on{background:#fff;color:#111;font-weight:600}
+.side nav p{margin:14px 20px 4px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7d7d7d}
+.side nav b{background:#e5484d;color:#fff;border-radius:99px;padding:0 7px;font-size:11px;margin-left:4px}
+.main{flex:1;min-width:0;padding:26px 32px 60px;max-width:1100px}
+h1{margin:0 0 18px;font-size:24px}
+h2{margin:30px 0 12px;font-size:17px}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.tile{display:flex;gap:14px;align-items:center;text-decoration:none}
+.tile:hover{border-color:#111}
+.tile b{font-size:26px;min-width:34px;text-align:center}
+.tile span{line-height:1.3}
+.tile small{color:var(--muted)}
+.form .row{margin-bottom:16px}
+.form label{display:block;font-weight:600;font-size:13px;margin-bottom:5px}
+input,textarea{width:100%;font:inherit;padding:9px 11px;border:1px solid #cfd4da;border-radius:7px;background:#fff;color:inherit}
+input:focus,textarea:focus{outline:2px solid #111;outline-offset:-1px}
+textarea{resize:vertical}
+input[type=checkbox]{width:auto}
+input[type=file]{padding:6px;margin-bottom:6px}
+label.check{font-weight:400;display:flex;gap:8px;align-items:center;margin-top:6px}
+.imgrow{display:flex;gap:14px;align-items:flex-start}
+.imgrow>div{flex:1;min-width:0}
+.thumb{width:120px;height:120px;object-fit:contain;background:#eee;border:1px solid var(--line);border-radius:7px;flex:none}
+.bar{position:sticky;bottom:0;background:linear-gradient(transparent,var(--card) 30%);padding-top:14px;display:flex;gap:10px}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:7px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid #cfd4da}
+.btn:hover{opacity:.88}
+.flash{padding:11px 14px;border-radius:8px;margin-bottom:16px;font-weight:500}
+.flash.ok{background:#e7f6ec;color:var(--ok)}
+.flash.err{background:#fdeceb;color:var(--danger)}
+.tbl{width:100%;border-collapse:collapse}
+.tbl td,.tbl th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.tbl th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .grow{width:100%}
+.tbl .act{white-space:nowrap;text-align:right}
+.tbl.wide{min-width:820px}
+.tbl tr.off td{opacity:.5}
+.tbl tr.new td{background:#fffbe6}
+.tag{font-size:11px;background:#eee;border-radius:5px;padding:1px 6px;margin-left:6px}
+form.inline{display:inline}
+.mini{display:inline-block;background:#fff;border:1px solid #cfd4da;border-radius:6px;padding:4px 10px;font:inherit;font-size:13px;cursor:pointer;text-decoration:none;color:var(--ink)}
+.mini:hover:not(:disabled){border-color:#111}
+.mini:disabled{opacity:.35;cursor:default}
+.mini.danger{color:var(--danger)}
+code{background:#eef0f3;padding:1px 5px;border-radius:4px}
+.narrow{max-width:460px}
+.pager{display:flex;gap:10px;margin-top:14px}
+body.login{display:grid;place-items:center;padding:20px}
+.login-card{width:100%;max-width:360px}
+.login-card h1{font-size:20px}
+.login-card label{display:block;margin-bottom:14px;font-weight:600;font-size:13px}
+.login-card input{margin-top:5px;font-weight:400}
+@media(max-width:800px){body{display:block}.side{width:auto;height:auto;position:static}.main{padding:18px 16px 50px}.imgrow{flex-direction:column}}

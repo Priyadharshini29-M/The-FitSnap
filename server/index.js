@@ -48,6 +48,7 @@ const GARMENTS = {
     hoodie: { file: 'look-m2-garment.jpg', desc: 'oversized charcoal grey hoodie with joggers', name: 'Oversized Hoodie Set' },
     kurta: { file: 'look-m3-garment.jpg', desc: 'cream kurta with dark teal nehru jacket', name: 'Kurta & Nehru Jacket Set' },
     shirt: { file: 'studio-flat.jpg', desc: 'olive green linen button-up shirt', name: 'Linen Shirt' },
+    coat: { file: 'model-fur-collar-coat.jpg', desc: 'brown wool double-breasted coat with a grey fur collar', name: 'Fur-Collar Wool Coat' },
 };
 
 // ---------- one-credit store (IP + cookie), persisted to disk ----------
@@ -241,7 +242,8 @@ app.post('/api/tryon', throttle(8, 60000), async (req, res) => {
 
 // never serve server code, secrets or the usage store
 app.use((req, res, next) => {
-    if (/^\/(server|data)(\/|$)|^\/\.env/i.test(decodeURIComponent(req.path))) return res.status(404).end();
+    // (the PHP/MySQL site files live next to this folder; never expose their source or config)
+    if (/^\/(server|data|lib|admin)(\/|$)|^\/\.env|\.(php|sql|htaccess)$/i.test(decodeURIComponent(req.path))) return res.status(404).end();
     next();
 });
 app.use(express.static(WEB_ROOT, { extensions: ['html'] }));

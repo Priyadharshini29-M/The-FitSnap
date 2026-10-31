@@ -1,0 +1,39 @@
+CREATE TABLE IF NOT EXISTS settings (
+    skey       VARCHAR(100) NOT NULL PRIMARY KEY,
+    svalue     MEDIUMTEXT   NOT NULL,
+    updated_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS items (
+    id         INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    type       VARCHAR(40)  NOT NULL,
+    sort_order INT          NOT NULL DEFAULT 0,
+    active     TINYINT(1)   NOT NULL DEFAULT 1,
+    data       MEDIUMTEXT   NOT NULL,
+    KEY idx_type_order (type, sort_order)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS leads (
+    id         INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    source     VARCHAR(30)  NOT NULL,
+    first_name VARCHAR(100) NOT NULL DEFAULT '',
+    last_name  VARCHAR(100) NOT NULL DEFAULT '',
+    phone      VARCHAR(40)  NOT NULL DEFAULT '',
+    company    VARCHAR(200) NOT NULL DEFAULT '',
+    shop_url   VARCHAR(300) NOT NULL DEFAULT '',
+    email      VARCHAR(200) NOT NULL DEFAULT '',
+    ip         VARCHAR(45)  NOT NULL DEFAULT '',
+    user_agent VARCHAR(255) NOT NULL DEFAULT '',
+    is_read    TINYINT(1)   NOT NULL DEFAULT 0,
+    sheet_synced TINYINT(1) NOT NULL DEFAULT 0,
+    created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    KEY idx_created (created_at),
+    KEY idx_ip_created (ip, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS admins (
+    id            INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username      VARCHAR(60)  NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
