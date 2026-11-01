@@ -48,7 +48,7 @@
           "key": "hero.text",
           "label": "Paragraph",
           "type": "textarea",
-          "default": "Shoppers upload one photo and see your clothes on themselves, right on the product page. No account or install for them. Fewer doubts at the cart, fewer returns after delivery, more orders."
+          "default": "Convert your traffic into smart leads. Shoppers upload one photo and see your clothes on themselves, right on the product page, with no account or install. Browsers turn into confident buyers: fewer doubts at the cart, fewer returns, more orders."
         },
         {
           "key": "hero.cta1",
@@ -113,19 +113,19 @@
           "key": "why.p1",
           "label": "Paragraph 1",
           "type": "textarea",
-          "default": "Brix-Tryon is more than a photo widget. It is a virtual try-on app for Shopify that shows each shopper how a garment looks on them, using their own photo, right on your product page, so they buy with confidence."
+          "default": "Brix-Tryon gives every shopper an experience, not just a product photo. They upload one photo and see how a garment looks on them, right on your product page, so they feel sure about what they are buying."
         },
         {
           "key": "why.p2",
           "label": "Paragraph 2",
           "type": "textarea",
-          "default": "Lead capture, WhatsApp sharing and built-in analytics help turn browsers into buyers, so you can see how try-on affects cart and purchase behavior on your own store."
+          "default": "Built-in lead capture and WhatsApp sharing turn that try-on moment into an enquiry, so you reach the shopper while interest is high. Analytics show how try-on drives enquiries, carts and orders on your own store."
         },
         {
           "key": "why.bullet",
           "label": "Highlight line",
           "type": "text",
-          "default": "Start free and go live in under 5 minutes"
+          "default": "Start free, go live in under 5 minutes and start collecting enquiries"
         }
       ]
     },

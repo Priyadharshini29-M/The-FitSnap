@@ -1420,6 +1420,31 @@
             .mdl-actions { flex-direction: column-reverse; }
             .mdl-actions button { width: 100%; }
         }
+
+        /* FAQ: each question keeps its own height (a row-equalising rule used to stretch the neighbour when one opened) */
+        #faq .grid > details.faq { height: auto !important; align-self: start; }
+        details.faq { transition: border-color .25s, box-shadow .25s; }
+        details.faq[open] { border-color: #8EC3F8; box-shadow: 0 18px 36px -24px rgba(63, 148, 236, .55); }
+        details.faq[open] > summary { color: #C93B83; }
+        details.faq > p { animation: faq-in .3s ease; }
+        @keyframes faq-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+        /* FAQ: two independent columns, so opening a question never leaves a gap next to it */
+        .faq-cols { display: flex; gap: 16px; align-items: flex-start; }
+        .faq-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+        .faq-col > details.faq { width: 100%; }
+        @media (max-width: 1023px) {
+            .faq-cols { flex-direction: column; align-items: stretch; }
+            .faq-col { display: contents; }   /* one list again, in the original order */
+        }
+
+        /* responsive safety: decorative glows / watermarks must never create sideways scrolling */
+        main section, footer { overflow-x: clip; }
+        img, video, svg { max-width: 100%; }
+
+        /* hero heading: never split the accent word, and fit the narrower laptop column */
+        .screen-hero h1 .serif-italic { white-space: nowrap; }
+        @media (min-width: 1024px) and (max-width: 1279px) { .screen-hero h1 { font-size: 2.9rem !important; } }
     </style>
 </head>
 
@@ -1763,17 +1788,17 @@
                                 <p class="text-xs uppercase tracking-[0.25em] font-800 text-black/50 mb-3">1 &middot; Tell us about your store</p>
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                                     <label class="block space-y-1.5">
-                                        <span class="block text-xs text-black/70 leading-snug">People visiting your store each month</span>
+                                        <span class="block text-xs text-black/70 leading-snug">Monthly visitors</span>
                                         <b id="v-vis" class="block text-2xl font-800 tracking-tight">20,000</b>
                                         <input id="in-vis" type="range" min="1000" max="100000" step="1000" value="20000" class="calc-range w-full" />
                                     </label>
                                     <label class="block space-y-1.5">
-                                        <span class="block text-xs text-black/70 leading-snug">Average amount of one order</span>
+                                        <span class="block text-xs text-black/70 leading-snug">Average order value</span>
                                         <b id="v-aov" class="block text-2xl font-800 tracking-tight">$60</b>
                                         <input id="in-aov" type="range" min="10" max="300" step="5" value="60" class="calc-range w-full" />
                                     </label>
                                     <label class="block space-y-1.5">
-                                        <span class="block text-xs text-black/70 leading-snug">Visitors who buy today</span>
+                                        <span class="block text-xs text-black/70 leading-snug">Current conversion rate</span>
                                         <b id="v-cr" class="block text-2xl font-800 tracking-tight">2.0%</b>
                                         <input id="in-cr" type="range" min="0.5" max="5" step="0.1" value="2" class="calc-range w-full" />
                                     </label>
@@ -1784,23 +1809,35 @@
                             <div>
                                 <p class="text-xs uppercase tracking-[0.25em] font-800 text-black/50 mb-3">2 &middot; What changes with Brix-Tryon</p>
                                 <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 items-stretch">
-                                    <div class="border border-black/15 px-4 py-3">
+                                    <div class="border border-black/15 px-4 py-3 flex flex-col">
                                         <p class="text-sm text-black/60 leading-tight">Today you make</p>
-                                        <p id="rev-now" class="text-2xl font-800 tracking-tight leading-tight">$24,000</p>
-                                        <p class="text-sm text-black/60 leading-tight"><span id="ord-now">400</span> orders a month</p>
+                                        <p id="rev-now" class="text-2xl font-800 tracking-tight leading-tight mt-1">$24,000</p>
+                                        <div class="grid grid-cols-2 gap-3 border-t border-black/10 mt-auto pt-2">
+                                            <div><p class="text-xs text-black/50 leading-tight">Orders a month</p><p id="ord-now" class="text-base font-700 leading-tight">400</p></div>
+                                            <div><p class="text-xs text-black/50 leading-tight">Conversion rate</p><p id="cr-now" class="text-base font-700 leading-tight">2.0%</p></div>
+                                        </div>
                                     </div>
                                     <span class="material-symbols-outlined self-center justify-self-center rotate-90 sm:rotate-0">arrow_forward</span>
-                                    <div class="border-2 border-black px-4 py-3">
+                                    <div class="border-2 border-black px-4 py-3 flex flex-col">
                                         <p class="text-sm text-black/60 leading-tight">With Brix-Tryon you could make</p>
-                                        <p id="rev-new" class="text-2xl font-800 tracking-tight leading-tight">$31,680</p>
-                                        <p class="text-sm text-black/60 leading-tight"><span id="ord-new">528</span> orders a month</p>
+                                        <p id="rev-new" class="text-2xl font-800 tracking-tight leading-tight mt-1">$42,000</p>
+                                        <div class="grid grid-cols-2 gap-3 border-t border-black/10 mt-auto pt-2">
+                                            <div><p class="text-xs text-black/50 leading-tight">Orders a month</p><p id="ord-new" class="text-base font-700 leading-tight">700</p></div>
+                                            <div><p class="text-xs text-black/50 leading-tight">Conversion rate</p><p class="text-base font-700 leading-tight"><span id="cr-new">3.5%</span> <span class="inline-block bg-black text-white text-[10px] font-700 px-1.5 py-0.5 align-middle">+1.5%</span></p></div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="bg-black text-white px-5 py-3 mt-3 flex flex-wrap items-center justify-between gap-x-6 gap-y-1">
-                                    <p class="text-base leading-tight">That's <b class="text-2xl font-800 tracking-tight mx-1">+<span id="gain">$7,680</span></b> <span class="text-white/70">more every month</span></p>
-                                    <p class="text-xs text-white/60 max-w-[18rem] leading-snug">Getting the same lift from ads would take about <b class="text-white"><span id="extra-vis">6,400</span> more visitors</b> a month.</p>
+                                <div class="bg-black text-white px-5 py-3 mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-0">
+                                    <div class="sm:pr-5">
+                                        <p class="text-xs text-white/60 leading-tight">Extra revenue every month</p>
+                                        <p class="text-2xl font-800 tracking-tight leading-tight">+<span id="gain">$18,000</span></p>
+                                    </div>
+                                    <div class="sm:pl-5 sm:border-l border-white/20">
+                                        <p class="text-xs text-white/60 leading-tight">Shopper logins every month</p>
+                                        <p class="text-2xl font-800 tracking-tight leading-tight">+<span id="logins">1,000</span> <span class="text-xs font-400 text-white/60 tracking-normal">leads to follow up</span></p>
+                                    </div>
                                 </div>
-                                <p class="text-xs text-black/40 mt-2">Estimate based on a 32% increase in the share of visitors who buy. Your results will vary.</p>
+                                <p class="text-xs text-black/40 mt-2">Assumes conversion rises 1.5 points and 5% of visitors log in to try on. Results vary.</p>
                             </div>
                         </div>
                     </div>
@@ -2407,15 +2444,19 @@
                     <h2 class="text-4xl lg:text-[clamp(2.5rem,6vh,4rem)] editorial-heading font-800 text-white"><?= ttl('faq.title') ?></h2>
                     <div class="w-24 h-[1px] bg-primary-container mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
-                    <?php foreach (items('faqs') as $f): ?>
-                    <details class="faq glass-card px-6 py-4">
+                <?php $faqs = items('faqs'); ?>
+                <div class="faq-cols">
+                    <?php foreach ([0, 1] as $col): ?>
+                    <div class="faq-col">
+                    <?php foreach ($faqs as $i => $f): if ($i % 2 !== $col) continue; ?>
+                    <details class="faq glass-card px-6 py-4" style="order:<?= $i ?>">
                         <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white"><?= h($f['question']) ?>
                             <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
                         <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed"><?= h($f['answer']) ?></p>
                     </details>
-<?php endforeach; ?>
-                    
+                    <?php endforeach; ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>
@@ -2946,9 +2987,10 @@
             const aov = document.getElementById('in-aov');
             const cr = document.getElementById('in-cr');
             const $ = (id) => document.getElementById(id);
-            const LIFT = 1.32;
+            const LIFT = 1.5;          // conversion rate goes up by 1.5 percentage points
+            const LOGIN_RATE = 0.05;   // share of visitors who log in to try on
             const fmt = (n) => Math.round(n).toLocaleString('en-US');
-            const cur = { now: 0, nw: 0, gain: 0, extra: 0, on: 0, nn: 0 };
+            const cur = { now: 0, nw: 0, gain: 0, logins: 0, on: 0, nn: 0 };
             let raf = null;
             function tween(to) {
                 cancelAnimationFrame(raf);
@@ -2961,7 +3003,7 @@
                     $('rev-now').textContent = '$' + fmt(cur.now);
                     $('rev-new').textContent = '$' + fmt(cur.nw);
                     $('gain').textContent = '$' + fmt(cur.gain);
-                    $('extra-vis').textContent = fmt(cur.extra);
+                    $('logins').textContent = fmt(cur.logins);
                     $('ord-now').textContent = fmt(cur.on);
                     $('ord-new').textContent = fmt(cur.nn);
                     if (k < 1) raf = requestAnimationFrame(f);
@@ -2977,10 +3019,13 @@
                 $('v-vis').textContent = fmt(v);
                 $('v-aov').textContent = '$' + a;
                 $('v-cr').textContent = c.toFixed(1) + '%';
+                $('cr-now').textContent = c.toFixed(1) + '%';
+                $('cr-new').textContent = (c + LIFT).toFixed(1) + '%';
                 const orders = v * (c / 100);
+                const newOrders = v * ((c + LIFT) / 100);
                 const now = orders * a;
-                const nw = now * LIFT;
-                tween({ now: now, nw: nw, gain: nw - now, extra: v * (LIFT - 1), on: orders, nn: orders * LIFT });
+                const nw = newOrders * a;
+                tween({ now: now, nw: nw, gain: nw - now, logins: v * LOGIN_RATE, on: orders, nn: newOrders });
             }
             [vis, aov, cr].forEach((el) => el.addEventListener('input', calc));
             calc();

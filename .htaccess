@@ -3,6 +3,11 @@ Options -Indexes
 
 # keep server code and local secrets out of the browser
 RewriteEngine On
+
+# when the site is shared through a tunnel (ngrok), keep the admin and installer private
+RewriteCond %{HTTP_HOST} (ngrok|trycloudflare|loca.lt) [NC]
+RewriteRule ^(admin|install.php) - [R=404,L]
+
 RewriteRule ^(server|lib|data)(/|$) - [R=404,L]
 <FilesMatch "^(config(\.local|\.sample)?\.php|install\.php|\.env.*)$">
     Require all denied
