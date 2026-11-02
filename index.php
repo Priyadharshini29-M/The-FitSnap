@@ -1334,6 +1334,28 @@
         .sf-try { white-space: nowrap; padding: 11px 10px; font-size: 12px; animation: none; box-shadow: 0 10px 18px -10px rgba(63, 148, 236, .9); }
         .sf-pow { font-size: 10px; letter-spacing: .06em; color: #8A84A3; text-align: center; margin-top: -4px; }
 
+        /* ===== Pricing: single plan card ===== */
+        .pp-card { display: grid; grid-template-columns: 1fr 1.25fr; max-width: 1040px; margin: 0 auto; background: #fff; border: 1px solid #F3C4DA; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -36px rgba(201, 59, 131, .45); text-align: left; }
+        .pp-buy { display: flex; flex-direction: column; gap: 18px; padding: 40px; background: linear-gradient(160deg, #FFE3EF 0%, #FFF7FB 55%, #EAF4FE 100%); border-right: 1px solid #F8DCE9; }
+        .pp-tag { align-self: flex-start; font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #C93B83; background: #fff; border: 1px solid #F3C4DA; border-radius: 99px; padding: 6px 14px; }
+        .pp-price { display: flex; align-items: flex-end; gap: 8px; color: #2B2440; }
+        .pp-price b { font-size: clamp(3.5rem, 6vw, 4.5rem); line-height: .9; font-weight: 700; letter-spacing: -.04em; }
+        .pp-price span { font-size: 16px; color: #6b6480; padding-bottom: 6px; }
+        .pp-sub { font-size: 15px; line-height: 1.5; color: #5C5675; margin: 0; }
+        .pp-btn { margin-top: auto; width: 100%; padding: 16px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+        .pp-fine { font-size: 12px; color: #8a83a0; text-align: center; margin: -6px 0 0; }
+        .pp-feat { padding: 40px; }
+        .pp-feat h3 { font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #2B2440; margin: 0 0 20px; }
+        .pp-feat ul { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; margin: 0; padding: 0; list-style: none; }
+        .pp-feat li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.4; color: #5C5675; }
+        .pp-feat li .material-symbols-outlined { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: #FFE3EF; color: #C93B83; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+        @media (max-width: 900px) {
+            .pp-card { grid-template-columns: 1fr; border-radius: 22px; }
+            .pp-buy { border-right: 0; border-bottom: 1px solid #F8DCE9; padding: 28px 20px; }
+            .pp-feat { padding: 28px 20px; }
+        }
+        @media (max-width: 560px) { .pp-feat ul { grid-template-columns: 1fr; } }
+
         /* ===== Case study + guides ===== */
         .cs-feature { display: grid; grid-template-columns: 1.4fr 1fr; background: #fff; border: 1px solid #F3C4DA; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -36px rgba(201, 59, 131, .45); }
         .cs-copy { padding: 44px 48px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -2035,7 +2057,7 @@
                         </div></div>
                     </div>
                 </div>
-                <p class="text-lg text-center mt-5"><a href="#pricing" class="text-[11px] uppercase tracking-[0.2em] font-800 text-white hover:text-primary-container transition-colors">Explore all plans &rarr;</a></p>
+                <p class="text-lg text-center mt-5"><a href="#pricing" class="text-[11px] uppercase tracking-[0.2em] font-800 text-white hover:text-primary-container transition-colors">See pricing &rarr;</a></p>
             </div>
         </section>
         <!-- Benefits: why virtual try-on pays off -->
@@ -2256,8 +2278,8 @@
                                 <p class="text-xs uppercase tracking-widest text-white/60 mt-1">Sample cart rate</p>
                             </div>
                             <div class="border border-white/15 bg-white/5 p-3">
-                                <p class="text-lg font-extrabold tracking-tight text-white">10</p>
-                                <p class="text-xs uppercase tracking-widest text-white/60 mt-1">Free try-ons a month</p>
+                                <p class="text-lg font-extrabold tracking-tight text-white">100</p>
+                                <p class="text-xs uppercase tracking-widest text-white/60 mt-1">Try-ons a month included</p>
                             </div>
                         </div>
                     </div>
@@ -2395,9 +2417,30 @@
                 </div>
 
                 <!-- Pricing Cards -->
+                <?php $plans = items('plans'); ?>
+                <?php if (count($plans) === 1): $p = $plans[0]; ?>
+                <div class="pp-card mt-10">
+                    <div class="pp-buy">
+                        <span class="pp-tag"><?= h($p['name']) ?></span>
+                        <div class="pp-price"><b><?= h($p['price']) ?></b><span><?= h($p['period']) ?></span></div>
+                        <p class="pp-sub"><?= h($p['included']) ?></p>
+                        <?php if (trim($p['extra'] ?? '') !== ''): ?><p class="pp-sub"><?= h($p['extra']) ?></p><?php endif; ?>
+                        <button class="cta-button bg-primary-container pp-btn"><?= h($p['button']) ?></button>
+                        <p class="pp-fine"><?= e('pr.note') ?></p>
+                    </div>
+                    <div class="pp-feat">
+                        <h3>Everything included</h3>
+                        <ul>
+                            <?php foreach (lines($p['features'] ?? '') as $f): ?>
+                            <li><span class="material-symbols-outlined">check</span><?= h($f) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+                <?php else: ?>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
 
-                    <?php foreach (items('plans') as $p): $feat = !empty($p['featured']) && $p['featured'] !== '0'; ?>
+                    <?php foreach ($plans as $p): $feat = !empty($p['featured']) && $p['featured'] !== '0'; ?>
                     <div class="glass-card p-6 flex flex-col <?= $feat ? 'border-t-4 border-primary-container shadow-[0_0_60px_rgba(255,255,255,0.12)] relative' : 'group hover:border-white/20 transition-all duration-300' ?>">
                         <?php if ($feat && trim($p['badge'] ?? '') !== ''): ?>
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -2434,6 +2477,7 @@
                 <p class="text-xs text-center text-on-surface/40 mt-5 uppercase tracking-[0.2em]">
                     <?= e('pr.note') ?>
                 </p>
+                <?php endif; ?>
             </div>
         </section>
 
@@ -2549,7 +2593,7 @@
                 <img src="<?= img('brand.logo') ?>" alt="Brix Try On" class="mdl-logo" />
                 <h4>Let shoppers try it on, before they buy.</h4>
                 <ul>
-                    <li><span class="material-symbols-outlined">check_circle</span>Free plan with 10 try-ons a month</li>
+                    <li><span class="material-symbols-outlined">check_circle</span>100 try-ons a month for $19</li>
                     <li><span class="material-symbols-outlined">check_circle</span>Live on your Shopify store in minutes</li>
                     <li><span class="material-symbols-outlined">check_circle</span>No app for shoppers, no account</li>
                     <li><span class="material-symbols-outlined">check_circle</span>Leads captured on every try-on</li>

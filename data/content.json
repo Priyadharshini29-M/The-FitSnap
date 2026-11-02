@@ -302,13 +302,13 @@
           "key": "num4.value",
           "label": "Number 4 value (digits only)",
           "type": "text",
-          "default": "3"
+          "default": "100"
         },
         {
           "key": "num4.label",
           "label": "Number 4 label",
           "type": "text",
-          "default": "plans: Free, Growth and Pro"
+          "default": "try-on credits a month for $19"
         }
       ]
     },
@@ -640,19 +640,19 @@
           "key": "pr.title",
           "label": "Heading",
           "type": "title",
-          "default": "Choose Your *Plan*"
+          "default": "One Simple *Plan*"
         },
         {
           "key": "pr.text",
           "label": "Paragraph",
           "type": "textarea",
-          "default": "Start free, scale as you grow. Every plan includes privacy-first AI processing and native Shopify integration."
+          "default": "One plan with everything you need. Privacy-first AI processing and native Shopify integration included."
         },
         {
           "key": "pr.note",
           "label": "Small note under the plans",
           "type": "text",
-          "default": "All plans include Shopify 2.0 native integration · No hidden fees · Cancel anytime"
+          "default": "Shopify 2.0 native integration · No hidden fees · Cancel anytime"
         }
       ]
     },
@@ -979,36 +979,14 @@
       ],
       "items": [
         {
-          "name": "Free Plan",
-          "price": "$0",
-          "period": "/ forever",
-          "included": "10 monthly AI try-ons included",
-          "extra": "Additional try-ons at +$0.28 / try-on",
-          "features": "10 monthly AI try-ons included\nMobile & desktop responsive widget\nPrivacy consent screen\nProduct page try-on support\nStandard AI processing\nEmail support",
-          "button": "Get Started Free",
-          "featured": "0",
-          "badge": ""
-        },
-        {
-          "name": "Growth Plan",
+          "name": "Brix-Tryon Plan",
           "price": "$19",
           "period": "/ month",
-          "included": "100 monthly AI try-ons included",
-          "extra": "Additional try-ons at +$0.15 / try-on",
-          "features": "100 monthly AI try-ons included\nCollection page mini try-on icons\nVariant image mapping system\nProduct-level try-on enable / disable\nAdvanced widget customization\nTypography & branding controls\nWhatsApp share support\nAnalytics dashboard\nCustomer email collection\nAdd-to-cart & conversion tracking\nFaster AI processing queue\nStandard support",
-          "button": "Start Growth Plan",
+          "included": "100 AI try-on credits every month",
+          "extra": "After 100 credits: $0.042 per extra try-on",
+          "features": "100 AI try-on credits every month\nCollection page mini try-on icons\nVariant image mapping system\nProduct-level try-on enable / disable\nAdvanced widget customization\nTypography & branding controls\nWhatsApp share support\nAnalytics dashboard\nCustomer email collection\nAdd-to-cart & conversion tracking\nFaster AI processing queue\nStandard support",
+          "button": "Get Started",
           "featured": "1",
-          "badge": "Most Popular"
-        },
-        {
-          "name": "Pro Plan",
-          "price": "$49",
-          "period": "/ month",
-          "included": "500 monthly AI try-ons included",
-          "extra": "Additional try-ons at +$0.08 / try-on",
-          "features": "500 monthly AI try-ons included\nAdvanced analytics dashboard\nTop-performing product insights\nDevice-based analytics (mobile vs desktop)\n7-day trend reporting\nMulti-language widget support\nPremium widget customization\nPriority AI processing & faster rendering\nCustom icon positioning\nPriority support\nEarly access to new features\nDedicated onboarding assistance",
-          "button": "Start Pro Plan",
-          "featured": "0",
           "badge": ""
         }
       ]
@@ -1052,16 +1030,16 @@
           "answer": "A consent notice appears before upload, and the photo is not stored after processing."
         },
         {
-          "question": "What does the free plan include?",
-          "answer": "10 monthly AI try-ons, a responsive widget for mobile and desktop, a privacy consent screen, try-on on the product page, standard AI processing and email support."
+          "question": "What does the plan include?",
+          "answer": "100 AI try-on credits every month, collection page try-on icons, variant image mapping, widget and branding controls, WhatsApp sharing, an analytics dashboard, email capture and add-to-cart tracking."
         },
         {
           "question": "How much does Brix-Tryon cost?",
-          "answer": "Free is $0 with 10 try-ons a month. Growth is $19 a month with 100 try-ons, and Pro is $49 a month with 500 try-ons."
+          "answer": "Brix-Tryon is $19 a month and includes 100 try-on credits. One try-on uses one credit."
         },
         {
-          "question": "What happens if I go over my try-on limit?",
-          "answer": "Extra try-ons are billed per use at the rate shown on your plan: $0.28 on Free, $0.15 on Growth and $0.08 on Pro. Try-on keeps working for your shoppers."
+          "question": "What happens when I use all 100 credits?",
+          "answer": "Try-on keeps working for your shoppers. Each extra try-on after your 100 monthly credits is billed at $0.042."
         },
         {
           "question": "Which products does Brix-Tryon support?",
