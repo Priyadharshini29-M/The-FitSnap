@@ -1451,14 +1451,10 @@
         details.faq > p { animation: faq-in .3s ease; }
         @keyframes faq-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
-        /* FAQ: two independent columns, so opening a question never leaves a gap next to it */
-        .faq-cols { display: flex; gap: 16px; align-items: flex-start; }
-        .faq-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
-        .faq-col > details.faq { width: 100%; }
-        @media (max-width: 1023px) {
-            .faq-cols { flex-direction: column; align-items: stretch; }
-            .faq-col { display: contents; }   /* one list again, in the original order */
-        }
+        /* FAQ: 2-column grid, questions paired row by row */
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+        .faq-grid > details.faq { min-width: 0; }
+        @media (max-width: 1023px) { .faq-grid { grid-template-columns: 1fr; } }
 
         /* responsive safety: decorative glows / watermarks must never create sideways scrolling */
         main section, footer { overflow-x: clip; }
@@ -2489,17 +2485,13 @@
                     <div class="w-24 h-[1px] bg-primary-container mx-auto"></div>
                 </div>
                 <?php $faqs = items('faqs'); ?>
-                <div class="faq-cols">
-                    <?php foreach ([0, 1] as $col): ?>
-                    <div class="faq-col">
-                    <?php foreach ($faqs as $i => $f): if ($i % 2 !== $col) continue; ?>
-                    <details class="faq glass-card px-6 py-4" style="order:<?= $i ?>">
+                <div class="faq-grid">
+                    <?php foreach ($faqs as $f): ?>
+                    <details class="faq glass-card px-6 py-4">
                         <summary class="flex items-center justify-between gap-4 text-sm font-700 text-white"><?= h($f['question']) ?>
                             <span class="material-symbols-outlined faq-icon text-primary-container">add</span></summary>
                         <p class="text-lg pt-3 text-on-surface-variant font-light leading-relaxed"><?= h($f['answer']) ?></p>
                     </details>
-                    <?php endforeach; ?>
-                    </div>
                     <?php endforeach; ?>
                 </div>
             </div>

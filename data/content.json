@@ -1046,10 +1046,6 @@
           "answer": "Brix-Tryon is built for fashion and apparel: dresses, tops, jackets, suits and more. You can enable try-on by collection or by product."
         },
         {
-          "question": "Does virtual try-on reduce returns?",
-          "answer": "It can help, because shoppers have less to guess about how a piece looks on them. Your Analytics page shows try-ons, cart rate and purchase rate, so you can see the effect on your own store."
-        },
-        {
           "question": "Can I customise how the try-on button looks?",
           "answer": "Yes. In Widget Settings you can set button text, colours, radius, size, padding and fonts separately for desktop and mobile, with a live preview."
         }
