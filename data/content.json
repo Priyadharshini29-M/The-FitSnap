@@ -640,13 +640,13 @@
           "key": "pr.title",
           "label": "Heading",
           "type": "title",
-          "default": "One Simple *Plan*"
+          "default": "Choose Your *Plan*"
         },
         {
           "key": "pr.text",
           "label": "Paragraph",
           "type": "textarea",
-          "default": "One plan with everything you need. Privacy-first AI processing and native Shopify integration included."
+          "default": "Start free with 5 try-ons a month, then move to 100 credits for $19 when you are ready. Privacy-first AI processing and native Shopify integration on every plan."
         },
         {
           "key": "pr.note",
@@ -979,7 +979,18 @@
       ],
       "items": [
         {
-          "name": "Brix-Tryon Plan",
+          "name": "Free Plan",
+          "price": "$0",
+          "period": "/ month",
+          "included": "5 AI try-on credits every month",
+          "extra": "Upgrade any time for 100 credits a month",
+          "features": "5 AI try-on credits every month\nMobile & desktop responsive widget\nPrivacy consent screen\nProduct page try-on support\nStandard AI processing\nEmail support",
+          "button": "Get Started Free",
+          "featured": "0",
+          "badge": ""
+        },
+        {
+          "name": "Growth Plan",
           "price": "$19",
           "period": "/ month",
           "included": "100 AI try-on credits every month",
@@ -987,7 +998,7 @@
           "features": "100 AI try-on credits every month\nCollection page mini try-on icons\nVariant image mapping system\nProduct-level try-on enable / disable\nAdvanced widget customization\nTypography & branding controls\nWhatsApp share support\nAnalytics dashboard\nCustomer email collection\nAdd-to-cart & conversion tracking\nFaster AI processing queue\nStandard support",
           "button": "Get Started",
           "featured": "1",
-          "badge": ""
+          "badge": "Most Popular"
         }
       ]
     },
@@ -1030,16 +1041,16 @@
           "answer": "A consent notice appears before upload, and the photo is not stored after processing."
         },
         {
-          "question": "What does the plan include?",
-          "answer": "100 AI try-on credits every month, collection page try-on icons, variant image mapping, widget and branding controls, WhatsApp sharing, an analytics dashboard, email capture and add-to-cart tracking."
+          "question": "What does the free plan include?",
+          "answer": "5 AI try-on credits every month, a responsive widget for mobile and desktop, a privacy consent screen, try-on on the product page, standard AI processing and email support."
         },
         {
           "question": "How much does Brix-Tryon cost?",
-          "answer": "Brix-Tryon is $19 a month and includes 100 try-on credits. One try-on uses one credit."
+          "answer": "The Free plan is $0 with 5 try-on credits a month. The Growth plan is $19 a month with 100 try-on credits. One try-on uses one credit."
         },
         {
-          "question": "What happens when I use all 100 credits?",
-          "answer": "Try-on keeps working for your shoppers. Each extra try-on after your 100 monthly credits is billed at $0.042."
+          "question": "What happens when I run out of credits?",
+          "answer": "On the Free plan, upgrade to Growth to keep try-on running. On the Growth plan, try-on keeps working and each extra try-on after your 100 monthly credits is billed at $0.042."
         },
         {
           "question": "Which products does Brix-Tryon support?",

@@ -1355,6 +1355,26 @@
             .pp-feat { padding: 28px 20px; }
         }
         @media (max-width: 560px) { .pp-feat ul { grid-template-columns: 1fr; } }
+        /* several plans: cards side by side, centred */
+        .pp-plans { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 24px; max-width: calc(var(--n) * 460px); margin-left: auto; margin-right: auto; align-items: stretch; text-align: left; }
+        .pp-plan { display: flex; flex-direction: column; background: #fff; border: 1px solid #F3C4DA; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -40px rgba(201, 59, 131, .45); }
+        .pp-plan.pp-featured { border: 2px solid #E0609F; box-shadow: 0 30px 60px -30px rgba(201, 59, 131, .6); }
+        .pp-head { display: flex; flex-direction: column; gap: 14px; padding: 32px; border-bottom: 1px solid #F8DCE9; }
+        .pp-featured .pp-head { background: linear-gradient(160deg, #FFE3EF 0%, #FFF7FB 60%, #EAF4FE 100%); }
+        .pp-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+        .pp-row .pp-tag { align-self: auto; }
+        .pp-badge { font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #fff; background: #C93B83; border-radius: 99px; padding: 6px 12px; }
+        .pp-plan .pp-price b { font-size: clamp(3rem, 5vw, 3.75rem); }
+        .pp-extra { font-size: 13px; color: #8a83a0; }
+        .pp-plan .pp-btn { margin-top: 6px; }
+        .pp-list { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 28px 32px 32px; list-style: none; }
+        .pp-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.4; color: #5C5675; }
+        .pp-list li .material-symbols-outlined { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: #FFE3EF; color: #C93B83; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+        @media (max-width: 860px) {
+            .pp-plans { grid-template-columns: 1fr; max-width: 480px; }
+            .pp-head { padding: 26px 20px; }
+            .pp-list { padding: 22px 20px 26px; }
+        }
 
         /* ===== Case study + guides ===== */
         .cs-feature { display: grid; grid-template-columns: 1.4fr 1fr; background: #fff; border: 1px solid #F3C4DA; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -36px rgba(201, 59, 131, .45); }
@@ -2438,45 +2458,28 @@
                     </div>
                 </div>
                 <?php else: ?>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-
+                <div class="pp-plans mt-10" style="--n:<?= min(count($plans), 3) ?>">
                     <?php foreach ($plans as $p): $feat = !empty($p['featured']) && $p['featured'] !== '0'; ?>
-                    <div class="glass-card p-6 flex flex-col <?= $feat ? 'border-t-4 border-primary-container shadow-[0_0_60px_rgba(255,255,255,0.12)] relative' : 'group hover:border-white/20 transition-all duration-300' ?>">
-                        <?php if ($feat && trim($p['badge'] ?? '') !== ''): ?>
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-                            <span class="bg-primary-container text-on-primary-container text-[10px] uppercase tracking-[0.2em] font-800 px-5 py-1.5 whitespace-nowrap"><?= h($p['badge']) ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <div class="mb-4">
-                            <p class="text-xs uppercase tracking-[0.4em] font-800 <?= $feat ? 'text-primary-container' : 'text-on-surface/60' ?> mb-2"><?= h($p['name']) ?></p>
-                            <div class="flex items-end gap-2 mb-2">
-                                <span class="text-4xl font-800 text-white"><?= h($p['price']) ?></span>
-                                <span class="text-on-surface-variant font-light pb-1"><?= h($p['period']) ?></span>
+                    <div class="pp-plan<?= $feat ? ' pp-featured' : '' ?>">
+                        <div class="pp-head">
+                            <div class="pp-row">
+                                <span class="pp-tag"><?= h($p['name']) ?></span>
+                                <?php if ($feat && trim($p['badge'] ?? '') !== ''): ?><span class="pp-badge"><?= h($p['badge']) ?></span><?php endif; ?>
                             </div>
-                            <p class="text-lg text-on-surface-variant font-light"><?= h($p['included']) ?></p>
-                            <?php if (trim($p['extra'] ?? '') !== ''): ?><p class="text-lg text-on-surface/50 mt-1"><?= h($p['extra']) ?></p><?php endif; ?>
+                            <div class="pp-price"><b><?= h($p['price']) ?></b><span><?= h($p['period']) ?></span></div>
+                            <p class="pp-sub"><?= h($p['included']) ?></p>
+                            <?php if (trim($p['extra'] ?? '') !== ''): ?><p class="pp-sub pp-extra"><?= h($p['extra']) ?></p><?php endif; ?>
+                            <button class="cta-button pp-btn <?= $feat ? 'bg-primary-container' : 'border border-white/20' ?>"><?= h($p['button']) ?></button>
                         </div>
-                        <div class="h-[1px] w-full <?= $feat ? 'bg-primary-container/30' : 'bg-white/10' ?> mb-4"></div>
-                        <ul class="space-y-1.5 flex-1 mb-5">
+                        <ul class="pp-list">
                             <?php foreach (lines($p['features'] ?? '') as $f): ?>
-                            <li class="flex items-start gap-3 text-xs text-on-surface-variant">
-                                <span class="material-symbols-outlined <?= $feat ? 'text-primary-container' : 'text-primary-container/60' ?> text-sm mt-0.5 flex-shrink-0">check_circle</span>
-                                <?= h($f) ?>
-                            </li>
+                            <li><span class="material-symbols-outlined">check</span><?= h($f) ?></li>
                             <?php endforeach; ?>
                         </ul>
-                        <button class="cta-button w-full py-3 <?= $feat ? 'bg-primary-container text-on-primary-container hover:bg-[#ffffff] shadow-[0_10px_30px_-8px_rgba(254,184,215,0.9)]' : 'border border-white/20 text-white hover:bg-white/10' ?> text-[11px] uppercase tracking-[0.2em] font-800 transition-all">
-                            <?= h($p['button']) ?>
-                        </button>
                     </div>
-<?php endforeach; ?>
-
+                    <?php endforeach; ?>
                 </div>
-
-                <!-- Bottom note -->
-                <p class="text-xs text-center text-on-surface/40 mt-5 uppercase tracking-[0.2em]">
-                    <?= e('pr.note') ?>
-                </p>
+                <p class="pp-fine" style="margin-top:24px"><?= e('pr.note') ?></p>
                 <?php endif; ?>
             </div>
         </section>
@@ -2593,7 +2596,7 @@
                 <img src="<?= img('brand.logo') ?>" alt="Brix Try On" class="mdl-logo" />
                 <h4>Let shoppers try it on, before they buy.</h4>
                 <ul>
-                    <li><span class="material-symbols-outlined">check_circle</span>100 try-ons a month for $19</li>
+                    <li><span class="material-symbols-outlined">check_circle</span>Free plan with 5 try-ons a month</li>
                     <li><span class="material-symbols-outlined">check_circle</span>Live on your Shopify store in minutes</li>
                     <li><span class="material-symbols-outlined">check_circle</span>No app for shoppers, no account</li>
                     <li><span class="material-symbols-outlined">check_circle</span>Leads captured on every try-on</li>
